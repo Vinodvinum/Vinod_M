@@ -45,5 +45,18 @@ const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Build
       💬
     </a>
     
+    <script>
+      // Mobile Menu Toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const mobileBtn = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu-items');
+        
+        if (mobileBtn && mobileMenu) {
+          mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+      });
+    </script>
   </body>
 </html>

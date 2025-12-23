@@ -1,0 +1,136 @@
+---
+const NAME = 'Vinod M';
+const TITLE = 'AI Engineer';
+const ONE_LINER = 'Building applied AI, automation, and data-driven systems to solve real-world problems.';
+---
+
+<section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-20 relative z-10">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <!-- Text -->
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <p class="text-sm tracking-[0.3em] text-purple-300/80 uppercase">Applied AI • Automation • Data</p>
+        <h1 class="text-4xl md:text-3xl font-extrabold leading-tight">
+          <span class="block text-white/80 text-5xl">Hi, I’m {NAME} 👋</span>
+          <span class="block gradient-text mt-2">
+            <span id="typewriter" class="overflow-hidden border-r-4 border-purple-500 pr-4" style="width: 0; white-space: nowrap;">AI Engineer(Entry level)</span>
+          </span>
+        </h1>
+        <p class="text-lg md:text-xl text-purple-100/90 font-medium">
+          {ONE_LINER}
+        </p>
+        <p class="text-base md:text-lg text-white/80 max-w-xl leading-relaxed">
+          I am an MCA graduate with hands-on experience in applied AI through self-initiated projects and internships. 
+          My focus is on building intelligent, production-oriented solutions that combine data, models, and software engineering.
+        </p>
+        <p class="text-base md:text-lg text-white/75 max-w-xl leading-relaxed">
+          I prefer practical, real-world use cases over theory alone, and I enjoy turning ideas into usable AI-powered systems that solve real problems.
+        </p>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">
+          View Projects
+        </a>
+        <a href="/resume/Vinod_M_AI_Engineer.pdf" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
+          Download Resume
+        </a>
+        <a href="#contact" class="px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-purple-200 hover:text-white hover:bg-white/10 border border-purple-400/60 hover:border-purple-300 transition-all duration-300">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="relative">
+      <div class="absolute -inset-8 bg-gradient-to-tr from-purple-600/40 via-pink-500/30 to-indigo-500/40 rounded-[2.5rem] blur-3xl opacity-60"></div>
+      <div class="relative glass rounded-[2.5rem] p-4 md:p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)] animate-[float_6s_ease-in-out_infinite]">
+        <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-purple-900/60 to-slate-900 border border-white/15">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.4)_0%,transparent_55%)]"></div>
+          <img
+            src="/images/profile.jpg"
+            alt="{NAME}"
+            class="relative z-10 w-full h-full object-cover mix-blend-screen"
+          />
+          <div class="absolute bottom-4 left-4 right-4 z-20 glass rounded-2xl px-4 py-3 flex items-center justify-between gap-3 text-xs md:text-sm">
+            <div>
+              <p class="text-white/70">Current Focus</p>
+              <p class="text-white font-semibold">Applied AI • WhatsApp Automation • CV Pipelines</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">
+              Open to Opportunities
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+// @ts-nocheck
+  // Mobile Menu
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuItems = document.getElementById('mobile-menu-items');
+  if (mobileMenu && mobileMenuItems) {
+    mobileMenu.addEventListener('click', () => {
+      mobileMenuItems.classList.toggle('hidden');
+    });
+  }
+
+  // Typewriter Effect
+  const phrases = ['AI Engineer(Entry level)', 'Data Analyst', 'ML Engineer', 'Building WhatsApp AI Automation', 'NLP Systems Engineer', 'Computer Vision Engineer', 'Sushvin AI Labs CTO'];
+  let i = 0, j = 0, forward = true;
+  function typeWriter() {
+    const el = document.getElementById('typewriter');
+    if (!el) return;
+
+    if (forward) {
+      el.textContent = phrases[i].slice(0, j);
+      j++;
+      if (j > phrases[i].length) {
+        forward = false;
+        setTimeout(typeWriter, 1000);
+      } else setTimeout(typeWriter, 100);
+    } else {
+      el.textContent = phrases[i].slice(0, j);
+      j--;
+      if (j < 0) {
+        forward = true;
+        i = (i + 1) % phrases.length;
+        setTimeout(typeWriter, 500);
+      } else setTimeout(typeWriter, 50);
+    }
+  }
+  typeWriter();
+
+  // Particles
+  function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 20 + 's';
+    particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+      particlesContainer.appendChild(particle);
+      setTimeout(() => particle.remove(), 20000);
+    }
+  }
+  setInterval(createParticle, 300);
+
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = anchor.getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>

@@ -1,0 +1,17 @@
+// filepath: d:\Vinod_workspace\develper_workspace\vinod-portfolio\vinod-portfolio\src\pages\projects\[slug].astro
+export async function getStaticPaths() {
+  // Example: Replace with your actual project data source
+  const projects = [
+    { slug: 'whatsapp-ai-automation', title: 'WhatsApp AI Automation' },
+    { slug: 'cv-speed-estimation', title: 'CV Speed Estimation' },
+    // Add more projects as needed
+  ];
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }, // Optional: Pass project data as props
+  }));
+}
+
+// If you prefer server-side rendering, uncomment this instead:
+// export const prerender = false;

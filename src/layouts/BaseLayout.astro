@@ -1,0 +1,49 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Navbar from '../components/common/Navbar.astro';
+import Footer from '../components/common/Footer.astro';
+import { navItems } from '../data/nav';
+import { socialLinks } from '../data/social-links';
+import '../styles/global.css';
+import '../styles/animations.css';
+
+const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Building applied AI, automation, and data-driven systems to solve real-world problems." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg+xml" href="/images/profile.jpg" />
+    
+    <!-- Global Script -->
+    <script src="/scripts/global.js" is:inline></script>
+    
+    <ViewTransitions />
+  </head>
+  <body class="relative">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <Navbar {navItems} />
+    <main>
+      <slot />
+    </main>
+    <Footer {socialLinks} />
+
+    <!-- 📱 WHATSAPP FLOATING BUTTON -->
+     <a href="https://wa.me/916361319844" class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank">
+      💬
+    </a>
+    
+  </body>
+</html>

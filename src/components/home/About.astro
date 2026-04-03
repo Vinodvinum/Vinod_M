@@ -1,3 +1,9 @@
+---
+import { completedProjects, ongoingProjects } from '../../data/projects';
+
+const totalProjects = completedProjects.length + ongoingProjects.length;
+---
+
 <section id="about" class="py-32 px-6 relative z-10">
   <div class="max-w-6xl mx-auto">
     <!-- Section Header -->
@@ -20,10 +26,14 @@
           </div>
           
           <!-- Stats -->
-          <div class="grid grid-cols-2 gap-6 text-center">
+          <div class="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div class="text-3xl font-black gradient-text">3+</div>
+              <div class="text-3xl font-black gradient-text">{totalProjects}+</div>
               <div class="text-white/70 text-sm uppercase tracking-wide">Projects</div>
+            </div>
+            <div>
+              <div class="text-3xl font-black gradient-text">1</div>
+              <div class="text-white/70 text-sm uppercase tracking-wide">Publication</div>
             </div>
             <div>
               <div class="text-3xl font-black gradient-text">MCA</div>
@@ -44,9 +54,24 @@
           <span class="gradient-text">NLP</span>, <span class="gradient-text">computer vision</span>, and analytics.
         </p>
 
+        <div class="glass p-6 rounded-2xl border border-blue-300/30 bg-blue-500/10">
+          <p class="text-base md:text-lg text-blue-100 leading-relaxed font-medium">
+            Published in <strong>IJIRCCE</strong>: "Computer Vision Pipeline for Object Detection and Tracking with Speed Estimation".
+          </p>
+        </div>
+
         <p class="text-lg md:text-xl text-white/80 leading-relaxed">
           Instead of limiting myself to theoretical learning, I actively build <strong>end-to-end systems</strong> — from data processing and model development to APIs and dashboards.
         </p>
+
+        <div class="glass p-6 rounded-2xl border border-emerald-300/30 bg-emerald-500/10">
+          <p class="text-base md:text-lg text-emerald-100 leading-relaxed font-medium">
+            I am the <strong>Co-founder of Medhaksha Technology</strong>.
+            <a href="https://medhakshatech.in/" target="_blank" rel="noopener noreferrer" class="ml-2 text-emerald-300 hover:text-white underline underline-offset-4 transition-colors duration-300">
+              medhakshatech.in
+            </a>
+          </p>
+        </div>
 
         <div class="glass p-8 rounded-3xl border-white/10">
           <p class="text-lg text-white/90 italic font-medium">

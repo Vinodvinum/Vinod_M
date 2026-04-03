@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Navbar from '../components/common/Navbar.astro';
 import Footer from '../components/common/Footer.astro';
 import { navItems } from '../data/nav';
@@ -28,7 +28,7 @@ const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Build
     <!-- Global Script -->
     <script src="/scripts/global.js" is:inline></script>
     
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="relative">
     <!-- Particles Container -->

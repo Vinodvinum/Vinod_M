@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Research Certificate | Vinod M" description="View Vinod M's research certificate online.">
+  <section class="min-h-screen px-4 md:px-6 pt-28 pb-10 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass rounded-3xl p-4 md:p-6 border-white/20 shadow-2xl shadow-black/30">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
+          <div>
+            <h1 class="text-2xl md:text-4xl font-black gradient-text">Research Certificate</h1>
+            <p class="text-white/75 text-sm md:text-base mt-1">Certificate for publication and research contribution</p>
+          </div>
+          <a href="/docs/research-certificate.pdf" target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-xl text-sm font-semibold text-emerald-100 border border-emerald-300/40 hover:bg-emerald-500/20 transition-all duration-300 text-center">
+            Open Original PDF
+          </a>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-white/15 bg-slate-950/70 h-[78vh]">
+          <iframe
+            src="/docs/research-certificate.pdf#view=FitH"
+            title="Research Certificate PDF"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

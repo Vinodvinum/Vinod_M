@@ -196,8 +196,8 @@ export const completedProjects: ProjectCard[] = [
     tags: ['Object Tracking', 'Speed Estimation', 'Computer Vision'],
     monogram: 'CV',
     accent: 'from-sky-400/25 via-blue-400/20 to-indigo-500/20',
-    publicationUrl: '/docs/ijircce-cv-object-detection-speed-estimation.pdf',
-    certificateUrl: '/docs/research-certificate.pdf'
+    publicationUrl: '/publication',
+    certificateUrl: '/certificate'
   }
 ];
 

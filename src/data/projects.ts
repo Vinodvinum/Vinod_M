@@ -103,6 +103,19 @@ export const completedProjects: ProjectCard[] = [
   },
   {
     section: 'live',
+    category: 'Analytics & Dashboards',
+    title: 'GRS Dashboard',
+    description: 'A Streamlit dashboard for GRS analytics with a public deployment and source repository.',
+    platform: 'Streamlit',
+    status: 'Live',
+    tags: ['Dashboard', 'Streamlit', 'Analytics'],
+    monogram: 'GR',
+    accent: 'from-emerald-400/25 via-cyan-400/20 to-blue-500/20',
+    liveUrl: 'https://grsdashboard.streamlit.app/',
+    githubUrl: 'https://github.com/Vinodvinum/GRS_Dashboard'
+  },
+  {
+    section: 'live',
     category: 'Utilities & Media',
     title: 'Image Compressor App',
     description: 'A lightweight app for compressing images with a public deployment and GitHub source code.',

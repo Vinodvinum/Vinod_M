@@ -8,6 +8,8 @@ import '../styles/global.css';
 import '../styles/animations.css';
 
 const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Building applied AI, automation, and data-driven systems to solve real-world problems." } = Astro.props;
+const siteUrl = 'https://www.vinod-ai.me/';
+const ogImage = '/images/profile.jpg';
 ---
 
 <!DOCTYPE html>
@@ -17,10 +19,21 @@ const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Build
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={siteUrl} />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Vinod M Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpg+xml" href="/images/profile.jpg" />
@@ -41,7 +54,7 @@ const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Build
     <Footer {socialLinks} />
 
     <!-- 📱 WHATSAPP FLOATING BUTTON -->
-     <a href="https://wa.me/916361319844" class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank">
+     <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
       💬
     </a>
     

@@ -9,7 +9,7 @@ const skillsData = [
     ],
     icon: '🤖',
     color: 'from-purple-500 to-pink-500',
-    proficiency: 85
+    proof: ['Scikit-learn', 'Model Evaluation', 'Feature Engineering']
   },
   {
     category: 'Applied AI',
@@ -20,7 +20,7 @@ const skillsData = [
     ],
     icon: '🧠',
     color: 'from-indigo-500 to-blue-500',
-    proficiency: 80
+    proof: ['Transformers', 'OpenCV', 'OCR Pipelines']
   },
   {
     category: 'Data & Analytics',
@@ -31,7 +31,7 @@ const skillsData = [
     ],
     icon: '📊',
     color: 'from-emerald-500 to-teal-500',
-    proficiency: 90
+    proof: ['Pandas', 'NumPy', 'Streamlit Dashboards']
   },
   {
     category: 'Engineering & Tools',
@@ -45,7 +45,7 @@ const skillsData = [
     ],
     icon: '⚙️',
     color: 'from-orange-500 to-red-500',
-    proficiency: 88
+    proof: ['FastAPI', 'Git/GitHub', 'REST Integrations']
   }
 ];
 ---
@@ -79,15 +79,15 @@ const skillsData = [
               {skill.category}
             </h3>
             
-            {/* Proficiency Bar */}
+            {/* Practical Proof */}
             <div class="mb-8">
-              <div class="flex justify-between items-center mb-3">
-                <span class="text-white/80 font-semibold">Proficiency</span>
-                <span class="text-2xl font-black gradient-text">{skill.proficiency}%</span>
-              </div>
-              <div class="w-full bg-white/10 rounded-2xl h-3 overflow-hidden">
-                <div class={`h-3 bg-gradient-to-r ${skill.color} rounded-2xl transition-all duration-700`} 
-                     style={`width: ${skill.proficiency}%`}></div>
+              <span class="text-white/80 font-semibold block mb-3">Tools Used in Projects</span>
+              <div class="flex flex-wrap gap-2">
+                {skill.proof.map((tool) => (
+                  <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/10 border border-white/20 text-white/90">
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           

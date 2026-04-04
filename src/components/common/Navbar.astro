@@ -39,6 +39,13 @@ import { navItems } from '../../data/nav';
     </button>
   </div>
 
+  <!-- Mobile Quick Links -->
+  <div class="md:hidden mt-3 px-1 flex items-center justify-between gap-2">
+    <a href="#home" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-white/85 hover:text-white">Home</a>
+    <a href="#projects" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-white/85 hover:text-white">Projects</a>
+    <a href="#contact" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-white/85 hover:text-white">Contact</a>
+  </div>
+
   <!-- Mobile Menu -->
   <div id="mobile-menu-items" class="md:hidden hidden mt-4 mx-6 glass p-6 rounded-3xl backdrop-blur-xl shadow-2xl shadow-black/30 border-white/20 space-y-4 animate-in slide-in-from-top-4 duration-300">
     {navItems.map((item) => (

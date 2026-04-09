@@ -7,7 +7,7 @@ import { socialLinks } from '../data/social-links';
 import '../styles/global.css';
 import '../styles/animations.css';
 
-const { title = "Vinod M - Data Analytics Developer", description = "Data analytics developer building ETL pipelines, KPI dashboards, and applied AI systems for business operations." } = Astro.props;
+const { title = "Vinod M -  AI Engineer | Sushvin AI Labs", description = "Building applied AI, automation, and data-driven systems to solve real-world problems." } = Astro.props;
 const siteUrl = 'https://www.vinod-ai.me/';
 const ogImage = '/images/profile.jpg';
 ---
@@ -20,32 +20,46 @@ const ogImage = '/images/profile.jpg';
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={siteUrl} />
+    
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Vinod M Portfolio" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <link rel="icon" type="image/jpeg" href="/images/profile.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg+xml" href="/images/profile.jpg" />
+    
+    <!-- Global Script -->
     <script src="/scripts/global.js" is:inline></script>
+    
     <ClientRouter />
   </head>
-  <body class="relative antialiased">
+  <body class="relative">
+    <!-- Particles Container -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    
     <Navbar {navItems} />
     <main>
       <slot />
     </main>
     <Footer {socialLinks} />
-    <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-6 right-6 z-50 glass w-16 h-16 rounded-[1.4rem] shadow-[0_20px_40px_rgba(15,118,110,0.16)] hover:-translate-y-1 transition-all duration-300 group flex items-center justify-center border border-emerald-700/10" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-      <span class="text-sm font-extrabold tracking-[0.22em] text-emerald-700">WA</span>
+
+    <!-- 📱 WHATSAPP FLOATING BUTTON -->
+     <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      💬
     </a>
     
     <script>
+      // Mobile Menu Toggle
       document.addEventListener('DOMContentLoaded', () => {
         const mobileBtn = document.getElementById('mobile-menu');
         const mobileMenu = document.getElementById('mobile-menu-items');

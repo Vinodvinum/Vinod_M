@@ -1,0 +1,522 @@
+<section id="welcome-splash" class="fixed inset-0 z-[120] overflow-hidden bg-[#02030a]">
+  <canvas id="welcome-three-canvas" class="absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(77,217,232,0.08),transparent_24%),radial-gradient(circle_at_80%_16%,rgba(155,109,255,0.12),transparent_24%),radial-gradient(circle_at_50%_70%,rgba(201,168,76,0.12),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.74))]"></div>
+
+  <svg id="welcome-mandala" viewBox="0 0 500 500" class="pointer-events-none absolute left-1/2 top-1/2 z-[1] h-[75vw] max-h-[900px] min-h-[500px] w-[75vw] max-w-[900px] min-w-[500px] -translate-x-1/2 -translate-y-1/2 opacity-0">
+    <g fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5" transform="translate(250,250)">
+      <circle r="230"/><circle r="210"/><circle r="190"/><circle r="160"/><circle r="140"/>
+      <ellipse rx="18" ry="80" cy="-155"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(30)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(60)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(90)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(120)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(150)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(180)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(210)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(240)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(270)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(300)"/>
+      <ellipse rx="18" ry="80" cy="-155" transform="rotate(330)"/>
+      <line x1="0" y1="-230" x2="0" y2="230" transform="rotate(0)"/>
+      <line x1="0" y1="-230" x2="0" y2="230" transform="rotate(30)"/>
+      <line x1="0" y1="-230" x2="0" y2="230" transform="rotate(60)"/>
+      <line x1="0" y1="-230" x2="0" y2="230" transform="rotate(90)"/>
+      <line x1="0" y1="-230" x2="0" y2="230" transform="rotate(120)"/>
+      <line x1="0" y1="-230" x2="0" y2="230" transform="rotate(150)"/>
+      <circle r="18" fill="rgba(77,217,232,0.04)" stroke="rgba(77,217,232,0.18)"/>
+      <circle r="6" fill="rgba(201,168,76,0.16)" stroke="rgba(201,168,76,0.42)"/>
+    </g>
+  </svg>
+
+  <button
+    id="welcome-skip-btn"
+    type="button"
+    class="absolute right-4 top-4 z-[30] rounded-sm border border-[#c9a84c]/30 bg-transparent px-4 py-2 text-[11px] uppercase tracking-[0.32em] text-[#c9a84c]/70 transition-all duration-300 hover:border-[#c9a84c] hover:bg-[#c9a84c]/10 hover:text-[#f0d080] md:right-7 md:top-6"
+  >
+    Skip ›
+  </button>
+
+  <div id="welcome-splash-inner" class="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
+    <div id="welcome-cosmic-form" class="relative mb-8 h-[clamp(170px,24vw,280px)] w-[clamp(170px,24vw,280px)] opacity-0">
+      <div class="welcome-aura-ring"></div>
+      <div class="welcome-aura-ring"></div>
+      <div class="welcome-aura-ring"></div>
+
+      <svg class="welcome-cosmic-svg" viewBox="0 0 200 220" aria-hidden="true">
+        <defs>
+          <radialGradient id="welcome-body-grad" cx="50%" cy="55%" r="50%">
+            <stop offset="0%" stop-color="#f0d080" stop-opacity="0.95" />
+            <stop offset="40%" stop-color="#c9a84c" stop-opacity="0.75" />
+            <stop offset="80%" stop-color="#4dd9e8" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#9b6dff" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="welcome-crown-grad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f0d080" stop-opacity="1" />
+            <stop offset="60%" stop-color="#c9a84c" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+          <filter id="welcome-glow">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <g fill="rgba(201,168,76,0.6)" filter="url(#welcome-glow)" transform="translate(100,30)">
+          <polygon points="0,-28 2,0 -2,0" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(30)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(60)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(90)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(120)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(150)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(180)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(210)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(240)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(270)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(300)" />
+          <polygon points="0,-28 2,0 -2,0" transform="rotate(330)" />
+        </g>
+
+        <circle cx="100" cy="30" r="12" fill="url(#welcome-crown-grad)" filter="url(#welcome-glow)" />
+
+        <path
+          d="M100,42 C108,42 118,50 120,62 C124,72 122,80 118,88 C130,92 138,104 136,118 C134,132 122,138 110,140 C112,148 114,158 110,168 C107,175 100,178 100,178 C100,178 93,175 90,168 C86,158 88,148 90,140 C78,138 66,132 64,118 C62,104 70,92 82,88 C78,80 76,72 80,62 C82,50 92,42 100,42Z"
+          fill="url(#welcome-body-grad)"
+          filter="url(#welcome-glow)"
+        />
+
+        <line x1="64" y1="118" x2="42" y2="108" stroke="rgba(77,217,232,0.35)" stroke-width="1" filter="url(#welcome-glow)" />
+        <line x1="136" y1="118" x2="158" y2="108" stroke="rgba(77,217,232,0.35)" stroke-width="1" filter="url(#welcome-glow)" />
+        <line x1="64" y1="118" x2="38" y2="120" stroke="rgba(201,168,76,0.25)" stroke-width="0.7" />
+        <line x1="136" y1="118" x2="162" y2="120" stroke="rgba(201,168,76,0.25)" stroke-width="0.7" />
+
+        <circle cx="100" cy="62" r="3.5" fill="rgba(155,109,255,0.8)" filter="url(#welcome-glow)" />
+        <circle cx="100" cy="82" r="3" fill="rgba(77,217,232,0.9)" filter="url(#welcome-glow)" />
+        <circle cx="100" cy="100" r="4" fill="rgba(240,208,128,1)" filter="url(#welcome-glow)" />
+        <circle cx="100" cy="118" r="3" fill="rgba(77,217,232,0.9)" filter="url(#welcome-glow)" />
+        <circle cx="100" cy="136" r="2.5" fill="rgba(201,168,76,0.8)" filter="url(#welcome-glow)" />
+
+        <g transform="translate(100,178)" fill="rgba(201,168,76,0.35)" filter="url(#welcome-glow)">
+          <ellipse rx="6" ry="14" />
+          <ellipse rx="6" ry="14" transform="rotate(45)" />
+          <ellipse rx="6" ry="14" transform="rotate(90)" />
+          <ellipse rx="6" ry="14" transform="rotate(135)" />
+          <circle r="5" fill="rgba(201,168,76,0.6)" />
+        </g>
+      </svg>
+
+      <div class="welcome-center-orb"></div>
+    </div>
+
+    <div id="welcome-text-block" class="relative z-[2] text-center">
+      <div id="welcome-sanskrit" class="welcome-sanskrit">tat tvam asi · तत् त्वम् असि</div>
+      <div id="welcome-name" class="welcome-name">VINOD M</div>
+      <div id="welcome-divider" class="welcome-divider"></div>
+      <div id="welcome-role" class="welcome-role">AI Engineer | Building Intelligent Systems | Data Scientist | Data Analyst</div>
+      <div id="welcome-tagline" class="welcome-tagline">From Cosmic Energy to Artificial Intelligence</div>
+    </div>
+  </div>
+
+  <div id="welcome-progress" class="pointer-events-none absolute bottom-9 left-1/2 z-20 w-[clamp(140px,18vw,220px)] -translate-x-1/2 opacity-0">
+    <div class="h-px w-full overflow-hidden rounded-full bg-white/10">
+      <div id="welcome-progress-fill" class="h-full w-0 rounded-full bg-[linear-gradient(90deg,#9b6dff,#4dd9e8,#c9a84c)] shadow-[0_0_8px_rgba(77,217,232,0.5)]"></div>
+    </div>
+    <div class="mt-2 text-center text-[10px] tracking-[0.35em] text-white/25">INITIALIZING</div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Rajdhani:wght@300;400;600&display=swap');
+
+  #welcome-splash {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  #welcome-mandala {
+    animation: welcomeMandalaSpin 60s linear infinite;
+  }
+
+  .welcome-aura-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 9999px;
+    border: 1px solid rgba(201,168,76,0.32);
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .welcome-aura-ring:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 30px rgba(201,168,76,0.25);
+  }
+
+  .welcome-aura-ring:nth-child(2) {
+    width: 128%;
+    height: 128%;
+    border-color: rgba(77,217,232,0.26);
+    box-shadow: 0 0 40px rgba(77,217,232,0.15);
+  }
+
+  .welcome-aura-ring:nth-child(3) {
+    width: 158%;
+    height: 158%;
+    border-color: rgba(155,109,255,0.18);
+  }
+
+  .welcome-cosmic-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter:
+      drop-shadow(0 0 18px rgba(201,168,76,0.8))
+      drop-shadow(0 0 45px rgba(77,217,232,0.35))
+      drop-shadow(0 0 80px rgba(201,168,76,0.25));
+    animation: welcomeAuraPulse 4s ease-in-out infinite;
+  }
+
+  .welcome-center-orb {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 38%;
+    height: 38%;
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(240,208,128,0.95) 0%, rgba(201,168,76,0.6) 40%, rgba(77,217,232,0.2) 70%, transparent 100%);
+    animation: welcomeOrbPulse 3.5s ease-in-out infinite;
+  }
+
+  .welcome-sanskrit {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(12px, 1.3vw, 15px);
+    letter-spacing: 0.34em;
+    color: rgba(201,168,76,0.65);
+    margin-bottom: 14px;
+    opacity: 0;
+  }
+
+  .welcome-name {
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 6.5vw, 80px);
+    letter-spacing: 0.18em;
+    line-height: 1;
+    background: linear-gradient(135deg, #f0d080 0%, #c9a84c 40%, #4dd9e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+  }
+
+  .welcome-name::after {
+    content: 'VINOD M';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: welcomeShimmer 3.5s linear 2.5s infinite;
+  }
+
+  .welcome-divider {
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4dd9e8, #c9a84c, transparent);
+    margin: 16px auto;
+    opacity: 0;
+  }
+
+  .welcome-role {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 1.55vw, 17px);
+    letter-spacing: 0.26em;
+    color: rgba(232,238,245,0.54);
+    opacity: 0;
+    text-transform: uppercase;
+  }
+
+  .welcome-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(11px,1.1vw,13px);
+    letter-spacing: 0.18em;
+    color: rgba(155,109,255,0.6);
+    margin-top: 10px;
+    opacity: 0;
+  }
+
+  @keyframes welcomeMandalaSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  @keyframes welcomeAuraPulse {
+    0%, 100% {
+      filter:
+        drop-shadow(0 0 18px rgba(201,168,76,0.8))
+        drop-shadow(0 0 45px rgba(77,217,232,0.35))
+        drop-shadow(0 0 80px rgba(201,168,76,0.25));
+    }
+    50% {
+      filter:
+        drop-shadow(0 0 30px rgba(201,168,76,1))
+        drop-shadow(0 0 70px rgba(77,217,232,0.6))
+        drop-shadow(0 0 120px rgba(155,109,255,0.4));
+    }
+  }
+
+  @keyframes welcomeOrbPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  }
+
+  @keyframes welcomeShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @media (max-width: 640px) {
+    .welcome-role {
+      line-height: 1.8;
+      letter-spacing: 0.16em;
+    }
+
+    .welcome-name {
+      letter-spacing: 0.12em;
+    }
+
+    .welcome-sanskrit {
+      letter-spacing: 0.18em;
+    }
+  }
+</style>
+
+<script>
+  const splash = document.getElementById('welcome-splash');
+
+  if (splash) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasSeenSplash = sessionStorage.getItem('vinod-welcome-seen') === '1';
+    const pageTargets = ['nav', 'main', 'footer', '#particles', 'a[aria-label="Chat on WhatsApp"]'];
+
+    const clearPageState = () => {
+      pageTargets.forEach((selector) => {
+        const element = document.querySelector(selector);
+        if (element instanceof HTMLElement) {
+          element.style.opacity = '';
+          element.style.filter = '';
+          element.style.transform = '';
+        }
+      });
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
+
+    if (hasSeenSplash) {
+      splash.remove();
+      clearPageState();
+    } else {
+      void (async () => {
+        const [{ default: gsap }, THREE] = await Promise.all([
+          import('gsap'),
+          import('three')
+        ]);
+
+        gsap.set(pageTargets, {
+          opacity: 0.22,
+          filter: 'blur(10px)',
+          scale: 0.985,
+          transformOrigin: 'center top'
+        });
+
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+
+        const canvas = document.getElementById('welcome-three-canvas');
+        const skipBtn = document.getElementById('welcome-skip-btn');
+        const progress = document.getElementById('welcome-progress-fill');
+        const cosmicForm = document.getElementById('welcome-cosmic-form');
+        const mandala = document.getElementById('welcome-mandala');
+        const splashInner = document.getElementById('welcome-splash-inner');
+
+        let renderer;
+        let scene;
+        let camera;
+        let stars;
+        let rafId = 0;
+        let timeline;
+        let exited = false;
+
+        const cleanupThree = () => {
+          if (renderer) {
+            renderer.dispose();
+          }
+          if (stars) {
+            stars.geometry.dispose();
+            stars.material.dispose();
+          }
+        };
+
+        const finish = () => {
+          if (exited) return;
+          exited = true;
+          sessionStorage.setItem('vinod-welcome-seen', '1');
+
+          gsap.timeline({
+            onComplete: () => {
+              window.cancelAnimationFrame(rafId);
+              cleanupThree();
+              clearPageState();
+              splash.remove();
+            }
+          })
+            .to('#welcome-splash', { opacity: 0, duration: 0.72, ease: 'power2.inOut' }, 0)
+            .to(pageTargets, { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.9, ease: 'power2.out' }, 0.08);
+        };
+
+        const width = () => window.innerWidth;
+        const height = () => window.innerHeight;
+
+        const initThree = () => {
+          renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: false,
+            alpha: true,
+            powerPreference: 'low-power'
+          });
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+          renderer.setSize(width(), height(), false);
+          renderer.setClearColor(0x000508, 1);
+
+          scene = new THREE.Scene();
+          camera = new THREE.PerspectiveCamera(75, width() / height(), 0.1, 2000);
+          camera.position.z = 600;
+
+          const starCount = width() < 768 ? 900 : 1500;
+          const geometry = new THREE.BufferGeometry();
+          const positions = new Float32Array(starCount * 3);
+          const colors = new Float32Array(starCount * 3);
+
+          const palette = [
+            [0.78, 0.85, 1.0],
+            [1.0, 0.95, 0.75],
+            [0.6, 0.85, 1.0],
+            [0.9, 0.75, 1.0],
+            [1.0, 1.0, 1.0]
+          ];
+
+          for (let i = 0; i < starCount; i += 1) {
+            const i3 = i * 3;
+            positions[i3] = (Math.random() - 0.5) * 1800;
+            positions[i3 + 1] = (Math.random() - 0.5) * 1800;
+            positions[i3 + 2] = (Math.random() - 0.5) * 1200 - 200;
+            const color = palette[Math.floor(Math.random() * palette.length)];
+            colors[i3] = color[0];
+            colors[i3 + 1] = color[1];
+            colors[i3 + 2] = color[2];
+          }
+
+          geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+          geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+          const starCanvas = document.createElement('canvas');
+          starCanvas.width = 64;
+          starCanvas.height = 64;
+          const starCtx = starCanvas.getContext('2d');
+          const grad = starCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+          grad.addColorStop(0, 'rgba(255,255,255,1)');
+          grad.addColorStop(0.2, 'rgba(255,255,255,0.8)');
+          grad.addColorStop(0.5, 'rgba(200,220,255,0.3)');
+          grad.addColorStop(1, 'rgba(0,0,0,0)');
+          starCtx.fillStyle = grad;
+          starCtx.fillRect(0, 0, 64, 64);
+
+          const starTexture = new THREE.CanvasTexture(starCanvas);
+
+          const material = new THREE.PointsMaterial({
+            size: width() < 768 ? 2 : 2.5,
+            sizeAttenuation: true,
+            vertexColors: true,
+            map: starTexture,
+            transparent: true,
+            opacity: 0,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+          });
+
+          stars = new THREE.Points(geometry, material);
+          scene.add(stars);
+        };
+
+        const animate = () => {
+          rafId = requestAnimationFrame(animate);
+          if (stars) {
+            stars.rotation.y += 0.00012;
+            stars.rotation.x += 0.00006;
+          }
+          renderer.render(scene, camera);
+        };
+
+        const onResize = () => {
+          if (!renderer || !camera) return;
+          camera.aspect = width() / height();
+          camera.updateProjectionMatrix();
+          renderer.setSize(width(), height(), false);
+        };
+
+        initThree();
+        animate();
+        window.addEventListener('resize', onResize, { passive: true });
+
+        gsap.set(cosmicForm, { y: 30 });
+        gsap.set('#welcome-sanskrit', { y: 8 });
+        gsap.set('.welcome-aura-ring', { scale: 0, transformOrigin: 'center center' });
+
+        timeline = gsap.timeline({
+          defaults: { ease: 'power2.out' },
+          onComplete: finish
+        });
+
+        if (prefersReducedMotion) {
+          timeline
+            .to(stars.material, { opacity: 0.8, duration: 0.3 }, 0)
+            .to(cosmicForm, { opacity: 1, y: 0, duration: 0.3 }, 0.1)
+            .to('#welcome-text-block > *', { opacity: 1, y: 0, duration: 0.3, stagger: 0.06 }, 0.2)
+            .to(progress, { width: '100%', duration: 0.6, ease: 'none' }, 0.1)
+            .to({}, { duration: 0.8 }, 0.5);
+        } else {
+          timeline
+            .to(stars.material, { opacity: 0.9, duration: 1.1, ease: 'power1.inOut' }, 0)
+            .to('#welcome-progress', { opacity: 1, duration: 0.35 }, 0.15)
+            .to(progress, { width: '100%', duration: 4.1, ease: 'none' }, 0.15)
+            .to(skipBtn, { opacity: 1, duration: 0.4 }, 0.55)
+            .to(mandala, { opacity: 1, duration: 1.15, ease: 'power2.inOut' }, 0.75)
+            .to(cosmicForm, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, 1.2)
+            .to('.welcome-aura-ring', { scale: 1, duration: 0.8, stagger: 0.18, ease: 'back.out(1.35)' }, 1.45)
+            .to('#welcome-sanskrit', { opacity: 1, y: 0, duration: 0.45 }, 2.2)
+            .to('#welcome-name', { opacity: 1, duration: 0.55, ease: 'power3.out' }, 2.5)
+            .to('#welcome-divider', { opacity: 1, width: width() < 640 ? 210 : 320, duration: 0.5, ease: 'power2.inOut' }, 2.76)
+            .to('#welcome-role', { opacity: 1, duration: 0.45 }, 3.02)
+            .to('#welcome-tagline', { opacity: 1, duration: 0.4 }, 3.28)
+            .to({}, { duration: 1.2 }, 3.6);
+        }
+
+        skipBtn?.addEventListener('click', () => {
+          timeline?.kill();
+          finish();
+        }, { once: true });
+      })();
+    }
+  }
+</script>

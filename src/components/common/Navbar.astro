@@ -3,56 +3,49 @@
 import { navItems } from '../../data/nav';
 ---
 
-<nav class="glass fixed top-0 w-full z-50 px-6 py-4 backdrop-blur-2xl shadow-2xl shadow-black/40 border-b border-white/15">
-  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent"></div>
+<nav class="glass fixed top-0 w-full z-50 px-6 py-4 backdrop-blur-2xl border-b border-white/40">
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent"></div>
   <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <!-- Logo -->
-     <!-- Logo -->   
-    <a href="/" class="flex items-center space-x-3 group p-2 -m-2 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-      <div class="w-12 h-12 glass rounded-xl p-1 shadow-xl group-hover:scale-110 group-hover:shadow-purple-500/30 transition-all duration-500">
+    <a href="/" class="flex items-center space-x-3 group p-2 -m-2 rounded-2xl backdrop-blur-sm hover:bg-white/50 transition-all duration-300">
+      <div class="w-12 h-12 glass rounded-xl p-1 shadow-xl group-hover:scale-105 transition-all duration-500">
         <img src="/images/profile.jpg" alt="Vinod M" class="w-full h-full rounded-xl object-cover" />
       </div>
       <div>
         <span class="text-xl md:text-2xl font-black gradient-text tracking-tight">Vinod M</span>
-        <span class="block text-xs md:text-sm text-white/60 font-medium tracking-wide uppercase">AI Engineer</span>
+        <span class="block text-xs md:text-sm text-slate-600 font-bold tracking-[0.18em] uppercase">Data Analytics Developer</span>
       </div>
     </a>
-    
 
-    <!-- Desktop Nav -->
     <div class="hidden md:flex items-center space-x-1">
       {navItems.map((item) => (
         <a 
           href={item.href}
-          class="group relative px-6 py-3 text-lg font-medium text-white/80 hover:text-white transition-all duration-300 hover:scale-105"
+          class="group relative px-5 py-3 text-base font-semibold text-slate-600 hover:text-slate-950 transition-all duration-300"
         >
           {item.label}
-          <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300 origin-center"></span>
+          <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-teal-500 to-orange-500 group-hover:w-3/4 transition-all duration-300 origin-center"></span>
         </a>
       ))}
     </div>
 
-    <!-- Mobile menu button -->
-    <button id="mobile-menu" class="md:hidden glass p-4 rounded-2xl hover:scale-110 hover:shadow-purple-500/30 transition-all duration-300 shadow-xl">
-      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="mobile-menu" class="md:hidden glass p-4 rounded-2xl hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+      <svg class="w-6 h-6 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </div>
 
-  <!-- Mobile Quick Links -->
   <div class="md:hidden mt-3 px-1 flex items-center justify-between gap-2">
-    <a href="#home" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-white/85 hover:text-white">Home</a>
-    <a href="#projects" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-white/85 hover:text-white">Projects</a>
-    <a href="#contact" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-white/85 hover:text-white">Contact</a>
+    <a href="#home" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-950">Home</a>
+    <a href="#projects" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-950">Projects</a>
+    <a href="#contact" class="glass flex-1 text-center py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-950">Contact</a>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu-items" class="md:hidden hidden mt-4 mx-6 glass p-6 rounded-3xl backdrop-blur-xl shadow-2xl shadow-black/30 border-white/20 space-y-4 animate-in slide-in-from-top-4 duration-300">
+  <div id="mobile-menu-items" class="md:hidden hidden mt-4 mx-6 glass p-6 rounded-3xl backdrop-blur-xl border-white/20 space-y-4">
     {navItems.map((item) => (
       <a 
         href={item.href}
-        class="block px-6 py-4 text-lg font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-2xl transition-all duration-300 border-l-4 border-transparent hover:border-purple-400"
+        class="block px-6 py-4 text-lg font-semibold text-slate-700 hover:text-slate-950 hover:bg-white/60 rounded-2xl transition-all duration-300 border-l-4 border-transparent hover:border-teal-500"
         onclick="document.getElementById('mobile-menu-items').classList.add('hidden')"
       >
         {item.label}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import WelcomeSplash from '../components/common/WelcomeSplash.astro';
 import Hero from '../components/home/Hero.astro';
 import About from '../components/home/About.astro';
 import SkillsGrid from '../components/skills/SkillsGrid.astro';
@@ -10,6 +11,7 @@ import ContactForm from '../components/contact/ContactForm.astro';
 ---
 
 <BaseLayout title="Vinod M - AI Engineer" description="Building applied AI, automation, and data-driven systems to solve real-world problems.">
+  <WelcomeSplash />
   <Hero />
   <About />
   <SkillsGrid />

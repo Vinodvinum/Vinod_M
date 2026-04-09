@@ -20,6 +20,7 @@ export interface ProjectCard {
   githubUrl?: string;
   publicationUrl?: string;
   certificateUrl?: string;
+  flagLabel?: string;
 }
 
 export const completedProjects: ProjectCard[] = [
@@ -112,7 +113,8 @@ export const completedProjects: ProjectCard[] = [
     monogram: 'GR',
     accent: 'from-emerald-400/25 via-cyan-400/20 to-blue-500/20',
     liveUrl: 'https://grsdashboard.streamlit.app/',
-    githubUrl: 'https://github.com/Vinodvinum/GRS_Dashboard'
+    githubUrl: 'https://github.com/Vinodvinum/GRS_Dashboard',
+    flagLabel: 'Featured Analytics Project'
   },
   {
     section: 'live',

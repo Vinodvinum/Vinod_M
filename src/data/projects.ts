@@ -21,6 +21,7 @@ export interface ProjectCard {
   publicationUrl?: string;
   certificateUrl?: string;
   flagLabel?: string;
+  featured?: boolean;
 }
 
 export const completedProjects: ProjectCard[] = [
@@ -28,7 +29,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'live',
     category: 'Websites & Platforms',
     title: 'Vinod M Portfolio',
-    description: 'My personal portfolio site showing projects, experience, and contact details.',
+    description: 'Problem: Need a clear professional presence to attract analytics roles. Solution: Built a focused portfolio showcasing analytics, dashboards, and projects with clear business context. Impact: Improved recruiter clarity and centralized contact/resume access.',
     platform: 'Vercel',
     status: 'Live',
     tags: ['Portfolio', 'Personal Brand', 'Web'],
@@ -41,7 +42,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'live',
     category: 'Websites & Platforms',
     title: 'Sushvin AI Labs',
-    description: 'A Vercel-hosted AI lab and experimentation space for applied AI ideas.',
+    description: 'Problem: Prototyping and experimentation lacked a central showcase. Solution: Built Sushvin AI Labs as a deployed playground for applied projects and demos. Impact: Centralized experimental demos for stakeholder review and demos.',
     platform: 'Vercel',
     status: 'Live',
     tags: ['AI Lab', 'Experiments', 'Deployment'],
@@ -54,7 +55,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'live',
     category: 'Websites & Platforms',
     title: 'Bharaath Grocery',
-    description: 'An e-commerce grocery web app deployed on Vercel. Admin access is handled privately.',
+    description: 'Problem: Local grocers need an online storefront. Solution: Built a deployed e-commerce grocery web app with product listings and cart flows. Impact: Enabled online orders and improved local customer reach.',
     platform: 'Vercel',
     status: 'Live',
     tags: ['E-commerce', 'Grocery', 'Web App'],
@@ -88,6 +89,8 @@ export const completedProjects: ProjectCard[] = [
     accent: 'from-emerald-400/25 via-lime-400/20 to-green-500/20',
     liveUrl: 'https://aifinancialdashboard.streamlit.app/',
     githubUrl: 'https://github.com/Vinodvinum/Financial_dashboard'
+    ,
+    featured: true
   },
   {
     section: 'live',
@@ -101,6 +104,8 @@ export const completedProjects: ProjectCard[] = [
     accent: 'from-sky-400/25 via-cyan-400/20 to-blue-500/20',
     liveUrl: 'https://visonversedashboard.streamlit.app/',
     githubUrl: 'https://github.com/Vinodvinum/visonverse_dashboard'
+    ,
+    featured: true
   },
   {
     section: 'live',
@@ -115,12 +120,14 @@ export const completedProjects: ProjectCard[] = [
     liveUrl: 'https://grsdashboard.streamlit.app/',
     githubUrl: 'https://github.com/Vinodvinum/GRS_Dashboard',
     flagLabel: 'Featured Analytics Project'
+    ,
+    featured: true
   },
   {
     section: 'live',
     category: 'Utilities & Media',
     title: 'Image Compressor App',
-    description: 'A lightweight app for compressing images with a public deployment and GitHub source code.',
+    description: 'Problem: Large images slow web workflows. Solution: Built a Streamlit-based image compressor for fast compression and download. Impact: Reduced image sizes for faster uploads and lower bandwidth consumption.',
     platform: 'Streamlit',
     status: 'Live',
     tags: ['Images', 'Compression', 'Utility'],
@@ -133,7 +140,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'live',
     category: 'AI Automation & Chatbots',
     title: 'Hiring Chatbot',
-    description: 'A chatbot application for hiring and candidate interaction workflows.',
+    description: 'Problem: Hiring teams require scalable candidate screening. Solution: Built a Streamlit chatbot to automate candidate interactions and basic screening flows. Impact: Reduced initial screening time and improved candidate engagement.',
     platform: 'Streamlit',
     status: 'Live',
     tags: ['Chatbot', 'HR', 'Automation'],
@@ -146,7 +153,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'source',
     category: 'Computer Vision',
     title: 'Fruits Quality Detection',
-    description: 'A GitHub-hosted computer vision project for fruit quality detection.',
+    description: 'Problem: Manual fruit quality checks are slow and inconsistent. Solution: Developed a computer vision model to classify fruit quality using OpenCV and custom datasets. Impact: Automated quality spotting and reduced manual inspection time in prototype environments.',
     platform: 'GitHub',
     status: 'Source',
     tags: ['Computer Vision', 'Detection', 'ML'],
@@ -158,7 +165,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'source',
     category: 'Utilities & Media',
     title: 'Image Animation',
-    description: 'A GitHub project focused on animation workflows for images.',
+    description: 'Problem: Static images limit engagement. Solution: Built tools to animate images and export lightweight animations. Impact: Improved visual content quality for demos and portfolios.',
     platform: 'GitHub',
     status: 'Source',
     tags: ['Animation', 'Images', 'Creative'],
@@ -170,7 +177,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'source',
     category: 'AI Automation & Chatbots',
     title: 'AI-Powered WhatsApp Business Automation',
-    description: 'An intelligent WhatsApp automation system for customer support, booking flows, reminders, and human handover.',
+    description: 'Problem: Businesses need automated customer interactions on WhatsApp. Solution: Built an automation system using WhatsApp APIs and FastAPI to handle support flows, bookings, reminders, and handovers. Impact: Streamlined customer workflows and reduced manual response workload.',
     platform: 'Python + FastAPI',
     status: 'Source',
     tags: ['WhatsApp API', 'NLP', 'Automation'],
@@ -181,7 +188,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'source',
     category: 'AI Automation & Chatbots',
     title: 'Intelligent Document Key-Value Extraction System',
-    description: 'A transformer-based NLP system to extract structured key-value information from unstructured documents.',
+    description: 'Problem: Extracting structured data from unstructured documents is time-consuming. Solution: Built a transformer-based NLP pipeline to extract key-value pairs and normalize outputs for downstream analytics. Impact: Reduced manual data entry and improved extraction accuracy for prototyped datasets.',
     platform: 'Python + NLP',
     status: 'Source',
     tags: ['Transformers', 'OCR', 'Information Extraction'],
@@ -192,7 +199,7 @@ export const completedProjects: ProjectCard[] = [
     section: 'source',
     category: 'Computer Vision',
     title: 'Object Detection and Speed Estimation System',
-    description: 'A computer vision pipeline to detect, track, and estimate object speed from video streams in real time.',
+    description: 'Problem: Traffic monitoring lacked accurate speed estimations. Solution: Developed a CV pipeline to detect, track, and estimate object speed from video streams using OpenCV and tracking algorithms. Impact: Produced reproducible speed estimates used in the published research and prototype demos.',
     platform: 'OpenCV + Python',
     status: 'Source',
     tags: ['Object Tracking', 'Speed Estimation', 'Computer Vision'],

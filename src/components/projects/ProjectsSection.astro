@@ -26,6 +26,7 @@ const categorySections: Array<{ id: ProjectCategory; description: string }> = [
 ];
 
 const getProjectsByCategory = (category: ProjectCategory) => completedProjects.filter((project) => project.category === category);
+const featuredProjects = completedProjects.filter((p) => p.featured);
 ---
 
 <section id="projects" class="py-24 md:py-32 px-4 md:px-6 relative z-10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm">
@@ -38,6 +39,30 @@ const getProjectsByCategory = (category: ProjectCategory) => completedProjects.f
       </p>
       <div class="w-20 md:w-24 h-1 mx-auto mt-6 md:mt-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
     </div>
+
+    {featuredProjects.length > 0 && (
+      <div class="mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-2xl md:text-4xl font-black text-white">Featured Projects</h3>
+          <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+          {featuredProjects.map((project) => (
+            <article class="group glass rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300 border-white/10">
+              <div class="mb-4">
+                <h4 class="text-xl md:text-2xl font-bold text-white">{project.title}</h4>
+                <p class="text-sm text-white/70 mt-2">{project.description}</p>
+              </div>
+              <div class="flex gap-2 mt-4">
+                {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="gradient-border glass px-4 py-2 rounded-2xl text-sm font-semibold">Live</a>}
+                {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-2xl text-sm font-semibold">Source</a>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    )}
 
     {categorySections.map((section) => {
       const projects = getProjectsByCategory(section.id);

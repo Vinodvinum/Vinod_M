@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Featured Projects - Vinod M - Data Analyst" description="In-depth case studies of my most impactful analytics and business intelligence projects.">
+  <section class="min-h-screen pt-40 pb-20 px-6 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-20">
+        <h1 class="text-5xl md:text-7xl font-black gradient-text mb-6">Featured Projects</h1>
+        <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          Deep dives into data analytics and business intelligence projects that delivered measurable impact.
+        </p>
+        <div class="w-24 h-1 mx-auto mt-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+      </div>
+
+      <!-- Project 1: Financial Analytics Dashboard -->
+      <article class="mb-24 glass rounded-3xl p-8 md:p-12 border-white/10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-black gradient-text mb-4">Financial Analytics Dashboard</h2>
+            <p class="text-lg text-white/80 mb-6">Built an interactive Streamlit dashboard to provide real-time financial insights to stakeholders.</p>
+            
+            <div class="space-y-6 mb-8">
+              <div>
+                <h3 class="text-white font-bold mb-2">Problem</h3>
+                <p class="text-white/70">Finance teams had to manually compile revenue, profit, and trend reports from multiple sources. This process was error-prone and time-consuming, delaying decision-making.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-white font-bold mb-2">Solution</h3>
+                <p class="text-white/70">Built a Streamlit dashboard that connects to databases via Python ETL scripts, automatically fetches financial data, and displays interactive KPI cards, trend charts, and drill-down tables for detailed analysis.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-white font-bold mb-2">Impact</h3>
+                <ul class="text-white/70 space-y-2">
+                  <li>✓ Reduced report generation time from 2 hours to 5 minutes</li>
+                  <li>✓ Eliminated manual data entry errors (now auto-refreshed)</li>
+                  <li>✓ Enabled 24/7 stakeholder access to financial KPIs</li>
+                  <li>✓ Supports trend analysis across 12+ financial metrics</li>
+                </ul>
+              </div>
+
+              <div class="glass p-6 rounded-2xl border-emerald-300/30 bg-emerald-500/10">
+                <h3 class="text-emerald-100 font-bold mb-3">Tech Stack</h3>
+                <p class="text-emerald-100/80">Python (Pandas, NumPy) • SQL • Streamlit • pandas_datareader • Plotly</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="https://aifinancialdashboard.streamlit.app/" target="_blank" rel="noopener noreferrer" class="gradient-border glass px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition-all">
+                Live Demo
+              </a>
+              <a href="https://github.com/Vinodvinum/Financial_dashboard" target="_blank" rel="noopener noreferrer" class="glass px-6 py-3 rounded-2xl font-semibold border border-white/30 hover:scale-105 transition-all">
+                View Source
+              </a>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6 border-white/10">
+            <div class="bg-gradient-to-br from-emerald-500/20 to-green-600/20 rounded-2xl p-8 text-center">
+              <div class="text-5xl font-black gradient-text mb-4">FD</div>
+              <p class="text-white/70 mb-6">Financial Analytics Dashboard</p>
+              <div class="space-y-4 text-center">
+                <div>
+                  <p class="text-emerald-200 text-3xl font-black">4x</p>
+                  <p class="text-white/60 text-sm">Faster reporting</p>
+                </div>
+                <div class="border-t border-white/10 pt-4">
+                  <p class="text-cyan-200 text-3xl font-black">12+</p>
+                  <p class="text-white/60 text-sm">KPI Metrics tracked</p>
+                </div>
+                <div class="border-t border-white/10 pt-4">
+                  <p class="text-purple-200 text-3xl font-black">24/7</p>
+                  <p class="text-white/60 text-sm">Access for stakeholders</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Visionverse Analytics Dashboard -->
+      <article class="mb-24 glass rounded-3xl p-8 md:p-12 border-white/10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1">
+            <div class="glass rounded-2xl p-6 border-white/10">
+              <div class="bg-gradient-to-br from-sky-500/20 to-blue-600/20 rounded-2xl p-8 text-center">
+                <div class="text-5xl font-black gradient-text mb-4">VD</div>
+                <p class="text-white/70 mb-6">Visionverse Analytics Dashboard</p>
+                <div class="space-y-4 text-center">
+                  <div>
+                    <p class="text-sky-200 text-3xl font-black">30%</p>
+                    <p class="text-white/60 text-sm">Faster model evaluation</p>
+                  </div>
+                  <div class="border-t border-white/10 pt-4">
+                    <p class="text-cyan-200 text-3xl font-black">50+</p>
+                    <p class="text-white/60 text-sm">Models tracked</p>
+                  </div>
+                  <div class="border-t border-white/10 pt-4">
+                    <p class="text-purple-200 text-3xl font-black">8</p>
+                    <p class="text-white/60 text-sm">Dashboard views</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2">
+            <h2 class="text-4xl md:text-5xl font-black gradient-text mb-4">Visionverse Analytics Dashboard</h2>
+            <p class="text-lg text-white/80 mb-6">Centralized KPI dashboard for computer vision research experiments and model tracking.</p>
+            
+            <div class="space-y-6 mb-8">
+              <div>
+                <h3 class="text-white font-bold mb-2">Problem</h3>
+                <p class="text-white/70">Product teams managing 50+ CV models across different experiments couldn't easily compare metrics, track dataset quality, or share results with stakeholders. Data was scattered across Jupyter notebooks and spreadsheets.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-white font-bold mb-2">Solution</h3>
+                <p class="text-white/70">Created a Streamlit dashboard that aggregates model metrics, dataset stats, and deployment logs into unified KPI views. Teams can now filter by experiment, track performance over time, and export reports.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-white font-bold mb-2">Impact</h3>
+                <ul class="text-white/70 space-y-2">
+                  <li>✓ Centralized 50+ model metrics in one dashboard</li>
+                  <li>✓ Reduced experiment evaluation time by 30%</li>
+                  <li>✓ Enabled rapid A/B comparisons between model versions</li>
+                  <li>✓ Simplified stakeholder handoff and reporting</li>
+                </ul>
+              </div>
+
+              <div class="glass p-6 rounded-2xl border-cyan-300/30 bg-cyan-500/10">
+                <h3 class="text-cyan-100 font-bold mb-3">Tech Stack</h3>
+                <p class="text-cyan-100/80">Python • Streamlit • Pandas • Plotly • JSON APIs</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="https://visonversedashboard.streamlit.app/" target="_blank" rel="noopener noreferrer" class="gradient-border glass px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition-all">
+                Live Demo
+              </a>
+              <a href="https://github.com/Vinodvinum/visonverse_dashboard" target="_blank" rel="noopener noreferrer" class="glass px-6 py-3 rounded-2xl font-semibold border border-white/30 hover:scale-105 transition-all">
+                View Source
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: GRS Analytics Dashboard -->
+      <article class="glass rounded-3xl p-8 md:p-12 border-white/10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-black gradient-text mb-4">GRS Analytics Dashboard</h2>
+            <p class="text-lg text-white/80 mb-6">Public-facing operational KPI dashboard enabling real-time stakeholder visibility.</p>
+            
+            <div class="space-y-6 mb-8">
+              <div>
+                <h3 class="text-white font-bold mb-2">Problem</h3>
+                <p class="text-white/70">Stakeholders needed real-time operational metrics but had to request weekly email reports. This created delays and limited ad-hoc analysis capability.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-white font-bold mb-2">Solution</h3>
+                <p class="text-white/70">Built a public Streamlit dashboard connected to live operational databases. Stakeholders can now access KPIs anytime, filter by date ranges, and export custom reports.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-white font-bold mb-2">Impact</h3>
+                <ul class="text-white/70 space-y-2">
+                  <li>✓ Eliminated weekly manual reporting overhead</li>
+                  <li>✓ Stakeholders gained 24/7 self-service access</li>
+                  <li>✓ Ad-hoc analysis now takes minutes instead of days</li>
+                  <li>✓ Reduced decision-making latency by 70%</li>
+                </ul>
+              </div>
+
+              <div class="glass p-6 rounded-2xl border-emerald-300/30 bg-emerald-500/10">
+                <h3 class="text-emerald-100 font-bold mb-3">Tech Stack</h3>
+                <p class="text-emerald-100/80">Python • Streamlit • SQL • Pandas • Export to CSV/Excel</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="https://grsdashboard.streamlit.app/" target="_blank" rel="noopener noreferrer" class="gradient-border glass px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition-all">
+                Live Demo
+              </a>
+              <a href="https://github.com/Vinodvinum/GRS_Dashboard" target="_blank" rel="noopener noreferrer" class="glass px-6 py-3 rounded-2xl font-semibold border border-white/30 hover:scale-105 transition-all">
+                View Source
+              </a>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6 border-white/10">
+            <div class="bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-2xl p-8 text-center">
+              <div class="text-5xl font-black gradient-text mb-4">GR</div>
+              <p class="text-white/70 mb-6">GRS Analytics Dashboard</p>
+              <div class="space-y-4 text-center">
+                <div>
+                  <p class="text-emerald-200 text-3xl font-black">70%</p>
+                  <p class="text-white/60 text-sm">Faster decisions</p>
+                </div>
+                <div class="border-t border-white/10 pt-4">
+                  <p class="text-cyan-200 text-3xl font-black">24/7</p>
+                  <p class="text-white/60 text-sm">Self-service access</p>
+                </div>
+                <div class="border-t border-white/10 pt-4">
+                  <p class="text-purple-200 text-3xl font-black">0</p>
+                  <p class="text-white/60 text-sm">Manual reports/week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <div class="mt-24 text-center">
+        <p class="text-white/80 mb-6">Interested in exploring more projects?</p>
+        <a href="/#projects" class="gradient-border glass px-8 py-4 rounded-2xl font-semibold text-lg hover:scale-105 transition-all inline-block">
+          View All Projects
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -234,5 +234,31 @@ export const ongoingProjects: ProjectCard[] = [
     monogram: 'SU',
     accent: 'from-emerald-400/25 via-teal-400/20 to-cyan-500/20',
     liveUrl: 'https://sutra-flame.vercel.app/dashboard'
+  },
+  {
+    section: 'live',
+    category: 'AI Automation & Chatbots',
+    title: 'AI Document Intelligence Engine',
+    description: 'Problem: Extracting structured data from invoices and documents is slow and error-prone. Solution: Built a full-stack AI platform with FastAPI backend, Next.js frontend, and Streamlit interface using DeepSeek LLM to extract, validate, and export structured JSON from any document type. Impact: Automated document extraction with OCR support, confidence scoring, and Excel export across a 3-platform deployment.',
+    platform: 'Render + Vercel + Streamlit',
+    status: 'Live',
+    tags: ['AI', 'FastAPI', 'Next.js', 'Streamlit', 'DeepSeek', 'OCR', 'Live'],
+    monogram: 'AI',
+    accent: 'from-blue-500/25 via-cyan-400/20 to-teal-500/20',
+    liveUrl: 'https://ai-document-intelligence-two.vercel.app',
+    githubUrl: 'https://github.com/Vinodvinum/Ai_document_intelligence'
+  },
+  {
+    section: 'live',
+    category: 'AI Automation & Chatbots',
+    title: 'MediSense AI - Healthcare Diagnosis Platform',
+    description: 'Problem: Patients need accessible preliminary health guidance without navigating complex medical portals. Solution: Built a comprehensive AI-powered healthcare chatbot using NLP (spaCy) to analyze symptoms, predict diseases with confidence scores, recommend specialists, and provide care precautions with an emergency detector for critical symptoms. Impact: Delivered a privacy-first, locally-processed healthcare guidance tool with medical encyclopedia, hospital finder for Mysuru, and nutrition guides.',
+    platform: 'Streamlit',
+    status: 'Live',
+    tags: ['AI', 'NLP', 'Healthcare', 'Chatbot', 'Python', 'spaCy', 'Live'],
+    monogram: 'MS',
+    accent: 'from-green-500/25 via-emerald-400/20 to-teal-600/20',
+    liveUrl: 'https://medisenseaivin.streamlit.app',
+    githubUrl: 'https://github.com/Vinodvinum/MediSense_ai'
   }
 ];

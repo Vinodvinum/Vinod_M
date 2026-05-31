@@ -260,5 +260,19 @@ export const ongoingProjects: ProjectCard[] = [
     accent: 'from-green-500/25 via-emerald-400/20 to-teal-600/20',
     liveUrl: 'https://medisenseaivin.streamlit.app',
     githubUrl: 'https://github.com/Vinodvinum/MediSense_ai'
+  },
+  {
+    section: 'live',
+    category: 'AI Automation & Chatbots',
+    title: 'Office Automation - Back-Office Hub',
+    description: 'Problem: Back-office teams waste hours on manual task tracking and repetitive ops workflows. Solution: Built a full-stack Next.js + Prisma + Supabase hub with n8n automation, real-time task management, and webhook-triggered workflows. Impact: Automated task creation notifications via n8n, deployed on Vercel with live Postgres database.',
+    platform: 'Vercel + Railway',
+    status: 'Live',
+    tags: ['Next.js', 'n8n', 'Prisma', 'Supabase', 'TypeScript', 'Automation', 'Webhooks'],
+    monogram: 'OA',
+    accent: 'from-orange-400/25 via-amber-400/20 to-yellow-500/20',
+    liveUrl: 'https://office-automation-rho.vercel.app',
+    githubUrl: 'https://github.com/Vinodvinum/office-automation',
+    featured: true
   }
 ];

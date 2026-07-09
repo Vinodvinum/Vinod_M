@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pillarPages } from '../data/seo';
+---
+
+<BaseLayout title="Expertise Hub | Vinod M" description="A topical hub connecting Vinod M with AI, analytics, BI, software engineering, cloud, automation, and entrepreneurship.">
+  <section class="min-h-screen pt-32 pb-20 px-6 relative z-10">
+    <div class="max-w-7xl mx-auto">
+      <header class="max-w-4xl mx-auto text-center mb-16">
+        <p class="text-sm md:text-base tracking-[0.28em] uppercase text-cyan-200/80">E-E-A-T Hub</p>
+        <h1 class="mt-4 text-4xl md:text-6xl font-black gradient-text leading-tight">Expertise Hub for Vinod M</h1>
+        <p class="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">This hub connects the brand to the key topics Google should associate with Vinod M from Mysuru: AI, analytics, BI, software engineering, cloud, automation, and research-backed delivery.</p>
+      </header>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {pillarPages.map((pillar) => (
+          <a href={`/${pillar.slug}`} class="glass rounded-[1.75rem] p-6 border-white/10 hover:border-cyan-300/40 hover:scale-[1.02] transition-all duration-300 block">
+            <p class="text-xs uppercase tracking-[0.26em] text-white/50 mb-2">Pillar Page</p>
+            <h2 class="text-2xl font-bold text-white mb-3">{pillar.title}</h2>
+            <p class="text-white/70 leading-relaxed">{pillar.subtitle}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6 mt-16">
+        <article class="glass rounded-[2rem] p-8 border-white/10">
+          <h2 class="text-3xl font-black gradient-text mb-4">Why this matters</h2>
+          <p class="text-white/80 leading-relaxed mb-4">E-E-A-T improves when the site clearly shows who Vinod M is, what he has built, where he works from, and which topics he can credibly speak about.</p>
+          <p class="text-white/80 leading-relaxed">This hub and the pillar pages give Google consistent internal linking, topical depth, and structured proof across projects, publication, resume, and external profiles.</p>
+        </article>
+
+        <article class="glass rounded-[2rem] p-8 border-white/10">
+          <h2 class="text-3xl font-black gradient-text mb-4">Key proof signals</h2>
+          <ul class="space-y-3 text-white/80">
+            <li>Experience: live projects, product prototypes, dashboards, and automation systems.</li>
+            <li>Projects: featured work, case studies, and deployed demos.</li>
+            <li>Skills: SQL, Python, Power BI, AI, ML, cloud, and full stack development.</li>
+            <li>Trust: GitHub, LinkedIn, resume, publication, and certificate links throughout the site.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

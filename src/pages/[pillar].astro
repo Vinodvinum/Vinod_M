@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PillarPage from '../components/seo/PillarPage.astro';
+import { getPillarPage, pillarPages } from '../data/seo';
+
+export function getStaticPaths() {
+  return pillarPages.map((pillar) => ({
+    params: { pillar: pillar.slug },
+    props: { pillar },
+  }));
+}
+
+const { pillar } = Astro.props as { pillar: NonNullable<ReturnType<typeof getPillarPage>> };
+---
+
+<BaseLayout title={`${pillar.title} | Vinod M`} description={pillar.description} pageType="website">
+  <PillarPage pillar={pillar} />
+</BaseLayout>

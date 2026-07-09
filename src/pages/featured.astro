@@ -1,8 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildProjectSchema } from '../utils/seo';
+
+const projectSchemas = [
+  buildProjectSchema({
+    name: 'Financial Analytics Dashboard',
+    description: 'An interactive Streamlit dashboard that provides real-time financial insights to stakeholders.',
+    url: 'https://aifinancialdashboard.streamlit.app/',
+    sameAs: ['https://github.com/Vinodvinum/Financial_dashboard'],
+  }),
+  buildProjectSchema({
+    name: 'Visionverse Analytics Dashboard',
+    description: 'A centralized KPI dashboard for computer vision research experiments and model tracking.',
+    url: 'https://visonversedashboard.streamlit.app/',
+    sameAs: ['https://github.com/Vinodvinum/visonverse_dashboard'],
+  }),
+  buildProjectSchema({
+    name: 'GRS Analytics Dashboard',
+    description: 'A public-facing operational KPI dashboard enabling real-time stakeholder visibility.',
+    url: 'https://grsdashboard.streamlit.app/',
+    sameAs: ['https://github.com/Vinodvinum/GRS_Dashboard'],
+  }),
+];
 ---
 
-<BaseLayout title="Featured Projects - Vinod M - Data Analyst" description="In-depth case studies of my most impactful analytics and business intelligence projects.">
+<BaseLayout title="Featured Projects | Vinod M" description="In-depth case studies of Vinod M's most impactful analytics, BI, AI, and automation projects." extraSchemas={projectSchemas}>
   <section class="min-h-screen pt-40 pb-20 px-6 relative z-10">
     <div class="max-w-6xl mx-auto">
       <!-- Header -->

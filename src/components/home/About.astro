@@ -1,5 +1,6 @@
 ---
 import { completedProjects, ongoingProjects } from '../../data/projects';
+import { socialLinks } from '../../data/social-links';
 
 const totalProjects = completedProjects.length + ongoingProjects.length;
 ---
@@ -19,10 +20,10 @@ const totalProjects = completedProjects.length + ongoingProjects.length;
         <div class="glass rounded-3xl p-8 md:p-12 shadow-2xl shadow-black/20 border-white/10 max-w-md mx-auto md:ml-auto">
           <div class="text-center mb-8">
             <div class="w-28 h-28 mx-auto mb-6 glass rounded-3xl p-5 shadow-2xl border-4 border-white/20">
-              <img src="/images/profile.jpg" alt="Vinod M" class="w-full h-full rounded-2xl object-cover" />
+              <img src="/images/profile.jpg" alt="Vinod M, also known as Vinu, from Mysuru, Karnataka" class="w-full h-full rounded-2xl object-cover" />
             </div>
             <h3 class="text-3xl font-bold gradient-text mb-2">Vinod M</h3>
-            <p class="text-xl text-white/80">Data Analyst</p>
+            <p class="text-xl text-white/80">AI, Data Analytics & Software Engineering</p>
           </div>
           
           <!-- Stats -->
@@ -46,11 +47,11 @@ const totalProjects = completedProjects.length + ongoingProjects.length;
       <!-- Right: Bio -->
       <div class="order-1 md:order-2 space-y-6 max-w-xl">
         <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
-          I am a <span class="gradient-text font-semibold">Data Analyst</span> focused on transforming raw data into actionable business insights.
+          I am <span class="gradient-text font-semibold">Vinod M</span>, also known as <span class="gradient-text font-semibold">Vinu</span>, a technology professional from Mysuru, Karnataka (often searched as Mysore) focused on transforming ideas into practical AI and analytics systems.
         </p>
 
         <p class="text-lg md:text-xl text-white/80 leading-relaxed">
-          I completed my MCA and have hands-on experience building ETL pipelines, designing KPI dashboards, and creating analytics solutions using Python, SQL, and BI tools.
+          I completed my MCA and have hands-on experience building ETL pipelines, designing KPI dashboards, creating analytics solutions using Python, SQL, and BI tools, and shipping software projects that people can actually use.
         </p>
 
         <div class="glass p-6 rounded-2xl border border-blue-300/30 bg-blue-500/10">
@@ -84,8 +85,14 @@ const totalProjects = completedProjects.length + ongoingProjects.length;
           </p>
         </div>
 
+        <div class="glass p-6 rounded-2xl border border-white/10">
+          <p class="text-base md:text-lg text-white/80 leading-relaxed font-medium">
+            External profiles: <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" class="text-cyan-200 hover:text-white underline underline-offset-4">GitHub</a>, <a href={socialLinks.githubReadme} target="_blank" rel="noopener noreferrer" class="text-cyan-200 hover:text-white underline underline-offset-4">Profile README</a>, and <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" class="text-cyan-200 hover:text-white underline underline-offset-4">LinkedIn</a>.
+          </p>
+        </div>
+
         <p class="text-lg md:text-xl text-white/80 leading-relaxed">
-          I am open to <strong>Data Analyst / Business Intelligence</strong> roles where I can deliver dashboards, analytics, and measurable business impact.
+          I am open to <strong>AI, Data Analytics, Business Intelligence, Software Engineering, and Consulting</strong> roles where I can deliver measurable business impact.
         </p>
       </div>
     </div>

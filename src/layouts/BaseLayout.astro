@@ -4,48 +4,90 @@ import Navbar from '../components/common/Navbar.astro';
 import Footer from '../components/common/Footer.astro';
 import { navItems } from '../data/nav';
 import { socialLinks } from '../data/social-links';
+import { routeLabels } from '../data/seo';
+import { absoluteUrl, buildBreadcrumbSchema, buildOrganizationSchema, buildPersonSchema, buildWebsiteSchema, schemaToJson, siteConfig } from '../utils/seo';
 import '../styles/global.css';
 import '../styles/animations.css';
 
-const { title = "Vinod M - Data Analyst | Business Insights & Dashboards", description = "Data Analyst focused on SQL, Python, and BI dashboards to drive business decisions." } = Astro.props;
-const siteUrl = 'https://www.vinod-ai.me/';
-const ogImage = '/images/profile.jpg';
+const {
+  title = 'Vinod M | AI, Data Analytics, and Software Engineering',
+  description = 'Vinod M, also known as Vinu, is a technology professional from Mysuru, Karnataka building AI, analytics, automation, and software projects.',
+  canonical,
+  ogImage = '/images/profile.jpg',
+  pageType = 'website',
+  extraSchemas = [],
+} = Astro.props;
+
+const pathname = Astro.url.pathname || '/';
+const siteUrl = canonical ?? absoluteUrl(pathname);
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
+const keywordSet = [...siteConfig.commonNames, 'Mysuru', 'AI', 'Machine Learning', 'Data Analytics', 'Power BI', 'SQL', 'Python', 'Generative AI'];
+const segments = pathname.split('/').filter(Boolean);
+const breadcrumbs = segments.length === 0
+  ? []
+  : [
+      { name: 'Home', item: absoluteUrl('/') },
+      ...segments.map((segment, index) => {
+        const currentPath = `/${segments.slice(0, index + 1).join('/')}`;
+        return {
+          name: routeLabels[currentPath] ?? decodeURIComponent(segment).replace(/-/g, ' '),
+          item: absoluteUrl(currentPath),
+        };
+      }),
+    ];
+
+const baseSchemas = [
+  buildWebsiteSchema(title, description, pathname),
+  buildPersonSchema(description, pathname),
+  buildOrganizationSchema(description, pathname),
+  ...(breadcrumbs.length > 1 ? [buildBreadcrumbSchema(breadcrumbs)] : []),
+  ...extraSchemas,
+];
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="Data Analyst, SQL, Power BI, Streamlit, Dashboards, KPI, Python, Business Intelligence, Analytics, Vinod M" />
-    <meta name="robots" content="index, follow" />
+    <meta name="author" content={siteConfig.name} />
+    <meta name="keywords" content={keywordSet.join(', ')} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={siteUrl} />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#020617" />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={pageType} />
     <meta property="og:url" content={siteUrl} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="Vinod M Portfolio" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Vinod M" />
+    <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageUrl} />
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpg+xml" href="/images/profile.jpg" />
+    <link rel="apple-touch-icon" href="/images/profile.jpg" />
     
     <!-- Global Script -->
     <script src="/scripts/global.js" is:inline></script>
     
     <ClientRouter />
+
+    {baseSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={schemaToJson(schema)} />
+    ))}
   </head>
-  <body class="relative">
+  <body class="relative min-h-screen">
     <!-- Particles Container -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
     

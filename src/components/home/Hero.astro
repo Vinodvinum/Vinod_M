@@ -1,7 +1,7 @@
 ---
 const NAME = 'Vinod M';
-const TITLE = 'Data Analyst | Turning Data into Business Insights';
-const ONE_LINER = 'Building data-driven solutions that help businesses make smarter decisions.';
+const TITLE = 'AI, Analytics & Software Builder';
+const ONE_LINER = 'Building practical AI, analytics, and software systems that help businesses make smarter decisions.';
 ---
 
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 pb-16 relative z-10 overflow-hidden">
@@ -25,11 +25,12 @@ const ONE_LINER = 'Building data-driven solutions that help businesses make smar
           {ONE_LINER}
         </p>
         <p class="text-base md:text-lg text-white/80 max-w-xl leading-relaxed">
-          I am a Data Analyst experienced in building ETL pipelines, KPI dashboards, and analytics solutions using Python, SQL, and BI tools.
-          I turn raw data into actionable insights that support business decisions.
+          I am a technology professional from Mysuru, Karnataka, also known as Vinu, with hands-on experience across AI, machine learning, data analytics, software engineering, and automation.
+          You may also see my location written as Mysore or Hootgalli in some contexts.
+          I turn raw data and product ideas into actionable systems that support business decisions.
         </p>
         <p class="text-base md:text-lg text-white/75 max-w-xl leading-relaxed">
-          I focus on measurable business impact — tracking KPIs, creating visual dashboards, and delivering insights stakeholders can act on.
+          I focus on measurable business impact — dashboards, workflows, cloud deployments, and AI features that stakeholders can act on.
         </p>
       </div>
 
@@ -37,6 +38,12 @@ const ONE_LINER = 'Building data-driven solutions that help businesses make smar
       <div class="flex flex-wrap gap-4">
         <a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">
           View Projects
+        </a>
+        <a href="/expertise" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
+          Expertise Hub
+        </a>
+        <a href="/blog" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
+          Blog Architecture
         </a>
         <a href="/resume/Vinod_M_Premium_Resume.pdf" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
           Premium Resume
@@ -77,13 +84,16 @@ const ONE_LINER = 'Building data-driven solutions that help businesses make smar
           </div>
           <img
             src="/images/profile.jpg"
-            alt={NAME}
+            alt="Vinod M, also known as Vinu, AI and analytics professional from Mysuru"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
             class="relative z-10 w-full h-full object-cover mix-blend-screen"
           />
           <div class="absolute bottom-4 left-4 right-4 z-20 glass rounded-2xl px-4 py-3 flex items-center justify-between gap-3 text-xs md:text-sm">
             <div>
               <p class="text-white/70">Current Focus</p>
-              <p class="text-white font-semibold">Data Analytics • Business Intelligence • SQL</p>
+              <p class="text-white font-semibold">AI • Data Analytics • Software Engineering • Automation</p>
             </div>
             <span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">
               Open to Opportunities
@@ -106,11 +116,16 @@ const ONE_LINER = 'Building data-driven solutions that help businesses make smar
   }
 
   // Typewriter Effect
-  const phrases = ['Data Analyst', 'SQL • Python • Power BI', 'KPI Dashboards & Business Insights', 'Data Visualization', 'Business Intelligence Engineer', 'Founding Member, Medhaksha Technology'];
+  const phrases = ['AI & Analytics Builder', 'SQL • Python • Power BI', 'Generative AI • LLMs • Agents', 'Data Engineering • Automation', 'Software Engineering • Cloud', 'Founding Member, Medhaksha Technology'];
   let i = 0, j = 0, forward = true;
   function typeWriter() {
     const el = document.getElementById('typewriter');
     if (!el) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = phrases[0];
+      return;
+    }
 
     if (forward) {
       el.textContent = phrases[i].slice(0, j);
@@ -145,7 +160,9 @@ const ONE_LINER = 'Building data-driven solutions that help businesses make smar
       setTimeout(() => particle.remove(), 20000);
     }
   }
-  setInterval(createParticle, 300);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(createParticle, 450);
+  }
 
   // Smooth Scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

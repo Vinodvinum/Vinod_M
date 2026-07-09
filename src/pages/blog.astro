@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { blogArchitecture } from '../data/seo';
+import { buildBlogPostingSchema } from '../utils/seo';
+
+const pageDescription = 'SEO content architecture for Vinod M, including pillar pages, supporting topics, and over 100 long-tail article ideas across AI, analytics, BI, software engineering, cloud, and automation.';
+const schema = buildBlogPostingSchema({
+  title: 'SEO Content Architecture for Vinod M',
+  description: pageDescription,
+  pathname: '/blog',
+  articleSection: 'Content Strategy',
+  keywords: ['SEO', 'content architecture', 'AI', 'analytics', 'Power BI', 'software engineering', 'automation'],
+});
+---
+
+<BaseLayout title="Blog Architecture | Vinod M" description={pageDescription} pageType="article" extraSchemas={[schema]}>
+  <section class="min-h-screen pt-32 pb-20 px-6 relative z-10">
+    <div class="max-w-7xl mx-auto">
+      <header class="max-w-4xl mx-auto text-center mb-16">
+        <p class="text-sm md:text-base tracking-[0.28em] uppercase text-cyan-200/80">Blog Architecture</p>
+        <h1 class="mt-4 text-4xl md:text-6xl font-black gradient-text leading-tight">100+ SEO article ideas for Vinod M</h1>
+        <p class="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">This page gives Google a clean content map: one main brand, six topical pillars, and 108 article ideas that support topical authority without keyword stuffing.</p>
+      </header>
+
+      <div class="grid gap-8">
+        {blogArchitecture.map(({ pillar, ideas }) => (
+          <article class="glass rounded-[2rem] p-8 border-white/10">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+              <div>
+                <p class="text-xs uppercase tracking-[0.26em] text-white/50 mb-2">Pillar Page</p>
+                <h2 class="text-3xl md:text-4xl font-black gradient-text">{pillar.title}</h2>
+                <p class="text-white/70 mt-2 max-w-3xl">{pillar.subtitle}</p>
+              </div>
+              <a href={`/${pillar.slug}`} class="glass px-5 py-3 rounded-2xl font-semibold text-white/90 border border-white/20 hover:scale-105 transition-all duration-300 text-center">Open pillar page</a>
+            </div>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-3">
+              {ideas.map((idea) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-white/80 leading-relaxed">{idea}</div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6 mt-16">
+        <article class="glass rounded-[2rem] p-8 border-white/10">
+          <h2 class="text-3xl font-black gradient-text mb-4">Blog structure</h2>
+          <ul class="space-y-3 text-white/80 leading-relaxed">
+            <li>1. One pillar page per major topic cluster.</li>
+            <li>2. Supporting posts that answer specific search intents and link back to the pillar.</li>
+            <li>3. Case studies and proof pages that show experience, not just claims.</li>
+            <li>4. FAQ and comparison content to capture lower-funnel search intent.</li>
+          </ul>
+        </article>
+
+        <article class="glass rounded-[2rem] p-8 border-white/10">
+          <h2 class="text-3xl font-black gradient-text mb-4">E-E-A-T signals</h2>
+          <ul class="space-y-3 text-white/80 leading-relaxed">
+            <li>Experience: live projects, deployment links, and practical outcomes.</li>
+            <li>Expertise: topical pages for AI, ML, BI, SQL, Python, and cloud.</li>
+            <li>Authoritativeness: publication, certificate, GitHub, and LinkedIn.</li>
+            <li>Trust: canonical URLs, sitemap, robots, and structured data.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

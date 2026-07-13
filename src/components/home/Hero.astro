@@ -1,7 +1,7 @@
 ---
 const NAME = 'Vinod M';
-const TITLE = 'AI, Analytics & Software Builder';
-const ONE_LINER = 'Building practical AI, analytics, and software systems that help businesses make smarter decisions.';
+const TITLE = 'Data Analyst, BI Developer, and AI Engineer';
+const ONE_LINER = 'I build data products, dashboards, and AI tools that help teams make faster, clearer decisions.';
 ---
 
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 pb-16 relative z-10 overflow-hidden">
@@ -11,21 +11,13 @@ const ONE_LINER = 'Building practical AI, analytics, and software systems that h
     <!-- Text -->
     <div class="space-y-8">
       <div class="space-y-4">
-        <p class="text-sm tracking-[0.3em] text-purple-300/80 uppercase">Data Analytics • SQL • BI</p>
-        <a href="https://medhakshatech.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-300/40 bg-emerald-500/10 text-emerald-200 text-xs md:text-sm font-semibold hover:text-white hover:bg-emerald-400/20 transition-all duration-300">
-          Founding Member, Medhaksha Technology
-        </a>
+        <p class="text-sm tracking-[0.3em] text-purple-300/80 uppercase">Data Analytics • BI • AI</p>
         <h1 class="text-4xl md:text-3xl font-extrabold leading-tight">
-          <span class="block text-white/80 text-5xl">Hi, I’m {NAME} 👋</span>
-          <span class="block gradient-text mt-2">
-            <span id="typewriter" class="overflow-hidden border-r-4 border-purple-500 pr-4" style="width: 0; white-space: nowrap;">Data Analyst</span>
-          </span>
+          <span class="block text-white/80 text-5xl">Hi, I’m {NAME}.</span>
+          <span class="block gradient-text mt-2">{TITLE}</span>
         </h1>
         <p class="text-lg md:text-xl text-purple-100/90 font-medium">
           {ONE_LINER}
-        </p>
-        <p class="text-base md:text-lg text-white/80 max-w-xl leading-relaxed">
-          I’m Vinod M, also known as Vinu, from Mysuru, Karnataka. I build practical AI, analytics, and software systems that help businesses make better decisions.
         </p>
       </div>
 
@@ -34,17 +26,8 @@ const ONE_LINER = 'Building practical AI, analytics, and software systems that h
         <a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">
           View Projects
         </a>
-        <a href="/expertise" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
-          Expertise Hub
-        </a>
-        <a href="/resume/Vinod_M_Premium_Resume.pdf" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
-          Premium Resume
-        </a>
-        <a href="/resume/Vinod_M_ATS_Resume.pdf" class="glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white/90 hover:text-white hover:scale-105 border border-white/30 transition-all duration-300">
-          ATS Resume
-        </a>
         <a href="#contact" class="px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-purple-200 hover:text-white hover:bg-white/10 border border-purple-400/60 hover:border-purple-300 transition-all duration-300">
-          Contact Me
+          Contact
         </a>
       </div>
 
@@ -72,7 +55,7 @@ const ONE_LINER = 'Building practical AI, analytics, and software systems that h
         <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-purple-900/60 to-slate-900 border border-white/15">
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.4)_0%,transparent_55%)]"></div>
           <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold text-cyan-100 border border-cyan-300/30 bg-cyan-400/10">
-            KPI Dashboards & BI
+            Analytics • AI • Automation
           </div>
           <img
             src="/images/profile.jpg"
@@ -85,7 +68,7 @@ const ONE_LINER = 'Building practical AI, analytics, and software systems that h
           <div class="absolute bottom-4 left-4 right-4 z-20 glass rounded-2xl px-4 py-3 flex items-center justify-between gap-3 text-xs md:text-sm">
             <div>
               <p class="text-white/70">Current Focus</p>
-              <p class="text-white font-semibold">AI • Data Analytics • Software Engineering • Automation</p>
+              <p class="text-white font-semibold">Data analysis, BI dashboards, and AI-enabled workflows</p>
             </div>
             <span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">
               Open to Opportunities
@@ -106,37 +89,6 @@ const ONE_LINER = 'Building practical AI, analytics, and software systems that h
       mobileMenuItems.classList.toggle('hidden');
     });
   }
-
-  // Typewriter Effect
-  const phrases = ['AI & Analytics Builder', 'SQL • Python • Power BI', 'Generative AI • LLMs • Agents', 'Data Engineering • Automation', 'Software Engineering • Cloud', 'Founding Member, Medhaksha Technology'];
-  let i = 0, j = 0, forward = true;
-  function typeWriter() {
-    const el = document.getElementById('typewriter');
-    if (!el) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.textContent = phrases[0];
-      return;
-    }
-
-    if (forward) {
-      el.textContent = phrases[i].slice(0, j);
-      j++;
-      if (j > phrases[i].length) {
-        forward = false;
-        setTimeout(typeWriter, 1000);
-      } else setTimeout(typeWriter, 100);
-    } else {
-      el.textContent = phrases[i].slice(0, j);
-      j--;
-      if (j < 0) {
-        forward = true;
-        i = (i + 1) % phrases.length;
-        setTimeout(typeWriter, 500);
-      } else setTimeout(typeWriter, 50);
-    }
-  }
-  typeWriter();
 
   // Particles
   function createParticle() {

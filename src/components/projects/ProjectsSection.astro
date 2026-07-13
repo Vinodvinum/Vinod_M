@@ -5,23 +5,23 @@ import type { ProjectCategory } from '../../data/projects';
 const categorySections: Array<{ id: ProjectCategory; description: string }> = [
   {
     id: 'Analytics & Dashboards',
-    description: 'Data and KPI-focused products, dashboards, and reporting apps.'
+    description: 'Dashboards and reporting tools built to help teams understand performance.'
   },
   {
     id: 'Websites & Platforms',
-    description: 'Full websites and deployed product platforms.'
+    description: 'Live sites and product platforms that people can actually use.'
   },
   {
     id: 'AI Automation & Chatbots',
-    description: 'Conversational and workflow automation projects.'
+    description: 'Automation projects that reduce manual work and connect systems.'
   },
   {
     id: 'Utilities & Media',
-    description: 'Utility-focused tools and media-oriented projects.'
+    description: 'Smaller tools built to solve specific problems quickly.'
   },
   {
     id: 'Computer Vision',
-    description: 'Vision and detection systems built with ML pipelines.'
+    description: 'Computer vision work focused on detection, tracking, and applied ML.'
   }
 ];
 
@@ -35,7 +35,7 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
     <div class="text-center mb-14 md:mb-24">
       <h2 class="text-4xl md:text-6xl font-black gradient-text mb-5 md:mb-6">Projects</h2>
       <p class="text-base md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed px-2">
-        Live deployments, source code, and ongoing work
+        Selected work that shows what I build and how I think
       </p>
       <div class="w-20 md:w-24 h-1 mx-auto mt-6 md:mt-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
     </div>
@@ -121,12 +121,12 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-7">
                   {project.liveUrl && (
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="gradient-border glass px-4 py-3 rounded-2xl font-semibold text-sm hover:scale-105 transition-all duration-300 text-center">
-                      Live Demo
+                      Live
                     </a>
                   )}
                   {project.githubUrl && (
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="glass px-4 py-3 rounded-2xl font-semibold text-sm text-white/90 hover:text-white hover:bg-white/10 border border-white/30 hover:scale-105 transition-all duration-300 text-center">
-                      GitHub
+                      Source
                     </a>
                   )}
                   {project.publicationUrl && (

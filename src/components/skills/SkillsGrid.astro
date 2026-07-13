@@ -1,50 +1,48 @@
 ---
 const skillsData = [
   {
-    category: 'Data & Analytics',
+    category: 'Analytics Foundations',
     items: [
-      'SQL (Analytics & Reporting)',
-      'Python for Data (Pandas, NumPy)',
-      'Data Cleaning & ETL'
+      'Build reporting-ready SQL queries',
+      'Clean, transform, and validate data in Python',
+      'Move data through simple ETL pipelines'
     ],
     icon: '📊',
     color: 'from-emerald-500 to-teal-500',
-    proof: ['SQL', 'Pandas', 'ETL']
+    proof: ['SQL', 'Python', 'ETL']
   },
   {
-    category: 'Business Intelligence & Dashboards',
+    category: 'BI & Dashboarding',
     items: [
-      'Power BI / Streamlit Dashboards',
-      'KPI Design & Visualization',
-      'Dashboard Storytelling'
+      'Design Power BI and Streamlit dashboards',
+      'Define KPIs that are easy to read',
+      'Present data in a way stakeholders can act on'
     ],
     icon: '📈',
     color: 'from-cyan-500 to-sky-500',
-    proof: ['Power BI', 'Streamlit', 'KPI Dashboards']
+    proof: ['Power BI', 'Streamlit', 'KPI design']
   },
   {
-    category: 'Programming & Tools',
+    category: 'Programming & Delivery',
     items: [
-      'Python',
-      'SQL',
-      'Git & GitHub',
-      'Streamlit',
-      'REST APIs'
+      'Write Python for data and automation',
+      'Work with Git, GitHub, and REST APIs',
+      'Ship small, usable apps with Streamlit and web tools'
     ],
     icon: '⚙️',
     color: 'from-orange-500 to-red-500',
-    proof: ['Python', 'SQL', 'Streamlit']
+    proof: ['Python', 'GitHub', 'REST APIs']
   },
   {
-    category: 'AI & Machine Learning (Secondary)',
+    category: 'Applied AI',
     items: [
-      'Basic ML for Analytics',
-      'Feature Engineering',
-      'Model Interpretation'
+      'Build lightweight ML and AI prototypes',
+      'Handle feature prep and model evaluation',
+      'Use AI where it improves the workflow'
     ],
     icon: '🤖',
     color: 'from-purple-500 to-pink-500',
-    proof: ['Scikit-learn', 'Feature Engineering', 'Model Eval']
+    proof: ['ML', 'Feature engineering', 'Model evaluation']
   }
 ];
 ---
@@ -55,7 +53,7 @@ const skillsData = [
     <div class="text-center mb-24">
       <h2 class="text-5xl md:text-6xl font-black gradient-text mb-6">Tech Stack</h2>
       <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-        Data analytics, SQL, and dashboarding tools focused on delivering business insights
+        A practical stack for analysis, dashboards, automation, and product delivery
       </p>
       <div class="w-24 h-1 mx-auto mt-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
     </div>
@@ -80,7 +78,7 @@ const skillsData = [
             
             {/* Practical Proof */}
             <div class="mb-8">
-              <span class="text-white/80 font-semibold block mb-3">Tools Used in Projects</span>
+              <span class="text-white/80 font-semibold block mb-3">How I use this</span>
               <div class="flex flex-wrap gap-2">
                 {skill.proof.map((tool) => (
                   <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/10 border border-white/20 text-white/90">

@@ -1,5 +1,5 @@
 // Site-wide interactions. Kept in one place to avoid duplicate event handlers.
-document.addEventListener('DOMContentLoaded', () => {
+function initSiteInteractions() {
   const mobileBtn = document.getElementById('mobile-menu');
   const mobileMenu = document.getElementById('mobile-menu-items');
 
@@ -12,34 +12,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!mediaQuery.matches) {
+  if (!mediaQuery.matches && !document.getElementById('particles')?.dataset.initialized) {
     const particlesContainer = document.getElementById('particles');
-    let particleTimer = 0;
-
-    function createParticle() {
-      if (!particlesContainer || document.hidden) return;
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 4 + 's';
-      particle.style.animationDuration = (Math.random() * 6 + 8) + 's';
-      particlesContainer.appendChild(particle);
-      window.setTimeout(() => particle.remove(), 12000);
-    }
-
-    particleTimer = window.setInterval(createParticle, 700);
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden && particleTimer) {
-        window.clearInterval(particleTimer);
-        particleTimer = 0;
-      } else if (!document.hidden && !particleTimer) {
-        particleTimer = window.setInterval(createParticle, 700);
+    if (particlesContainer) {
+      particlesContainer.dataset.initialized = 'true';
+      let particleTimer = 0;
+      function createParticle() {
+        if (document.hidden) return;
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 4 + 's';
+        particle.style.animationDuration = (Math.random() * 6 + 8) + 's';
+        particlesContainer.appendChild(particle);
+        window.setTimeout(() => particle.remove(), 12000);
       }
-    });
+      function startParticles() {
+        if (!particleTimer) particleTimer = window.setInterval(createParticle, 700);
+      }
+      function stopParticles() {
+        if (particleTimer) window.clearInterval(particleTimer);
+        particleTimer = 0;
+      }
+      startParticles();
+      document.addEventListener('visibilitychange', () => document.hidden ? stopParticles() : startParticles());
+    }
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    if (anchor.dataset.smoothScrollAttached) return;
+    anchor.dataset.smoothScrollAttached = 'true';
     anchor.addEventListener('click', (event) => {
       const href = anchor.getAttribute('href');
       if (!href || href === '#') return;
@@ -50,4 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', initSiteInteractions);
+document.addEventListener('astro:page-load', initSiteInteractions);

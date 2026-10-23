@@ -35,7 +35,7 @@ export const completedProjects: ProjectCard[] = [
     tags: ['Portfolio', 'Personal Brand', 'Web'],
     monogram: 'VM',
     accent: 'from-fuchsia-400/25 via-pink-400/20 to-rose-500/20',
-    liveUrl: 'https://vinod-m-psi.vercel.app/',
+    liveUrl: 'https://www.vinod-ai.me/',
     githubUrl: 'https://github.com/Vinodvinum/Vinod_M'
   },
   {
@@ -74,7 +74,7 @@ export const completedProjects: ProjectCard[] = [
     tags: ['Web App', 'Community', 'Deployment'],
     monogram: 'KG',
     accent: 'from-amber-400/25 via-orange-400/20 to-red-500/20',
-    liveUrl: 'https://kamadenu-goushalaa.vercel.app/',
+    liveUrl: 'https://kamadenu-goushala.vercel.app/',
     githubUrl: 'https://github.com/Vinodvinum/kamadenu-goushala'
   },
   {
@@ -88,8 +88,7 @@ export const completedProjects: ProjectCard[] = [
     monogram: 'FD',
     accent: 'from-emerald-400/25 via-lime-400/20 to-green-500/20',
     liveUrl: 'https://aifinancialdashboard.streamlit.app/',
-    githubUrl: 'https://github.com/Vinodvinum/Financial_dashboard'
-    ,
+    githubUrl: 'https://github.com/Vinodvinum/Financial_dashboard',
     featured: true
   },
   {
@@ -103,24 +102,22 @@ export const completedProjects: ProjectCard[] = [
     monogram: 'VD',
     accent: 'from-sky-400/25 via-cyan-400/20 to-blue-500/20',
     liveUrl: 'https://visonversedashboard.streamlit.app/',
-    githubUrl: 'https://github.com/Vinodvinum/visonverse_dashboard'
-    ,
+    githubUrl: 'https://github.com/Vinodvinum/visonverse_dashboard',
     featured: true
   },
   {
     section: 'live',
     category: 'Analytics & Dashboards',
-    title: 'GRS Analytics Dashboard',
-    description: 'A public Streamlit dashboard that makes operational KPIs easier for stakeholders to monitor and review quickly.',
+    title: 'GRS Analytics Dashboard (Demo)',
+    description: 'A portfolio demonstration using synthetic sample data to showcase operational KPI cards, trends, filters, and forecasting. It is not connected to GRS production systems.',
     platform: 'Streamlit',
-    status: 'Live',
-    tags: ['Dashboard', 'Streamlit', 'Analytics'],
+    status: 'Demo · Synthetic data',
+    tags: ['Dashboard', 'Streamlit', 'Demo Data'],
     monogram: 'GR',
     accent: 'from-emerald-400/25 via-cyan-400/20 to-blue-500/20',
     liveUrl: 'https://grsdashboard.streamlit.app/',
     githubUrl: 'https://github.com/Vinodvinum/GRS_Dashboard',
-    flagLabel: 'Featured Analytics Project'
-    ,
+    flagLabel: 'Demo · Synthetic data',
     featured: true
   },
   {
@@ -251,11 +248,11 @@ export const ongoingProjects: ProjectCard[] = [
   {
     section: 'live',
     category: 'AI Automation & Chatbots',
-    title: 'MediSense AI - Healthcare Diagnosis Platform',
-    description: 'A healthcare guidance assistant built with NLP that analyzes symptoms, suggests next steps, and includes local support resources.',
+    title: 'MediSense AI - Healthcare Guidance Demo',
+    description: 'A health-information demo built with NLP that explores symptom-related guidance. It is not a substitute for professional medical evaluation.',
     platform: 'Streamlit',
-    status: 'Live',
-    tags: ['AI', 'NLP', 'Healthcare', 'Chatbot', 'Python', 'spaCy', 'Live'],
+    status: 'Demo',
+    tags: ['AI', 'NLP', 'Healthcare', 'Chatbot', 'Python', 'spaCy', 'Demo'],
     monogram: 'MS',
     accent: 'from-green-500/25 via-emerald-400/20 to-teal-600/20',
     liveUrl: 'https://medisenseaivin.streamlit.app',

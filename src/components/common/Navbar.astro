@@ -19,8 +19,7 @@ import { navItems } from '../../data/nav';
 
     <div class="hidden md:flex items-center space-x-1">
       {navItems.map((item) => (
-        <a href={item.href}
-          class="group relative px-6 py-3 text-lg font-medium text-white/80 hover:text-white transition-all duration-300 hover:scale-105">
+        <a href={item.href} class="group relative px-6 py-3 text-lg font-medium text-white/80 hover:text-white transition-all duration-300 hover:scale-105">
           {item.label}
           <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300 origin-center"></span>
         </a>
@@ -29,8 +28,8 @@ import { navItems } from '../../data/nav';
 
     <button id="mobile-menu" type="button" aria-controls="mobile-menu-items" aria-expanded="false" aria-label="Toggle navigation menu"
       class="md:hidden glass p-4 rounded-2xl hover:scale-110 hover:shadow-purple-500/30 transition-all duration-300 shadow-xl">
-      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h-16"></path>
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </div>
@@ -43,8 +42,7 @@ import { navItems } from '../../data/nav';
 
   <div id="mobile-menu-items" class="md:hidden hidden mt-4 mx-6 glass p-6 rounded-3xl backdrop-blur-xl shadow-2xl shadow-black/30 border-white/20 space-y-4 animate-in slide-in-from-top-4 duration-300">
     {navItems.map((item) => (
-      <a href={item.href}
-        class="block px-6 py-4 text-lg font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-2xl transition-all duration-300 border-l-4 border-transparent hover:border-purple-400">
+      <a href={item.href} class="block px-6 py-4 text-lg font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-2xl transition-all duration-300 border-l-4 border-transparent hover:border-purple-400">
         {item.label}
       </a>
     ))}

@@ -28,100 +28,139 @@
     if (!splash) return;
     const body = document.body;
     body.classList.add('welcome-lock');
-    function removeSplash() {
+    const removeSplash = () => {
       body.classList.remove('welcome-lock');
       splash.remove();
-    }
-    // The splash is decorative. Never let a CDN, WebGL, or animation failure block the page.
+    };
+    // Decorative only: unsupported browsers and reduced-motion users skip the animation.
     if (!window.THREE || !window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       removeSplash();
       return;
     }
+
     const gsap = window.gsap;
     let renderer;
     try {
-      renderer = new window.THREE.WebGLRenderer({ canvas: document.getElementById('welcome-three-canvas'), antialias: false, alpha: true });
+      renderer = new window.THREE.WebGLRenderer({
+        canvas: document.getElementById('welcome-three-canvas'),
+        antialias: false,
+        alpha: true
+      });
     } catch (error) {
       console.warn('Intro animation unavailable; continuing to the portfolio.', error);
       removeSplash();
       return;
     }
-    const starCount = 1200;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000508, 1);
-    const scene = new window.THREE.Scene();
-    const camera = new window.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-    camera.position.z = 600;
-    const geo = new window.THREE.BufferGeometry();
-    const positions = new Float32Array(starCount * 3);
-    const colors = new Float32Array(starCount * 3);
-    const palette = [[0.78,0.85,1.0],[1.0,0.95,0.75],[0.6,0.85,1.0],[0.9,0.75,1.0],[1.0,1.0,1.0]];
-    for (let i=0; i<starCount; i+=1) {
-      const i3=i*3;
-      positions[i3]=(Math.random()-0.5)*1800;
-      positions[i3+1]=(Math.random()-0.5)*1800;
-      positions[i3+2]=(Math.random()-0.5)*1200-200;
-      const color=palette[Math.floor(Math.random()*palette.length)];
-      colors[i3]=color[0]; colors[i3+1]=color[1]; colors[i3+2]=color[2];
+
+    try {
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor(0x000508, 1);
+      const scene = new window.THREE.Scene();
+      const camera = new window.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+      camera.position.z = 600;
+
+      const starCount = 1200;
+      const geo = new window.THREE.BufferGeometry();
+      const positions = new Float32Array(starCount * 3);
+      const colors = new Float32Array(starCount * 3);
+      const palette = [[0.78,0.85,1],[1,0.95,0.75],[0.6,0.85,1],[0.9,0.75,1],[1,1,1]];
+      for (let i = 0; i < starCount; i += 1) {
+        const i3 = i * 3;
+        positions[i3] = (Math.random() - 0.5) * 1800;
+        positions[i3 + 1] = (Math.random() - 0.5) * 1800;
+        positions[i3 + 2] = (Math.random() - 0.5) * 1200 - 200;
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        colors[i3] = color[0]; colors[i3 + 1] = color[1]; colors[i3 + 2] = color[2];
+      }
+      geo.setAttribute('position', new window.THREE.BufferAttribute(positions, 3));
+      geo.setAttribute('color', new window.THREE.BufferAttribute(colors, 3));
+
+      const starCanvas = document.createElement('canvas');
+      starCanvas.width = 64; starCanvas.height = 64;
+      const ctx = starCanvas.getContext('2d');
+      if (!ctx) {
+        geo.dispose();
+        renderer.dispose();
+        removeSplash();
+        return;
+      }
+      const gradient = ctx.createRadialGradient(32,32,0,32,32,32);
+      gradient.addColorStop(0,'rgba(255,255,255,1)');
+      gradient.addColorStop(0.2,'rgba(255,255,255,0.8)');
+      gradient.addColorStop(0.5,'rgba(200,220,255,0.3)');
+      gradient.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0,0,64,64);
+
+      const starTexture = new window.THREE.CanvasTexture(starCanvas);
+      const starMaterial = new window.THREE.PointsMaterial({
+        size: 2.5, sizeAttenuation: true, vertexColors: true, map: starTexture,
+        transparent: true, opacity: 0, depthWrite: false, blending: window.THREE.AdditiveBlending
+      });
+      scene.add(new window.THREE.Points(geo, starMaterial));
+
+      let rafId = 0;
+      let exited = false;
+      function animate() {
+        if (!document.hidden && splash.isConnected) {
+          rafId = window.requestAnimationFrame(animate);
+          renderer.render(scene, camera);
+        }
+      }
+      function onResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      function cleanup() {
+        window.cancelAnimationFrame(rafId);
+        window.removeEventListener('resize', onResize);
+        geo.dispose(); starTexture.dispose(); starMaterial.dispose(); renderer.dispose();
+      }
+      function exitSplash() {
+        if (exited) return;
+        exited = true;
+        gsap.to('#welcome-overlay', { opacity: 0, duration: 0.7, ease: 'power2.inOut' });
+        gsap.to('#welcome-mandala', { opacity: 0, duration: 0.5 });
+        gsap.to('#welcome-progress-bar', { opacity: 0, duration: 0.3 });
+        gsap.to('#welcome-skip-btn', { opacity: 0, duration: 0.3 });
+        gsap.to(starMaterial, { opacity: 0.12, duration: 1.2, ease: 'power2.inOut' });
+        gsap.to('#welcome-splash', {
+          opacity: 0, duration: 0.8, delay: 0.35, ease: 'power2.inOut',
+          onComplete: () => { cleanup(); removeSplash(); }
+        });
+      }
+
+      window.addEventListener('resize', onResize);
+      animate();
+      const timeline = gsap.timeline({ onComplete: exitSplash });
+      timeline.to(starMaterial, { opacity: 0.9, duration: 1.2, ease: 'power1.inOut' }, 0);
+      timeline.to('#welcome-progress-bar', { opacity: 1, duration: 0.4 }, 0.2);
+      timeline.to('#welcome-progress-fill', { width: '100%', duration: 4.2, ease: 'none' }, 0.2);
+      timeline.to('#welcome-mandala', { opacity: 1, duration: 1.2, ease: 'power2.inOut' }, 0.8);
+      timeline.to('#welcome-cosmic-form', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, 1.2);
+      timeline.to('.welcome-aura-ring', { scale: 1, duration: 0.8, stagger: 0.2, ease: 'back.out(1.4)', transformOrigin: 'center center' }, 1.5);
+      timeline.to('#welcome-sanskrit', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 2.3);
+      timeline.to('#welcome-name', { opacity: 1, duration: 0.6, ease: 'power3.out' }, 2.65);
+      timeline.to('#welcome-divider', { opacity: 1, width: 260, duration: 0.5, ease: 'power2.inOut' }, 2.9);
+      timeline.to('#welcome-role', { opacity: 1, duration: 0.45, ease: 'power2.out' }, 3.15);
+      timeline.to('#welcome-tagline', { opacity: 1, duration: 0.4, ease: 'power2.out' }, 3.45);
+      timeline.to('#welcome-skip-btn', { opacity: 1, duration: 0.4 }, 0.6);
+      timeline.to({}, { duration: 1.3 });
+      gsap.set('#welcome-cosmic-form', { y: 30 });
+      gsap.set('#welcome-sanskrit', { y: 8 });
+      gsap.set('.welcome-aura-ring', { scale: 0, transformOrigin: 'center center' });
+      document.getElementById('welcome-skip-btn')?.addEventListener('click', () => {
+        timeline.kill();
+        exitSplash();
+      }, { once: true });
+    } catch (error) {
+      console.warn('Intro animation failed; continuing to the portfolio.', error);
+      body.classList.remove('welcome-lock');
+      splash.remove();
+      try { renderer.dispose(); } catch {}
     }
-    geo.setAttribute('position',new window.THREE.BufferAttribute(positions,3));
-    geo.setAttribute('color',new window.THREE.BufferAttribute(colors,3));
-    const starCanvas=document.createElement('canvas');
-    starCanvas.width=64; starCanvas.height=64;
-    const ctx=starCanvas.getContext('2d');
-    if (!ctx) { renderer.dispose(); removeSplash(); return; }
-    const gradient=ctx.createRadialGradient(32,32,0,32,32,32);
-    gradient.addColorStop(0,'rgba(255,255,255,1)');
-    gradient.addColorStop(0.2,'rgba(255,255,255,0.8)');
-    gradient.addColorStop(0.5,'rgba(200,220,255,0.3)');
-    gradient.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=gradient; ctx.fillRect(0,0,64,64);
-    const starTexture=new window.THREE.CanvasTexture(starCanvas);
-    const starMaterial=new window.THREE.PointsMaterial({size:2.5,sizeAttenuation:true,vertexColors:true,map:starTexture,transparent:true,opacity:0,depthWrite:false,blending:window.THREE.AdditiveBlending});
-    scene.add(new window.THREE.Points(geo,starMaterial));
-    let rafId=0;
-    function animate() {
-      if (document.hidden || !splash.isConnected) return;
-      rafId=window.requestAnimationFrame(animate);
-      renderer.render(scene,camera);
-    }
-    animate();
-    function onResize() { camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth,window.innerHeight); }
-    window.addEventListener('resize',onResize);
-    let exited=false;
-    function cleanup() {
-      window.cancelAnimationFrame(rafId); window.removeEventListener('resize',onResize);
-      geo.dispose(); starTexture.dispose(); starMaterial.dispose(); renderer.dispose();
-    }
-    function exitSplash() {
-      if (exited) return;
-      exited=true;
-      gsap.to('#welcome-overlay',{opacity:0,duration:0.7,ease:'power2.inOut'});
-      gsap.to('#welcome-mandala',{opacity:0,duration:0.5});
-      gsap.to('#welcome-progress-bar',{opacity:0,duration:0.3});
-      gsap.to('#welcome-skip-btn',{opacity:0,duration:0.3});
-      gsap.to(starMaterial,{opacity:0.12,duration:1.2,ease:'power2.inOut'});
-      gsap.to('#welcome-splash',{opacity:0,duration:0.8,delay:0.35,ease:'power2.inOut',onComplete:()=>{cleanup();removeSplash();}});
-    }
-    const timeline=gsap.timeline({onComplete:exitSplash});
-    timeline.to(starMaterial,{opacity:0.9,duration:1.2,ease:'power1.inOut'},0);
-    timeline.to('#welcome-progress-bar',{opacity:1,duration:0.4},0.2);
-    timeline.to('#welcome-progress-fill',{width:'100%',duration:4.2,ease:'none'},0.2);
-    timeline.to('#welcome-mandala',{opacity:1,duration:1.2,ease:'power2.inOut'},0.8);
-    timeline.to('#welcome-cosmic-form',{opacity:1,y:0,duration:1.0,ease:'power3.out'},1.2);
-    timeline.to('.welcome-aura-ring',{scale:1,duration:0.8,stagger:0.2,ease:'back.out(1.4)',transformOrigin:'center center'},1.5);
-    timeline.to('#welcome-sanskrit',{opacity:1,y:0,duration:0.5,ease:'power2.out'},2.3);
-    timeline.to('#welcome-name',{opacity:1,duration:0.6,ease:'power3.out'},2.65);
-    timeline.to('#welcome-divider',{opacity:1,width:260,duration:0.5,ease:'power2.inOut'},2.9);
-    timeline.to('#welcome-role',{opacity:1,duration:0.45,ease:'power2.out'},3.15);
-    timeline.to('#welcome-tagline',{opacity:1,duration:0.4,ease:'power2.out'},3.45);
-    timeline.to('#welcome-skip-btn',{opacity:1,duration:0.4},0.6);
-    timeline.to({},{duration:1.3});
-    gsap.set('#welcome-cosmic-form',{y:30});
-    gsap.set('#welcome-sanskrit',{y:8});
-    gsap.set('.welcome-aura-ring',{scale:0,transformOrigin:'center center'});
-    document.getElementById('welcome-skip-btn')?.addEventListener('click',()=>{timeline.kill();exitSplash();},{once:true});
   })();
 </script>
 

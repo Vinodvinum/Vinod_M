@@ -23,19 +23,13 @@ const siteUrl = canonical ?? absoluteUrl(pathname);
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
 const keywordSet = [...siteConfig.commonNames, 'Mysuru', 'AI', 'Machine Learning', 'Data Analytics', 'Power BI', 'SQL', 'Python', 'Generative AI'];
 const segments = pathname.split('/').filter(Boolean);
-const breadcrumbs = segments.length === 0
-  ? []
-  : [
-      { name: 'Home', item: absoluteUrl('/') },
-      ...segments.map((segment, index) => {
-        const currentPath = `/${segments.slice(0, index + 1).join('/')}`;
-        return {
-          name: routeLabels[currentPath] ?? decodeURIComponent(segment).replace(/-/g, ' '),
-          item: absoluteUrl(currentPath),
-        };
-      }),
-    ];
-
+const breadcrumbs = segments.length === 0 ? [] : [
+  { name: 'Home', item: absoluteUrl('/') },
+  ...segments.map((segment, index) => {
+    const currentPath = `/${segments.slice(0, index + 1).join('/')}`;
+    return { name: routeLabels[currentPath] ?? decodeURIComponent(segment).replace(/-/g, ' '), item: absoluteUrl(currentPath) };
+  }),
+];
 const baseSchemas = [
   buildWebsiteSchema(title, description, pathname),
   buildPersonSchema(description, pathname),
@@ -59,7 +53,6 @@ const baseSchemas = [
     <link rel="canonical" href={siteUrl} />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#020617" />
-
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={pageType} />
@@ -67,33 +60,21 @@ const baseSchemas = [
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content="Vinod M" />
     <meta property="og:locale" content="en_IN" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
-
     <link rel="icon" href="/images/profile.jpg" />
     <link rel="apple-touch-icon" href="/images/profile.jpg" />
-
     <script src="/scripts/global.js" is:inline></script>
     <ClientRouter />
-
-    {baseSchemas.map((schema) => (
-      <script type="application/ld+json" set:html={schemaToJson(schema)} />
-    ))}
+    {baseSchemas.map((schema) => (<script type="application/ld+json" set:html={schemaToJson(schema)} />))}
   </head>
   <body class="relative min-h-screen">
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
-
     <Navbar {navItems} />
-    <main id="main">
-      <slot />
-    </main>
+    <main id="main"><slot /></main>
     <Footer {socialLinks} />
-
-    <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-      💬
-    </a>
+    <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">💬</a>
   </body>
 </html>

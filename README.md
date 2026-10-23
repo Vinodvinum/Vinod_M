@@ -1,46 +1,45 @@
-# Astro Starter Kit: Basics
+# Vinod M — Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+Personal portfolio website for Vinod M, showcasing projects across data analytics, business intelligence, applied AI, automation, and software development.
+
+## Built with
+
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript / JavaScript
+
+## What the site includes
+
+- Project cards with live demos and public source links
+- Professional profile, skills, and experience sections
+- Featured project write-ups
+- Contact links and resume downloads
+- Responsive navigation and page-level metadata
+
+## Run locally
+
+Requirements: Node.js and npm.
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Open the local URL printed by Astro (usually http://localhost:4321).
 
-## 🚀 Project Structure
+## Build and preview
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm run build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Deployment
 
-## 🧞 Commands
+The production site is hosted at [vinod-ai.me](https://www.vinod-ai.me/). The repository's connected deployment pipeline can publish changes pushed to its production branch.
 
-All commands are run from the root of the project, from a terminal:
+## Contact
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Portfolio: https://www.vinod-ai.me/
+- GitHub: https://github.com/Vinodvinum
+- LinkedIn: https://www.linkedin.com/in/vinod-m-b830061ba

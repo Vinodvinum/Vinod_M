@@ -1,14 +1,16 @@
 ---
+import { completedProjects, ongoingProjects } from '../../data/projects';
+
 const NAME = 'Vinod M';
 const TITLE = 'Data Analyst, BI Developer, and AI Engineer';
 const ONE_LINER = 'I build dashboards, automation, and AI tools for teams that need clearer decisions and less manual work.';
+const totalProjects = completedProjects.length + ongoingProjects.length;
 ---
 
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 pb-16 relative z-10 overflow-hidden">
   <div class="absolute -top-28 -left-20 w-80 h-80 bg-cyan-500/20 blur-3xl rounded-full pointer-events-none"></div>
   <div class="absolute -bottom-20 -right-16 w-96 h-96 bg-fuchsia-500/20 blur-3xl rounded-full pointer-events-none"></div>
   <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    <!-- Text -->
     <div class="space-y-8">
       <div class="space-y-4">
         <p class="text-sm tracking-[0.3em] text-purple-300/80 uppercase">Data Analytics • BI • AI</p>
@@ -16,27 +18,20 @@ const ONE_LINER = 'I build dashboards, automation, and AI tools for teams that n
           <span class="block text-white/80 text-5xl">Hi, I’m {NAME}.</span>
           <span class="block gradient-text mt-2">{TITLE}</span>
         </h1>
-        <p class="text-lg md:text-xl text-purple-100/90 font-medium">
-          {ONE_LINER}
-        </p>
+        <p class="text-lg md:text-xl text-purple-100/90 font-medium">{ONE_LINER}</p>
         <p class="text-sm md:text-base text-white/65 max-w-xl leading-relaxed">
           Focused on Python, SQL, Power BI, Streamlit, FastAPI, and practical AI work that ships.
         </p>
       </div>
 
-      <!-- CTA Buttons -->
       <div class="flex flex-wrap gap-4">
-        <a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">
-          View Projects
-        </a>
-        <a href="#contact" class="px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-purple-200 hover:text-white hover:bg-white/10 border border-purple-400/60 hover:border-purple-300 transition-all duration-300">
-          Contact
-        </a>
+        <a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">View Projects</a>
+        <a href="#contact" class="px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-purple-200 hover:text-white hover:bg-white/10 border border-purple-400/60 hover:border-purple-300 transition-all duration-300">Contact</a>
       </div>
 
       <div class="grid grid-cols-3 gap-3 max-w-xl">
         <div class="glass rounded-2xl px-4 py-3 text-center border-white/20">
-          <p class="text-2xl font-black gradient-text">17+</p>
+          <p class="text-2xl font-black gradient-text">{totalProjects}+</p>
           <p class="text-[11px] uppercase tracking-wide text-white/70">Projects</p>
         </div>
         <div class="glass rounded-2xl px-4 py-3 text-center border-white/20">
@@ -50,78 +45,23 @@ const ONE_LINER = 'I build dashboards, automation, and AI tools for teams that n
       </div>
     </div>
 
-    <!-- Visual -->
     <div class="relative">
       <div class="absolute -inset-8 bg-gradient-to-tr from-purple-600/40 via-pink-500/30 to-indigo-500/40 rounded-[2.5rem] blur-3xl opacity-60"></div>
       <div class="absolute -inset-3 rounded-[2.7rem] border border-cyan-300/30 bg-gradient-to-r from-cyan-300/10 via-transparent to-fuchsia-300/10"></div>
       <div class="relative glass rounded-[2.5rem] p-4 md:p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)] animate-[float_6s_ease-in-out_infinite]">
         <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-purple-900/60 to-slate-900 border border-white/15">
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.4)_0%,transparent_55%)]"></div>
-          <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold text-cyan-100 border border-cyan-300/30 bg-cyan-400/10">
-            Analytics • AI • Automation
-          </div>
-          <img
-            src="/images/profile.jpg"
-            alt="Vinod M, also known as Vinu, AI and analytics professional from Mysuru"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            class="relative z-10 w-full h-full object-cover mix-blend-screen"
-          />
+          <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold text-cyan-100 border border-cyan-300/30 bg-cyan-400/10">Analytics • AI • Automation</div>
+          <img src="/images/profile.jpg" alt="Vinod M, also known as Vinu, AI and analytics professional from Mysuru" loading="eager" decoding="async" fetchpriority="high" class="relative z-10 w-full h-full object-cover mix-blend-screen" />
           <div class="absolute bottom-4 left-4 right-4 z-20 glass rounded-2xl px-4 py-3 flex items-center justify-between gap-3 text-xs md:text-sm">
             <div>
               <p class="text-white/70">Current Focus</p>
               <p class="text-white font-semibold">Data analysis, BI dashboards, and AI-enabled workflows</p>
             </div>
-            <span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">
-              Open to Opportunities
-            </span>
+            <span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">Open to Opportunities</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<script>
-// @ts-nocheck
-  // Mobile Menu
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuItems = document.getElementById('mobile-menu-items');
-  if (mobileMenu && mobileMenuItems) {
-    mobileMenu.addEventListener('click', () => {
-      mobileMenuItems.classList.toggle('hidden');
-    });
-  }
-
-  // Particles
-  function createParticle() {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.top = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 20 + 's';
-    particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-    const particlesContainer = document.getElementById('particles');
-    if (particlesContainer) {
-      particlesContainer.appendChild(particle);
-      setTimeout(() => particle.remove(), 20000);
-    }
-  }
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    setInterval(createParticle, 450);
-  }
-
-  // Smooth Scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const href = anchor.getAttribute('href');
-      if (href) {
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-  });
-</script>

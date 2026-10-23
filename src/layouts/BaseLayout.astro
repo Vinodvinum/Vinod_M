@@ -59,8 +59,7 @@ const baseSchemas = [
     <link rel="canonical" href={siteUrl} />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#020617" />
-    
-    <!-- Open Graph -->
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={pageType} />
@@ -69,19 +68,15 @@ const baseSchemas = [
     <meta property="og:site_name" content="Vinod M" />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpg+xml" href="/images/profile.jpg" />
+
+    <link rel="icon" href="/images/profile.jpg" />
     <link rel="apple-touch-icon" href="/images/profile.jpg" />
-    
-    <!-- Global Script -->
+
     <script src="/scripts/global.js" is:inline></script>
-    
     <ClientRouter />
 
     {baseSchemas.map((schema) => (
@@ -89,32 +84,16 @@ const baseSchemas = [
     ))}
   </head>
   <body class="relative min-h-screen">
-    <!-- Particles Container -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
-    
+
     <Navbar {navItems} />
     <main id="main">
       <slot />
     </main>
     <Footer {socialLinks} />
 
-    <!-- 📱 WHATSAPP FLOATING BUTTON -->
-     <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <a href={`https://wa.me/${socialLinks.whatsapp}`} class="fixed bottom-8 right-8 z-50 glass w-16 h-16 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center text-3xl" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
       💬
     </a>
-    
-    <script>
-      // Mobile Menu Toggle
-      document.addEventListener('DOMContentLoaded', () => {
-        const mobileBtn = document.getElementById('mobile-menu');
-        const mobileMenu = document.getElementById('mobile-menu-items');
-        
-        if (mobileBtn && mobileMenu) {
-          mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-          });
-        }
-      });
-    </script>
   </body>
 </html>

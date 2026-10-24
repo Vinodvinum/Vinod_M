@@ -39,3 +39,8 @@
 
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } .hero-image { animation: none; } }
+
+
+/* Keep the floating contact shortcut clear of content on small screens. */
+body > a[aria-label="Chat on WhatsApp"]{width:56px;height:56px;border-radius:50%;font-size:1.5rem;bottom:22px;right:22px}
+@media(max-width:600px){body > a[aria-label="Chat on WhatsApp"]{width:46px;height:46px;min-width:44px;min-height:44px;font-size:1.2rem;bottom:max(12px,env(safe-area-inset-bottom));right:max(12px,env(safe-area-inset-right))}}

@@ -1,9 +1,9 @@
-<section id="experience" class="py-24 md:py-32 px-4 md:px-6 relative z-10 bg-gradient-to-b from-transparent to-white/3">
+<section id="experience" class="experience-section py-24 md:py-32 px-4 md:px-6 relative z-10">
   <div class="max-w-6xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-14 md:mb-24">
-      <h2 class="text-4xl md:text-6xl font-black gradient-text mb-5 md:mb-6">Experience</h2>
-      <p class="text-base md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed px-2">
+      <h2 class="text-4xl md:text-6xl font-black mb-5 md:mb-6 experience-heading">Experience</h2>
+      <p class="text-base md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed px-2">
         Practical experience from internships, research, and self-initiated projects
       </p>
       <div class="w-20 md:w-24 h-1 mx-auto mt-6 md:mt-8 bg-gradient-to-r from-amber-300 to-cyan-300 rounded-full"></div>
@@ -12,33 +12,32 @@
     <!-- Timeline Container -->
     <div class="relative max-w-4xl mx-auto">
       <!-- Vertical Line -->
-      <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-amber-300 via-amber-200 to-cyan-300 bg-[length:1px_200px] animate-pulse opacity-60 hidden md:block"></div>
+      <div class="experience-spine absolute left-1/2 transform -translate-x-1/2 h-full hidden md:block" aria-hidden="true"></div>
       
       <!-- Timeline Items -->
-      <div class="space-y-10 md:space-y-16">
+      <div class="experience-list space-y-7 md:space-y-10">
         
         <!-- Current Professional Role -->
-        <article class="experience-current">
-          <div class="experience-current-top">
-            <span class="experience-current-status"><i></i> CURRENT ROLE</span>
-            <span class="experience-current-period">Sep 2026 – Present</span>
-          </div>
-          <h3>MIS &amp; Business Systems Developer</h3>
-          <p class="experience-current-company">GRS Fantasy Park · Mysuru, Karnataka · On-site</p>
-          <p class="experience-current-summary">I work across business systems development, process engineering, MIS, workflow automation, and internal application development—turning operational requirements into structured digital systems.</p>
-          <div class="experience-current-rule"></div>
-          <div class="experience-current-grid">
-            <div><span>01</span><strong>Business process engineering</strong><p>Map end-to-end workflows with ownership, approvals, validations, escalation, and closure.</p></div>
-            <div><span>02</span><strong>MIS, FMS &amp; reporting</strong><p>Build operational reports, KPI visibility, data consolidation, and decision-support views.</p></div>
-            <div><span>03</span><strong>Workflow automation</strong><p>Use Google Sheets, Forms, and Apps Script for controlled data capture, checks, notifications, and reporting.</p></div>
-            <div><span>04</span><strong>Internal systems</strong><p>Develop and improve application workflows for checklists, procurement, inspections, and operational coordination.</p></div>
+        <article class="experience-entry experience-current">
+          <div class="experience-entry-mark" aria-hidden="true"><span>01</span><i>✦</i></div>
+          <div class="experience-entry-content">
+            <div class="experience-entry-meta"><span class="experience-current-status"><i></i> CURRENT ROLE</span><span>SEP 2026 — PRESENT</span></div>
+            <h3>MIS &amp; Business Systems Developer</h3>
+            <p class="experience-company">GRS Fantasy Park <span>·</span> Mysuru, Karnataka</p>
+            <p class="experience-intro">Connecting operational needs with structured processes, reliable information, and practical internal systems.</p>
+            <div class="experience-detail-grid">
+              <div><span>01</span><strong>Process engineering</strong><p>Map workflows with clear ownership, approvals, validations, escalation, and closure.</p></div>
+              <div><span>02</span><strong>MIS, FMS &amp; reporting</strong><p>Build operational reporting, KPI visibility, data consolidation, and decision-support views.</p></div>
+              <div><span>03</span><strong>Workflow automation</strong><p>Use Google Sheets, Forms, and Apps Script for controlled capture, checks, notifications, and reporting.</p></div>
+              <div><span>04</span><strong>Internal systems</strong><p>Improve checklist, procurement, inspection, and operational coordination workflows.</p></div>
+            </div>
           </div>
         </article>
 
         <!-- Self-Initiated Projects -->
         <div class="flex items-end md:items-center group">
           <div class="w-full md:w-1/2 order-2 md:order-1">
-            <div class="glass rounded-3xl p-6 md:p-10 shadow-2xl shadow-black/20 border-white/10 hover:scale-105 transition-all duration-500 group-hover:shadow-black/30 ml-0 md:ml-0">
+            <div class="experience-legacy-card rounded-2xl p-6 md:p-8 ml-0 md:ml-0">
               <div class="flex items-center mb-6">
                 <div class="w-12 h-12 mr-4 glass rounded-2xl flex items-center justify-center text-2xl font-bold">🚀</div>
                 <div>
@@ -78,7 +77,7 @@
         <!-- AI/Data Internship -->
         <div class="flex items-start md:items-center group flex-row-reverse">
           <div class="w-full md:w-1/2 order-1 md:order-2">
-            <div class="glass rounded-3xl p-6 md:p-10 shadow-2xl shadow-black/20 border-white/10 hover:scale-105 transition-all duration-500 group-hover:shadow-emerald-500/25 mr-0 md:mr-0">
+            <div class="experience-legacy-card rounded-2xl p-6 md:p-8 mr-0 md:mr-0">
               <div class="flex items-center mb-6">
                 <div class="w-12 h-12 mr-4 glass rounded-2xl flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-lg">👨‍💼</div>
                 <div>
@@ -118,7 +117,7 @@
         <!-- Research Publication -->
         <div class="flex items-end md:items-center group">
           <div class="w-full md:w-1/2 order-2 md:order-1">
-            <div class="glass rounded-3xl p-6 md:p-10 shadow-2xl shadow-black/20 border-white/10 hover:scale-105 transition-all duration-500 group-hover:shadow-cyan-500/25 ml-0 md:ml-0">
+            <div class="experience-legacy-card rounded-2xl p-6 md:p-8 ml-0 md:ml-0">
               <div class="flex items-center mb-6">
                 <div class="w-12 h-12 mr-4 glass rounded-2xl flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-cyan-500 to-blue-500 text-white shadow-lg">📘</div>
                 <div>
@@ -149,7 +148,7 @@
         <!-- MCA Education -->
         <div class="flex items-end md:items-center group">
           <div class="w-full md:w-1/2 order-2 md:order-1">
-            <div class="glass rounded-3xl p-6 md:p-10 shadow-2xl shadow-black/20 border-white/10 hover:scale-105 transition-all duration-500 group-hover:shadow-blue-500/25 ml-0 md:ml-0">
+            <div class="experience-legacy-card rounded-2xl p-6 md:p-8 ml-0 md:ml-0">
               <div class="flex items-center mb-6">
                 <div class="w-12 h-12 mr-4 glass rounded-2xl flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-lg">🎓</div>
                 <div>
@@ -187,3 +186,28 @@
     </div>
   </div>
 </section>
+
+<style>
+  .experience-section{background:linear-gradient(180deg,#080d14 0%,#09111a 100%);border-top:1px solid rgba(201,169,93,.12);border-bottom:1px solid rgba(201,169,93,.1);color:#ecebe3}
+  .experience-heading{color:#e1c782;letter-spacing:-.045em}
+  .experience-spine{width:1px;top:0;bottom:0;background:linear-gradient(180deg,transparent,#c9a95d66 12%,#81cdd144 80%,transparent);left:50%}
+  .experience-list{position:relative}
+  .experience-current{display:grid;grid-template-columns:48px minmax(0,1fr);gap:22px;max-width:940px;margin:0 auto 26px;padding:clamp(20px,3.6vw,34px);border:1px solid rgba(201,169,93,.34);border-radius:18px;background:linear-gradient(125deg,rgba(17,29,39,.96),rgba(9,15,23,.98));box-shadow:0 22px 54px rgba(0,0,0,.18)}
+  .experience-entry-mark{width:44px;height:44px;border:1px solid rgba(201,169,93,.55);border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#ddc783;background:#0d1720}.experience-entry-mark span{font:600 .58rem Inter,system-ui,sans-serif;letter-spacing:.1em}.experience-entry-mark i{font-style:normal;font-size:.9rem;color:#81cdd1}
+  .experience-entry-content{min-width:0}.experience-entry-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:#83999c;font:600 .62rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.14em}
+  .experience-current-status{display:inline-flex;align-items:center;gap:8px;color:#8ecfb4}.experience-current-status i{width:6px;height:6px;border-radius:50%;background:#8ecfb4;box-shadow:0 0 0 4px rgba(142,207,180,.09)}
+  .experience-entry-content h3{margin-top:17px;font:600 clamp(1.45rem,3.1vw,2.15rem)/1.25 Inter,system-ui,sans-serif;letter-spacing:-.035em;color:#e7d59d}
+  .experience-company{margin-top:7px;color:#85cbd0;font-size:.88rem}.experience-company span{color:#c9a95d;margin:0 4px}
+  .experience-intro{margin-top:17px;color:#b3c0bf;font-size:.93rem;line-height:1.85;max-width:830px}
+  .experience-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 26px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09)}
+  .experience-detail-grid>div>span{color:#c9a95d;font:600 .61rem Inter,system-ui,sans-serif;letter-spacing:.12em}
+  .experience-detail-grid strong{display:block;margin-top:7px;color:#e4e6df;font-size:.87rem;line-height:1.5}
+  .experience-detail-grid p{margin-top:5px;color:#9caeb0;font-size:.79rem;line-height:1.75}
+  .experience-legacy-card{background:rgba(13,21,29,.82);border:1px solid rgba(201,169,93,.17);box-shadow:0 15px 40px rgba(0,0,0,.13);transition:border-color .25s ease,background .25s ease}
+  .group:hover .experience-legacy-card{border-color:rgba(201,169,93,.38);background:rgba(15,25,34,.94)}
+  .experience-legacy-card h3{letter-spacing:-.025em}
+  .experience-section .gradient-text{background:linear-gradient(110deg,#f0dfae 0%,#c9a95d 58%,#81cdd1 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .experience-section .group .glass{box-shadow:none}
+  @media(max-width:767px){.experience-current{grid-template-columns:1fr;gap:14px;padding:21px 18px}.experience-entry-mark{width:40px;height:40px}.experience-detail-grid{grid-template-columns:1fr;gap:15px}.experience-entry-meta{font-size:.58rem}}
+  @media(prefers-reduced-motion:reduce){.experience-legacy-card{transition:none}.experience-section .animate-pulse{animation:none}}
+</style>

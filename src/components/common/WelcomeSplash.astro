@@ -21,7 +21,7 @@
       </svg>
     </div>
     <div class="splash-text">
-      <p class="splash-overline" id="splash-overline"><span class="splash-init-label">INITIALIZING</span><span class="splash-init-separator"> · </span><span>THE UNIVERSE WITHIN</span></p><div class="splash-init-track" id="splash-init-track" aria-hidden="true"><span></span></div>
+      <p class="splash-overline" id="splash-overline">THE UNIVERSE WITHIN</p>
       <div class="splash-philosophy" id="splash-philosophy">
         <p class="splash-verse" id="splash-verse">तत्त्वमसि</p>
         <p class="splash-meaning" id="splash-meaning">You are That.</p>
@@ -35,6 +35,7 @@
       <p class="splash-role" id="splash-role">BUSINESS SYSTEMS · DATA · APPLIED AI</p>
     </div>
   </div>
+  <div class="splash-init-status" id="splash-init-status" role="status" aria-live="polite"><span>INITIALIZING</span><i aria-hidden="true"></i></div>
   <p class="splash-footnote">INSIGHT INTO ACTION <span>·</span> VISION INTO CREATION</p>
   <button id="welcome-skip-btn" class="splash-skip" type="button">Skip intro <span aria-hidden="true">↗</span></button>
 </div>
@@ -63,14 +64,14 @@
     }
     const later = (fn, ms) => timers.push(window.setTimeout(fn, ms));
     splash.dataset.phase = '0';
-    // Keep a clear INITIALIZING beat before revealing the mandala and name.
-    later(() => { splash.dataset.phase = '1'; }, 1050);
-    later(() => { splash.dataset.phase = '2'; }, 1700);
-    later(() => { splash.dataset.phase = '3'; }, 2750);
-    later(() => { splash.dataset.phase = '4'; }, 3850);
-    later(() => { splash.dataset.phase = '5'; }, 4950);
-    later(() => { splash.dataset.phase = '6'; }, 5850);
-    later(closeIntro, 7600);
+    // Keep the production-inspired INITIALIZING status visible before the mandala reveals.
+    later(() => { splash.dataset.phase = '1'; }, 1350);
+    later(() => { splash.dataset.phase = '2'; }, 1950);
+    later(() => { splash.dataset.phase = '3'; }, 3000);
+    later(() => { splash.dataset.phase = '4'; }, 4100);
+    later(() => { splash.dataset.phase = '5'; }, 5200);
+    later(() => { splash.dataset.phase = '6'; }, 6100);
+    later(closeIntro, 7550);
     document.getElementById('welcome-skip-btn')?.addEventListener('click', closeIntro, { once: true });
     // Hard timeout prevents an intro from ever trapping the page.
     later(closeIntro, 8000);
@@ -88,12 +89,12 @@
   .splash-starfield i:nth-child(1){left:12%;top:18%}.splash-starfield i:nth-child(2){left:24%;top:70%;width:1px;height:1px}.splash-starfield i:nth-child(3){left:76%;top:17%}.splash-starfield i:nth-child(4){left:86%;top:64%;width:1px;height:1px}.splash-starfield i:nth-child(5){left:67%;top:80%}.splash-starfield i:nth-child(6){left:17%;top:46%;width:1px;height:1px}.splash-starfield i:nth-child(7){left:91%;top:39%;width:1px;height:1px}.splash-starfield i:nth-child(8){left:42%;top:13%;width:1px;height:1px}.splash-starfield i:nth-child(9){left:54%;top:88%;width:1px;height:1px}.splash-starfield i:nth-child(10){left:34%;top:84%;width:1px;height:1px}.splash-starfield i:nth-child(11){left:82%;top:49%;width:1px;height:1px}.splash-starfield i:nth-child(12){left:7%;top:78%;width:1px;height:1px}
   .splash-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 34%,rgba(1,3,8,.7) 100%)}
   .splash-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:min(92vw,920px);text-align:center}
-  .splash-wheel-wrap{width:clamp(180px,35vw,360px);aspect-ratio:1;opacity:0;transform:scale(.94);transition:opacity 1.15s ease,transform 1.6s cubic-bezier(.2,.75,.2,1)}
+  .splash-wheel-wrap{width:clamp(180px,35vw,360px);height:clamp(180px,35vw,360px);aspect-ratio:auto;overflow:hidden;opacity:0;transform:scale(.94);transition:opacity 1.15s ease,transform 1.6s cubic-bezier(.2,.75,.2,1),width 1.15s ease,height 1.15s ease}
   .splash-wheel{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 10px rgba(199,168,94,.13))}
   .splash-spokes{transform-origin:300px 300px;animation:splashRotation 110s linear infinite}
   .splash-om{font-family:Georgia,serif;font-size:45px;fill:#f0dca4;opacity:.94}
   .splash-text{width:100%;padding:0 12px}
-  .splash-overline{font:600 10px/1.5 Inter,system-ui,sans-serif;letter-spacing:.2em;color:#8caaad;opacity:0;transition:opacity .6s ease}.splash-init-label{color:#e4ca86;font-weight:700;letter-spacing:.34em}.splash-init-separator{color:#81cdd1}.splash-init-track{width:min(210px,50vw);height:1px;margin:17px auto 0;background:rgba(255,255,255,.12);opacity:0;transition:opacity .6s ease;overflow:hidden}.splash-init-track span{display:block;width:0;height:100%;background:linear-gradient(90deg,#c9a95d,#81cdd1);box-shadow:0 0 8px #81cdd1;transition:width 1.05s ease}
+  .splash-overline{font:600 10px/1.5 Inter,system-ui,sans-serif;letter-spacing:.35em;color:#8caaad;opacity:0;transition:opacity .6s ease}.splash-init-status{position:absolute;z-index:2;left:50%;bottom:65px;display:flex;flex-direction:column;align-items:center;gap:11px;transform:translateX(-50%);color:#91a4a6;opacity:0;pointer-events:none;transition:opacity .45s ease;font:600 9px/1.5 Inter,system-ui,sans-serif;letter-spacing:.34em;white-space:nowrap}.splash-init-status i{display:block;position:relative;width:min(180px,38vw);height:1px;overflow:hidden;background:rgba(255,255,255,.12)}.splash-init-status i::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:45%;background:linear-gradient(90deg,#c9a95d,#81cdd1);box-shadow:0 0 10px #81cdd1;animation:splashInitSweep 1.2s ease-in-out infinite}@keyframes splashInitSweep{to{left:100%}}
   .splash-verse{margin-top:10px;font:500 clamp(24px,4vw,38px)/1.4 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:#e4ca86;opacity:0;transform:translateY(8px);transition:opacity .75s ease,transform .75s ease}
   .splash-meaning{margin-top:0;font:italic clamp(15px,2vw,18px)/1.7 'Cormorant Garamond',Georgia,serif;color:#bdc7c6;opacity:0;transform:translateY(5px);transition:opacity .75s ease,transform .75s ease}
   .splash-secondary-verse,.splash-secondary-meaning{opacity:0;transform:translateY(5px);transition:opacity .7s ease,transform .7s ease}
@@ -107,7 +108,7 @@
   .splash-skip{position:absolute;top:22px;right:22px;border:1px solid rgba(201,169,93,.35);padding:9px 13px;color:#c9d1cb;background:rgba(8,13,19,.45);font:500 11px Inter,system-ui,sans-serif;letter-spacing:.08em;cursor:pointer}
   .splash-skip:hover,.splash-skip:focus-visible{border-color:#c9a95d;color:#f1dfae;outline:none}
   .welcome-splash[data-phase="1"] .splash-wheel-wrap,.welcome-splash[data-phase="2"] .splash-wheel-wrap,.welcome-splash[data-phase="3"] .splash-wheel-wrap,.welcome-splash[data-phase="4"] .splash-wheel-wrap,.welcome-splash[data-phase="5"] .splash-wheel-wrap,.welcome-splash[data-phase="6"] .splash-wheel-wrap{opacity:1;transform:scale(1)}
-  .welcome-splash[data-phase="0"] .splash-overline,.welcome-splash[data-phase="1"] .splash-overline,.welcome-splash[data-phase="2"] .splash-overline,.welcome-splash[data-phase="3"] .splash-overline,.welcome-splash[data-phase="4"] .splash-overline,.welcome-splash[data-phase="5"] .splash-overline,.welcome-splash[data-phase="6"] .splash-overline{opacity:.95}.welcome-splash[data-phase="0"] .splash-init-track{opacity:1}.welcome-splash[data-phase="0"] .splash-init-track span{width:46%}.welcome-splash[data-phase="1"] .splash-init-track,.welcome-splash[data-phase="2"] .splash-init-track,.welcome-splash[data-phase="3"] .splash-init-track,.welcome-splash[data-phase="4"] .splash-init-track,.welcome-splash[data-phase="5"] .splash-init-track,.welcome-splash[data-phase="6"] .splash-init-track{opacity:0}
+  .welcome-splash[data-phase="1"] .splash-overline,.welcome-splash[data-phase="2"] .splash-overline,.welcome-splash[data-phase="3"] .splash-overline,.welcome-splash[data-phase="4"] .splash-overline,.welcome-splash[data-phase="5"] .splash-overline,.welcome-splash[data-phase="6"] .splash-overline{opacity:.95}.welcome-splash[data-phase="0"] .splash-init-status{opacity:.95}.welcome-splash[data-phase="0"] .splash-wheel-wrap{width:0;height:0;aspect-ratio:auto;opacity:0;transform:scale(.94);margin:0}.welcome-splash[data-phase="0"] .splash-philosophy,.welcome-splash[data-phase="0"] .splash-name,.welcome-splash[data-phase="0"] .splash-rule,.welcome-splash[data-phase="0"] .splash-role{display:none}
   .welcome-splash[data-phase="2"] .splash-verse,.welcome-splash[data-phase="3"] .splash-verse,.welcome-splash[data-phase="4"] .splash-verse,.welcome-splash[data-phase="5"] .splash-verse{opacity:1;transform:translateY(0)}
   .welcome-splash[data-phase="3"] .splash-meaning,.welcome-splash[data-phase="4"] .splash-meaning,.welcome-splash[data-phase="5"] .splash-meaning{opacity:1;transform:translateY(0)}
   .welcome-splash[data-phase="4"] .splash-name,.welcome-splash[data-phase="5"] .splash-name,.welcome-splash[data-phase="6"] .splash-name{opacity:1;transform:translateY(0)}
@@ -119,6 +120,6 @@
   .welcome-splash[data-phase="5"] .splash-name,.welcome-splash[data-phase="6"] .splash-name{margin-top:7px}
   .welcome-splash[data-phase="5"] .splash-secondary-verse:first-of-type,.welcome-splash[data-phase="6"] .splash-secondary-verse:first-of-type{margin-top:0}
   @keyframes splashRotation{to{transform:rotate(360deg)}}
-  @media(max-width:640px){.splash-overline{font-size:9px;letter-spacing:.12em}.splash-init-label{letter-spacing:.22em}.splash-init-track{margin-top:13px}.splash-content{gap:4px}.splash-wheel-wrap{width:clamp(172px,54vw,260px)}.splash-overline{font-size:9px;letter-spacing:.24em}.splash-verse{font-size:27px;letter-spacing:.04em}.splash-meaning{font-size:15px;max-width:330px;margin-inline:auto}.splash-name{font-size:clamp(31px,10vw,46px);letter-spacing:.12em}.splash-role{font-size:10px;letter-spacing:.16em;max-width:320px;margin-inline:auto}.splash-footnote{bottom:22px;font-size:8px;letter-spacing:.12em}.splash-secondary-verse{font-size:18px;margin-top:6px}.splash-secondary-meaning{font-size:12px}.splash-skip{top:15px;right:15px}}
-  @media(prefers-reduced-motion:reduce){.splash-spokes{animation:none}.welcome-splash,.splash-wheel-wrap,.splash-verse,.splash-meaning,.splash-secondary-verse,.splash-secondary-meaning,.splash-name,.splash-role{transition:none!important}}
+  @media(max-width:640px){.splash-overline{font-size:9px;letter-spacing:.24em}.splash-init-status{bottom:63px;font-size:8px;letter-spacing:.3em}.splash-content{gap:4px}.splash-wheel-wrap{width:clamp(172px,54vw,260px);height:clamp(172px,54vw,260px)}.splash-overline{font-size:9px;letter-spacing:.24em}.splash-verse{font-size:27px;letter-spacing:.04em}.splash-meaning{font-size:15px;max-width:330px;margin-inline:auto}.splash-name{font-size:clamp(31px,10vw,46px);letter-spacing:.12em}.splash-role{font-size:10px;letter-spacing:.16em;max-width:320px;margin-inline:auto}.splash-footnote{bottom:22px;font-size:8px;letter-spacing:.12em}.splash-secondary-verse{font-size:18px;margin-top:6px}.splash-secondary-meaning{font-size:12px}.splash-skip{top:15px;right:15px}}
+  @media(prefers-reduced-motion:reduce){.splash-spokes,.splash-init-status i::after{animation:none}.welcome-splash,.splash-wheel-wrap,.splash-verse,.splash-meaning,.splash-secondary-verse,.splash-secondary-meaning,.splash-name,.splash-role{transition:none!important}}
 </style>

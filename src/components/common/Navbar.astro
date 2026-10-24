@@ -10,14 +10,14 @@ import { navItems } from '../../data/nav';
       <span class="nav-brand-copy"><strong>Vinod M</strong><small>Business Systems · Data · AI</small></span>
     </a>
     <div class="nav-desktop">
-      {navItems.map((item) => <a href={item.href} aria-current={item.href === Astro.url.pathname ? "page" : undefined}>{item.label}</a>)}
+      {navItems.map((item) => <a href={item.href} aria-current={item.href.startsWith("/#") ? undefined : item.href === Astro.url.pathname || (item.href === "/" && Astro.url.pathname === "/") ? "page" : undefined}>{item.label}</a>)}
     </div>
     <button id="mobile-menu" class="nav-toggle" type="button" aria-controls="mobile-menu-items" aria-expanded="false" aria-label="Open navigation menu">
       <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
     </button>
   </div>
   <div id="mobile-menu-items" class="nav-mobile-menu" hidden>
-    {navItems.map((item) => <a href={item.href} aria-current={item.href === Astro.url.pathname ? "page" : undefined}>{item.label}<span aria-hidden="true">↗</span></a>)}
+    {navItems.map((item) => <a href={item.href} aria-current={item.href.startsWith("/#") ? undefined : item.href === Astro.url.pathname || (item.href === "/" && Astro.url.pathname === "/") ? "page" : undefined}>{item.label}<span aria-hidden="true">↗</span></a>)}
   </div>
 </nav>
 

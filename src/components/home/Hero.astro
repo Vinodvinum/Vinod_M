@@ -5,7 +5,7 @@ const totalProjects = completedProjects.length + ongoingProjects.length;
 ---
 
 <section id="home" class="cosmic-hero">
-  <div class="hero-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="hero-cosmos" aria-hidden="true"><div class="cosmos-nebula cosmos-nebula-one"></div><div class="cosmos-nebula cosmos-nebula-two"></div><div class="cosmos-starfield"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="cosmos-horizon"></div></div>
   <div class="hero-wrap">
     <div class="hero-copy">
       <p class="hero-eyebrow"><span></span> VINOD M <b>·</b> MYSURU, INDIA</p>
@@ -58,8 +58,17 @@ const totalProjects = completedProjects.length + ongoingProjects.length;
 </section>
 
 <style>
-  .cosmic-hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(118px,13vw,156px) 24px 68px;color:#f1efe6;background:radial-gradient(ellipse at 76% 29%,#132530 0%,transparent 36%),linear-gradient(145deg,#070a12 0%,#0b1119 56%,#080d14 100%)}
-  .hero-stars{position:absolute;inset:0;pointer-events:none;opacity:.4}.hero-stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#c8d3d1}.hero-stars i:nth-child(1){left:13%;top:21%}.hero-stars i:nth-child(2){left:51%;top:13%;opacity:.45}.hero-stars i:nth-child(3){left:87%;top:17%}.hero-stars i:nth-child(4){left:69%;top:58%;opacity:.5}.hero-stars i:nth-child(5){left:24%;top:74%;opacity:.55}.hero-stars i:nth-child(6){left:93%;top:76%}.hero-stars i:nth-child(7){left:7%;top:52%;opacity:.5}.hero-stars i:nth-child(8){left:42%;top:86%;opacity:.35}.hero-stars i:nth-child(9){left:77%;top:91%;opacity:.35}
+  .cosmic-hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(118px,13vw,156px) 24px 68px;color:#f1efe6;background:#050914}
+  .hero-cosmos{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 71% 28%,rgba(22,61,86,.42),transparent 36%),radial-gradient(ellipse at 17% 76%,rgba(126,91,43,.14),transparent 29%),linear-gradient(135deg,#050914 0%,#0a1424 48%,#071019 100%)}
+  .cosmos-nebula{position:absolute;border-radius:50%;filter:blur(36px);transform:translate3d(0,0,0);will-change:transform}
+  .cosmos-nebula-one{width:min(58vw,680px);height:min(39vw,460px);top:4%;right:-8%;opacity:.7;background:radial-gradient(ellipse at 42% 48%,rgba(48,117,143,.28),rgba(34,67,110,.15) 36%,transparent 72%);animation:nebulaDriftOne 42s ease-in-out infinite alternate}
+  .cosmos-nebula-two{width:min(50vw,540px);height:min(42vw,440px);left:-15%;bottom:1%;opacity:.7;background:radial-gradient(ellipse at 52% 40%,rgba(184,145,73,.20),rgba(86,86,126,.10) 38%,transparent 72%);animation:nebulaDriftTwo 52s ease-in-out infinite alternate}
+  .cosmos-starfield{position:absolute;inset:0;opacity:.58}
+  .cosmos-starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:#e4e6e0;box-shadow:0 0 5px rgba(177,216,222,.3)}
+  .cosmos-starfield i:nth-child(1){left:7%;top:14%}.cosmos-starfield i:nth-child(2){left:16%;top:44%;width:1px;height:1px}.cosmos-starfield i:nth-child(3){left:24%;top:21%;opacity:.6}.cosmos-starfield i:nth-child(4){left:33%;top:76%;width:1px;height:1px}.cosmos-starfield i:nth-child(5){left:47%;top:11%;width:1px;height:1px}.cosmos-starfield i:nth-child(6){left:56%;top:83%;opacity:.5}.cosmos-starfield i:nth-child(7){left:68%;top:17%}.cosmos-starfield i:nth-child(8){left:79%;top:55%;width:1px;height:1px}.cosmos-starfield i:nth-child(9){left:91%;top:32%}.cosmos-starfield i:nth-child(10){left:88%;top:79%;width:1px;height:1px}.cosmos-starfield i:nth-child(11){left:40%;top:48%;width:1px;height:1px}.cosmos-starfield i:nth-child(12){left:4%;top:71%;width:1px;height:1px}.cosmos-starfield i:nth-child(13){left:61%;top:36%;width:1px;height:1px}.cosmos-starfield i:nth-child(14){left:73%;top:90%;width:1px;height:1px}.cosmos-starfield i:nth-child(15){left:29%;top:92%;width:1px;height:1px}.cosmos-starfield i:nth-child(16){left:96%;top:60%;width:1px;height:1px}
+  .cosmos-horizon{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,9,20,.04) 0%,rgba(5,9,20,.06) 60%,rgba(5,9,20,.84) 100%)}
+  @keyframes nebulaDriftOne{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(2%,2%,0) scale(1.05)}}
+  @keyframes nebulaDriftTwo{from{transform:translate3d(0,1%,0) scale(1)}to{transform:translate3d(2%,-2%,0) scale(1.04)}}
   .hero-wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);align-items:center;gap:clamp(34px,7vw,92px);max-width:1240px;margin:0 auto}
   .hero-copy{max-width:730px}.hero-eyebrow{display:flex;align-items:center;gap:11px;color:#b6c2c2;font:600 .7rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.2em}.hero-eyebrow>span{width:28px;height:1px;background:#c9a95d}.hero-eyebrow b{color:#81cdd1;font-weight:500}
   .hero-invocation{display:flex;align-items:center;gap:15px;margin:30px 0 22px}.hero-om{display:grid;place-items:center;width:55px;height:55px;border:1px solid #c9a95d55;border-radius:50%;color:#e8d49c;font:1.7rem Georgia,serif;box-shadow:0 0 28px #c9a95d12}.hero-sanskrit{font:500 1.3rem/1.3 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:#e4cd8f}.hero-translation{margin-top:4px;font:italic .96rem/1.4 'Cormorant Garamond',Georgia,serif;color:#9fadae}
@@ -71,5 +80,5 @@ const totalProjects = completedProjects.length + ongoingProjects.length;
   @keyframes wheelTurn{to{transform:rotate(360deg)}}
   @media(max-width:900px){.hero-wrap{grid-template-columns:1fr;gap:24px}.hero-copy{max-width:760px}.hero-visual{min-height:auto;max-width:540px;width:100%;margin:-5px auto 0}.hero-wheel{width:min(86%,460px)}.hero-caption{bottom:0}.philosophy-band{margin-top:50px}}
   @media(max-width:600px){.cosmic-hero{padding:106px 20px 48px}.hero-eyebrow{font-size:.63rem;letter-spacing:.15em}.hero-invocation{margin:23px 0 19px}.hero-om{width:46px;height:46px;font-size:1.45rem}.hero-sanskrit{font-size:1.2rem}.hero-title{font-size:clamp(2.5rem,12.4vw,3.55rem);line-height:1.05;letter-spacing:-.06em}.hero-lead{margin-top:20px;font-size:1rem;line-height:1.75}.hero-context{font-size:.9rem;line-height:1.8}.hero-actions{margin-top:23px}.hero-primary,.hero-secondary{min-height:44px;padding:11px 13px;font-size:.82rem}.hero-links{gap:19px;margin-top:22px}.hero-visual{margin-top:4px}.hero-wheel{width:min(88%,370px)}.hero-caption{font-size:.53rem;letter-spacing:.13em}.philosophy-band{margin-top:38px;padding-top:22px}.philosophy-grid{grid-template-columns:1fr;gap:0}.philosophy-grid article,.philosophy-grid article:first-child{padding:17px 0;border-left:0;border-top:1px solid #ffffff15}.philosophy-grid article:first-child{border-top:0}.philosophy-grid h2{font-size:1.25rem}.philosophy-meaning{min-height:0}.philosophy-promise{margin-top:7px}}
-  @media(prefers-reduced-motion:reduce){.hero-wheel-rotor{animation:none}.hero-primary,.hero-secondary{transition:none}}
+  @media(prefers-reduced-motion:reduce){.hero-wheel-rotor,.cosmos-nebula-one,.cosmos-nebula-two{animation:none}.hero-primary,.hero-secondary{transition:none}}
 </style>

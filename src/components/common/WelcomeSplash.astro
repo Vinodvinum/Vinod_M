@@ -26,6 +26,7 @@
   (function initWelcomeSplash() {
     const splash = document.getElementById('welcome-splash');
     if (!splash) return;
+    splash.dataset.started = 'true';
     const body = document.body;
     body.classList.add('welcome-lock');
     const removeSplash = () => {

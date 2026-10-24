@@ -3,42 +3,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { pillarPages } from '../data/seo';
 ---
 
-<BaseLayout title="Expertise Hub | Vinod M" description="A topical hub connecting Vinod M with AI, analytics, BI, software engineering, cloud, automation, and entrepreneurship.">
-  <section class="min-h-screen pt-32 pb-20 px-6 relative z-10">
-    <div class="max-w-7xl mx-auto">
-      <header class="max-w-4xl mx-auto text-center mb-16">
-        <p class="text-sm md:text-base tracking-[0.28em] uppercase text-cyan-200/80">E-E-A-T Hub</p>
-        <h1 class="mt-4 text-4xl md:text-6xl font-black gradient-text leading-tight">Expertise Hub for Vinod M</h1>
-        <p class="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">This hub connects the brand to the key topics Google should associate with Vinod M from Mysuru: AI, analytics, BI, software engineering, cloud, automation, and research-backed delivery.</p>
+<BaseLayout title="Expertise & Technical Domains | Vinod M" description="Explore Vinod M's work across business systems, data analytics, workflow automation, software engineering, and applied AI.">
+  <main class="expertise-page">
+    <div class="expertise-wrap">
+      <header class="expertise-hero">
+        <p class="expertise-eyebrow">AREAS OF PRACTICE</p>
+        <h1>Explore the disciplines<br/><span>behind the work.</span></h1>
+        <p>My work crosses business context, data, software, and applied AI. These topic pages explain the concepts I work with and connect them to relevant projects, research, and practical implementation.</p>
       </header>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-        {pillarPages.map((pillar) => (
-          <a href={`/${pillar.slug}`} class="glass rounded-[1.75rem] p-6 border-white/10 hover:border-cyan-300/40 hover:scale-[1.02] transition-all duration-300 block">
-            <p class="text-xs uppercase tracking-[0.26em] text-white/50 mb-2">Pillar Page</p>
-            <h2 class="text-2xl font-bold text-white mb-3">{pillar.title}</h2>
-            <p class="text-white/70 leading-relaxed">{pillar.subtitle}</p>
+      <section class="expertise-grid" aria-label="Technical domains">
+        {pillarPages.map((pillar, index) => (
+          <a href={`/${pillar.slug}`} class="expertise-card">
+            <span class="expertise-card-number">{String(index + 1).padStart(2, '0')} / DOMAIN</span>
+            <h2>{pillar.title}</h2>
+            <p>{pillar.subtitle}</p>
+            <span class="expertise-card-link">Explore domain <span aria-hidden="true">↗</span></span>
           </a>
         ))}
-      </div>
+      </section>
 
-      <div class="grid lg:grid-cols-2 gap-6 mt-16">
-        <article class="glass rounded-[2rem] p-8 border-white/10">
-          <h2 class="text-3xl font-black gradient-text mb-4">Why this matters</h2>
-          <p class="text-white/80 leading-relaxed mb-4">E-E-A-T improves when the site clearly shows who Vinod M is, what he has built, where he works from, and which topics he can credibly speak about.</p>
-          <p class="text-white/80 leading-relaxed">This hub and the pillar pages give Google consistent internal linking, topical depth, and structured proof across projects, publication, resume, and external profiles.</p>
-        </article>
-
-        <article class="glass rounded-[2rem] p-8 border-white/10">
-          <h2 class="text-3xl font-black gradient-text mb-4">Key proof signals</h2>
-          <ul class="space-y-3 text-white/80">
-            <li>Experience: live projects, product prototypes, dashboards, and automation systems.</li>
-            <li>Projects: featured work, case studies, and deployed demos.</li>
-            <li>Skills: SQL, Python, Power BI, AI, ML, cloud, and full stack development.</li>
-            <li>Trust: GitHub, LinkedIn, resume, publication, and certificate links throughout the site.</li>
-          </ul>
-        </article>
-      </div>
+      <section class="expertise-method">
+        <p class="expertise-eyebrow">HOW I WORK</p>
+        <h2>Understand first.<br/><span>Build with evidence.</span></h2>
+        <div class="expertise-method-grid">
+          <article><span>01</span><h3>Understand the problem</h3><p>Clarify the user, the decision or task, the constraints, and what success should look like.</p></article>
+          <article><span>02</span><h3>Design the system</h3><p>Connect process, data, software, and people instead of choosing a tool before the problem is clear.</p></article>
+          <article><span>03</span><h3>Validate the outcome</h3><p>Test assumptions, check edge cases, document limitations, and improve what proves useful.</p></article>
+        </div>
+        <div class="expertise-actions">
+          <a href="/featured">View selected projects ↗</a>
+          <a href="/#contact">Discuss a problem →</a>
+        </div>
+      </section>
     </div>
-  </section>
+  </main>
+  <style>
+    .expertise-page{min-height:100vh;padding:clamp(112px,14vw,155px) 21px 80px;color:#ecebe3;background:radial-gradient(ellipse at 73% 7%,rgba(41,83,94,.14),transparent 35%),linear-gradient(180deg,#080d14 0%,#0a1118 100%)}
+    .expertise-wrap{max-width:1180px;margin:0 auto}.expertise-hero{max-width:850px;margin:0 auto 48px;text-align:center}.expertise-eyebrow{color:#82c9ce;font:600 .65rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.23em}.expertise-hero h1{margin-top:16px;color:#efe8d8;font:650 clamp(2.5rem,6vw,4.7rem)/1.04 Inter,system-ui,sans-serif;letter-spacing:-.06em}.expertise-hero h1 span,.expertise-method h2 span{background:linear-gradient(110deg,#f0dfae,#c9a95d 55%,#81cdd1);-webkit-background-clip:text;background-clip:text;color:transparent}.expertise-hero>p:last-child{max-width:760px;margin:21px auto 0;color:#aab8b9;font-size:1rem;line-height:1.85}
+    .expertise-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.expertise-card{display:flex;flex-direction:column;min-width:0;min-height:225px;padding:24px;text-decoration:none;background:#0d151d;border:1px solid #c9a95d26;transition:border-color .2s,background .2s}.expertise-card:hover{border-color:#c9a95d73;background:#101a22}.expertise-card-number{color:#80cbd0;font:600 .58rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.15em}.expertise-card h2{margin-top:17px;color:#e8d7a7;font:600 1.27rem/1.32 Inter,system-ui,sans-serif;letter-spacing:-.025em}.expertise-card>p{margin-top:10px;color:#a2b1b2;font-size:.85rem;line-height:1.75}.expertise-card-link{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:20px;color:#d6c27f;font-size:.78rem;font-weight:600}
+    .expertise-method{margin-top:58px;padding-top:34px;border-top:1px solid #ffffff19}.expertise-method h2{margin-top:13px;color:#eee7d7;font:600 clamp(2rem,4.5vw,3.35rem)/1.08 Inter,system-ui,sans-serif;letter-spacing:-.05em}.expertise-method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}.expertise-method-grid article{padding:21px 19px;background:#0b131a;border:1px solid #81cdd11b}.expertise-method-grid article>span{color:#c9a95d;font:600 .61rem Inter,system-ui,sans-serif;letter-spacing:.12em}.expertise-method-grid h3{margin-top:11px;color:#e2d8bd;font-size:.93rem;line-height:1.5}.expertise-method-grid p{margin-top:8px;color:#9babad;font-size:.81rem;line-height:1.75}.expertise-actions{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px}.expertise-actions a{color:#80cbd0;font-size:.84rem;font-weight:600;text-decoration:none}.expertise-actions a:hover{color:#f0dfae;text-decoration:underline;text-underline-offset:4px}
+    @media(max-width:850px){.expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expertise-method-grid{grid-template-columns:1fr}}@media(max-width:560px){.expertise-page{padding:104px 17px 55px}.expertise-hero h1{font-size:clamp(2.35rem,11vw,3.4rem)}.expertise-grid{grid-template-columns:1fr}.expertise-card{min-height:0;padding:21px}.expertise-method{margin-top:39px;padding-top:26px}.expertise-actions{gap:18px}}
+  </style>
 </BaseLayout>

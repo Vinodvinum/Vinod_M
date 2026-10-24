@@ -1,65 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @import "tailwindcss";
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 86px; background: #080d14; }
   body {
-    background-image:
-      linear-gradient(to bottom right, #0f172a, rgba(88, 28, 135, 0.3), #0f172a),
-      radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120,219,255,0.3) 0%, transparent 50%);
-    color: white;
+    color: #ecebe3;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    background: radial-gradient(ellipse at 78% 8%, rgba(34,75,87,.15), transparent 34%), #080d14;
+    font-family: Inter, system-ui, sans-serif;
   }
-
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,0.8), transparent 70%);
-    opacity: 0.24;
     z-index: -1;
+    background: radial-gradient(ellipse at 18% 24%, rgba(153,125,62,.055), transparent 32%);
   }
-
-  body::after {
-    content: '';
-    position: fixed;
-    inset: -20%;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 15% 30%, rgba(56, 189, 248, 0.15), transparent 40%),
-      radial-gradient(circle at 85% 20%, rgba(167, 139, 250, 0.18), transparent 45%),
-      radial-gradient(circle at 55% 80%, rgba(236, 72, 153, 0.14), transparent 45%);
-    filter: blur(20px);
-    animation: drift 18s ease-in-out infinite alternate;
-    z-index: -1;
-  }
+  ::selection { background: rgba(201,169,93,.3); color: #fff8e3; }
+  a { text-underline-offset: .2em; }
 }
 
 @layer components {
   .glass {
-    backdrop-filter: blur(24px);
-    background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05));
-    border: 1px solid rgba(255,255,255,0.24);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 14px 35px rgba(0,0,0,0.28);
+    backdrop-filter: blur(14px);
+    background: rgba(14,21,29,.88);
+    border: 1px solid rgba(220,213,188,.15);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 14px 35px rgba(0,0,0,.18);
   }
-  .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .gradient-border { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); background-clip: padding-box; border: 2px solid transparent; background-origin: border-box; }
+  .gradient-text { background: linear-gradient(110deg, #f0dfae 0%, #c9a95d 56%, #81cdd1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gradient-border { background: linear-gradient(#0c141b,#0c141b) padding-box, linear-gradient(110deg,#c9a95d,#81cdd1) border-box; border: 1px solid transparent; }
   .hero-image { animation: float 6s ease-in-out infinite; }
-  .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-  .particle { position: absolute; width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%; animation: float 20s infinite linear; }
+  .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .particle { display: none; }
 }
 
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-@keyframes drift { 0% { transform: translate3d(-2%, -1%, 0) scale(1); } 100% { transform: translate3d(2%, 1%, 0) scale(1.04); } }
-@keyframes typewriter { from { width: 0; } to { width: 100%; } }
-@keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: #667eea; } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } .hero-image { animation: none; } }
+
+
+/* Keep the floating contact shortcut clear of content on small screens. */
+body > a[aria-label="Chat on WhatsApp"]{width:56px;height:56px;border-radius:50%;font-size:1.5rem;bottom:22px;right:22px}
+@media(max-width:600px){body > a[aria-label="Chat on WhatsApp"]{width:46px;height:46px;min-width:44px;min-height:44px;font-size:1.2rem;bottom:max(12px,env(safe-area-inset-bottom));right:max(12px,env(safe-area-inset-right))}}

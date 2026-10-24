@@ -74,60 +74,137 @@
     }
 
     try {
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.35));
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setClearColor(0x000508, 1);
+      renderer.setClearColor(0x02030b, 1);
+
       const scene = new window.THREE.Scene();
-      const camera = new window.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-      camera.position.z = 600;
+      scene.fog = new window.THREE.FogExp2(0x050814, 0.00022);
+      const camera = new window.THREE.PerspectiveCamera(68, window.innerWidth / window.innerHeight, 0.1, 2400);
+      camera.position.z = 680;
 
-      const starCount = 1200;
-      const geo = new window.THREE.BufferGeometry();
-      const positions = new Float32Array(starCount * 3);
-      const colors = new Float32Array(starCount * 3);
-      const palette = [[0.78,0.85,1],[1,0.95,0.75],[0.6,0.85,1],[0.9,0.75,1],[1,1,1]];
-      for (let i = 0; i < starCount; i += 1) {
-        const i3 = i * 3;
-        positions[i3] = (Math.random() - 0.5) * 1800;
-        positions[i3 + 1] = (Math.random() - 0.5) * 1800;
-        positions[i3 + 2] = (Math.random() - 0.5) * 1200 - 200;
-        const color = palette[Math.floor(Math.random() * palette.length)];
-        colors[i3] = color[0]; colors[i3 + 1] = color[1]; colors[i3 + 2] = color[2];
-      }
-      geo.setAttribute('position', new window.THREE.BufferAttribute(positions, 3));
-      geo.setAttribute('color', new window.THREE.BufferAttribute(colors, 3));
-
-      const starCanvas = document.createElement('canvas');
-      starCanvas.width = 64; starCanvas.height = 64;
-      const ctx = starCanvas.getContext('2d');
-      if (!ctx) {
-        geo.dispose();
+      // A layered nebula: large, soft additive sprites create depth without external assets.
+      const nebulaCanvas = document.createElement('canvas');
+      nebulaCanvas.width = 256; nebulaCanvas.height = 256;
+      const nebulaCtx = nebulaCanvas.getContext('2d');
+      if (!nebulaCtx) {
         renderer.dispose();
         removeSplash();
         return;
       }
-      const gradient = ctx.createRadialGradient(32,32,0,32,32,32);
-      gradient.addColorStop(0,'rgba(255,255,255,1)');
-      gradient.addColorStop(0.2,'rgba(255,255,255,0.8)');
-      gradient.addColorStop(0.5,'rgba(200,220,255,0.3)');
-      gradient.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0,0,64,64);
+      const nebulaGradient = nebulaCtx.createRadialGradient(128,128,4,128,128,128);
+      nebulaGradient.addColorStop(0, 'rgba(255,224,153,0.30)');
+      nebulaGradient.addColorStop(0.20, 'rgba(120,105,210,0.22)');
+      nebulaGradient.addColorStop(0.48, 'rgba(47,168,191,0.12)');
+      nebulaGradient.addColorStop(1, 'rgba(8,12,35,0)');
+      nebulaCtx.fillStyle = nebulaGradient;
+      nebulaCtx.fillRect(0,0,256,256);
+      const nebulaTexture = new window.THREE.CanvasTexture(nebulaCanvas);
+      const nebulaGroup = new window.THREE.Group();
+      const nebulaSprites = [];
+      const nebulaColors = [0x8266df, 0x2fc2d0, 0xd5a858, 0x415bce, 0x9b6dff];
+      for (let i = 0; i < 9; i += 1) {
+        const material = new window.THREE.SpriteMaterial({
+          map: nebulaTexture, color: nebulaColors[i % nebulaColors.length],
+          transparent: true, opacity: 0, depthWrite: false, blending: window.THREE.AdditiveBlending
+        });
+        const sprite = new window.THREE.Sprite(material);
+        sprite.position.set((Math.random() - 0.5) * 1550, (Math.random() - 0.5) * 1050, -300 - Math.random() * 900);
+        const scale = 260 + Math.random() * 440;
+        sprite.scale.set(scale * (1.1 + Math.random()), scale * (0.65 + Math.random() * 0.55), 1);
+        sprite.material.rotation = (Math.random() - 0.5) * 1.2;
+        nebulaGroup.add(sprite);
+        nebulaSprites.push(sprite);
+      }
+      scene.add(nebulaGroup);
 
-      const starTexture = new window.THREE.CanvasTexture(starCanvas);
-      const starMaterial = new window.THREE.PointsMaterial({
-        size: 2.5, sizeAttenuation: true, vertexColors: true, map: starTexture,
-        transparent: true, opacity: 0, depthWrite: false, blending: window.THREE.AdditiveBlending
-      });
-      scene.add(new window.THREE.Points(geo, starMaterial));
+      // Near and far star layers give a gentle forward-flight feeling.
+      const starLayers = [];
+      const starCount = 1650;
+      const palette = [[0.78,0.85,1],[1,0.91,0.69],[0.45,0.83,1],[0.72,0.63,1],[1,1,1]];
+      for (const layer of [
+        { count: 950, span: 1900, depth: 1350, size: 1.75, speed: 0.16 },
+        { count: 520, span: 1650, depth: 950, size: 2.45, speed: 0.34 },
+        { count: 180, span: 1250, depth: 580, size: 3.4, speed: 0.58 }
+      ]) {
+        const geo = new window.THREE.BufferGeometry();
+        const positions = new Float32Array(layer.count * 3);
+        const colors = new Float32Array(layer.count * 3);
+        for (let i = 0; i < layer.count; i += 1) {
+          const i3 = i * 3;
+          positions[i3] = (Math.random() - 0.5) * layer.span;
+          positions[i3 + 1] = (Math.random() - 0.5) * layer.span * 0.82;
+          positions[i3 + 2] = (Math.random() - 0.5) * layer.depth - 180;
+          const color = palette[Math.floor(Math.random() * palette.length)];
+          colors[i3] = color[0]; colors[i3 + 1] = color[1]; colors[i3 + 2] = color[2];
+        }
+        geo.setAttribute('position', new window.THREE.BufferAttribute(positions, 3));
+        geo.setAttribute('color', new window.THREE.BufferAttribute(colors, 3));
+        const starMaterial = new window.THREE.PointsMaterial({
+          size: layer.size, sizeAttenuation: true, vertexColors: true,
+          transparent: true, opacity: 0, depthWrite: false, blending: window.THREE.AdditiveBlending
+        });
+        const points = new window.THREE.Points(geo, starMaterial);
+        scene.add(points);
+        starLayers.push({ geo, positions, material: starMaterial, points, speed: layer.speed, span: layer.span, depth: layer.depth });
+      }
+
+      // A handful of luminous streaks cross the field during the reveal.
+      const streaks = [];
+      const streakMaterial = new window.THREE.LineBasicMaterial({ color: 0xb9e8ff, transparent: true, opacity: 0, blending: window.THREE.AdditiveBlending });
+      const streakGroup = new window.THREE.Group();
+      scene.add(streakGroup);
+      function launchStreak() {
+        if (exited || document.hidden || streaks.length >= 3 || !splash.isConnected) return;
+        const startX = (Math.random() - 0.5) * window.innerWidth * 1.4;
+        const startY = (Math.random() - 0.5) * window.innerHeight * 0.8;
+        const startZ = -Math.random() * 250;
+        const points = [
+          new window.THREE.Vector3(startX, startY, startZ),
+          new window.THREE.Vector3(startX + 100 + Math.random() * 130, startY - 45 - Math.random() * 90, startZ + 5)
+        ];
+        const geometry = new window.THREE.BufferGeometry().setFromPoints(points);
+        const line = new window.THREE.Line(geometry, streakMaterial.clone());
+        line.material.opacity = 0.9;
+        streakGroup.add(line);
+        const streak = { line, geometry, age: 0, life: 35 + Math.random() * 22 };
+        streaks.push(streak);
+      }
 
       let rafId = 0;
       let exited = false;
+      let frame = 0;
       function animate() {
-        if (!document.hidden && splash.isConnected) {
-          rafId = window.requestAnimationFrame(animate);
-          renderer.render(scene, camera);
+        if (!splash.isConnected) return;
+        rafId = window.requestAnimationFrame(animate);
+        if (document.hidden) return;
+        frame += 1;
+        nebulaGroup.rotation.z = Math.sin(frame * 0.0007) * 0.045;
+        nebulaGroup.position.x = Math.sin(frame * 0.0009) * 18;
+        starLayers.forEach((layer) => {
+          layer.points.rotation.z += layer.speed * 0.000035;
+          const attribute = layer.geo.attributes.position;
+          for (let i = 2; i < layer.positions.length; i += 3) {
+            layer.positions[i] += layer.speed * 0.5;
+            if (layer.positions[i] > 460) layer.positions[i] = -layer.depth - 180;
+          }
+          attribute.needsUpdate = true;
+        });
+        for (let i = streaks.length - 1; i >= 0; i -= 1) {
+          const streak = streaks[i];
+          streak.age += 1;
+          const opacity = Math.max(0, 1 - streak.age / streak.life);
+          streak.line.material.opacity = opacity;
+          streak.line.position.x += 4.5;
+          streak.line.position.y -= 3.1;
+          if (streak.age > streak.life) {
+            streakGroup.remove(streak.line);
+            streak.geometry.dispose();
+            streak.line.material.dispose();
+            streaks.splice(i, 1);
+          }
         }
+        renderer.render(scene, camera);
       }
       function onResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
@@ -137,38 +214,47 @@
       function cleanup() {
         window.cancelAnimationFrame(rafId);
         window.removeEventListener('resize', onResize);
-        geo.dispose(); starTexture.dispose(); starMaterial.dispose(); renderer.dispose();
+        starLayers.forEach((layer) => { layer.geo.dispose(); layer.material.dispose(); });
+        nebulaSprites.forEach((sprite) => sprite.material.dispose());
+        streaks.forEach((streak) => { streak.geometry.dispose(); streak.line.material.dispose(); });
+        nebulaTexture.dispose();
+        streakMaterial.dispose();
+        renderer.dispose();
       }
       function exitSplash() {
         if (exited) return;
         exited = true;
-        gsap.to('#welcome-overlay', { opacity: 0, duration: 0.7, ease: 'power2.inOut' });
-        gsap.to('#welcome-mandala', { opacity: 0, duration: 0.5 });
-        gsap.to('#welcome-progress-bar', { opacity: 0, duration: 0.3 });
-        gsap.to('#welcome-skip-btn', { opacity: 0, duration: 0.3 });
-        gsap.to(starMaterial, { opacity: 0.12, duration: 1.2, ease: 'power2.inOut' });
+        gsap.to('#welcome-overlay', { opacity: 0, duration: 0.95, ease: 'power2.inOut' });
+        gsap.to('#welcome-mandala', { opacity: 0, duration: 0.9 });
+        gsap.to('#welcome-progress-bar', { opacity: 0, duration: 0.5 });
+        gsap.to('#welcome-skip-btn', { opacity: 0, duration: 0.4 });
+        starLayers.forEach((layer) => gsap.to(layer.material, { opacity: 0.14, duration: 1.6, ease: 'power2.inOut' }));
         gsap.to('#welcome-splash', {
-          opacity: 0, duration: 0.8, delay: 0.35, ease: 'power2.inOut',
+          opacity: 0, duration: 1.1, delay: 0.4, ease: 'power2.inOut',
           onComplete: () => { cleanup(); removeSplash(); }
         });
       }
 
       window.addEventListener('resize', onResize);
       animate();
+      window.setTimeout(launchStreak, 1350);
+      window.setTimeout(launchStreak, 2480);
+      window.setTimeout(launchStreak, 3400);
       const timeline = gsap.timeline({ onComplete: exitSplash });
-      timeline.to(starMaterial, { opacity: 0.9, duration: 1.2, ease: 'power1.inOut' }, 0);
-      timeline.to('#welcome-progress-bar', { opacity: 1, duration: 0.4 }, 0.2);
-      timeline.to('#welcome-progress-fill', { width: '100%', duration: 4.2, ease: 'none' }, 0.2);
-      timeline.to('#welcome-mandala', { opacity: 1, duration: 1.2, ease: 'power2.inOut' }, 0.8);
-      timeline.to('#welcome-cosmic-form', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, 1.2);
-      timeline.to('.welcome-aura-ring', { scale: 1, duration: 0.8, stagger: 0.2, ease: 'back.out(1.4)', transformOrigin: 'center center' }, 1.5);
-      timeline.to('#welcome-sanskrit', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 2.3);
-      timeline.to('#welcome-name', { opacity: 1, duration: 0.6, ease: 'power3.out' }, 2.65);
-      timeline.to('#welcome-divider', { opacity: 1, width: 260, duration: 0.5, ease: 'power2.inOut' }, 2.9);
-      timeline.to('#welcome-role', { opacity: 1, duration: 0.45, ease: 'power2.out' }, 3.15);
-      timeline.to('#welcome-tagline', { opacity: 1, duration: 0.4, ease: 'power2.out' }, 3.45);
-      timeline.to('#welcome-skip-btn', { opacity: 1, duration: 0.4 }, 0.6);
-      timeline.to({}, { duration: 1.3 });
+      nebulaSprites.forEach((sprite, index) => timeline.to(sprite.material, { opacity: 0.35 + (index % 3) * 0.06, duration: 2.4, ease: 'power2.out' }, 0.1 + index * 0.08));
+      starLayers.forEach((layer, index) => timeline.to(layer.material, { opacity: index === 0 ? 0.8 : 0.95, duration: 1.6, ease: 'power1.inOut' }, 0.1 + index * 0.2));
+      timeline.to('#welcome-progress-bar', { opacity: 1, duration: 0.5 }, 0.35);
+      timeline.to('#welcome-progress-fill', { width: '100%', duration: 5.4, ease: 'none' }, 0.4);
+      timeline.to('#welcome-mandala', { opacity: 1, duration: 1.5, ease: 'power2.inOut' }, 1.0);
+      timeline.to('#welcome-cosmic-form', { opacity: 1, scale: 1.06, y: 0, duration: 1.35, ease: 'power4.out' }, 1.25);
+      timeline.to('.welcome-aura-ring', { scale: 1, duration: 1.05, stagger: 0.25, ease: 'back.out(1.4)', transformOrigin: 'center center' }, 1.65);
+      timeline.to('#welcome-sanskrit', { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 2.35);
+      timeline.to('#welcome-name', { opacity: 1, duration: 0.8, ease: 'power3.out' }, 2.8);
+      timeline.to('#welcome-divider', { opacity: 1, width: 260, duration: 0.65, ease: 'power2.inOut' }, 3.1);
+      timeline.to('#welcome-role', { opacity: 1, duration: 0.55, ease: 'power2.out' }, 3.4);
+      timeline.to('#welcome-tagline', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 3.75);
+      timeline.to('#welcome-skip-btn', { opacity: 1, duration: 0.4 }, 0.65);
+      timeline.to({}, { duration: 1.6 });
       gsap.set('#welcome-cosmic-form', { y: 30 });
       gsap.set('#welcome-sanskrit', { y: 8 });
       gsap.set('.welcome-aura-ring', { scale: 0, transformOrigin: 'center center' });
@@ -189,7 +275,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Rajdhani:wght@300;400;600&display=swap');
   :global(body.welcome-lock) { overflow: hidden; }
   #welcome-splash, #welcome-splash::before, #welcome-splash::after, #welcome-splash * { box-sizing: border-box; }
-  #welcome-splash { position: fixed; inset: 0; z-index: 2000; overflow: hidden; background: #000; font-family: 'Rajdhani', sans-serif; }
+  #welcome-splash { position: fixed; inset: 0; z-index: 2000; overflow: hidden; isolation: isolate; background: radial-gradient(ellipse at 50% 48%, #11162b 0%, #080b19 42%, #02030a 100%); font-family: 'Rajdhani', sans-serif; }
+  #welcome-splash::before, #welcome-splash::after { content: ''; position: absolute; inset: -25%; pointer-events: none; z-index: 1; mix-blend-mode: screen; }
+  #welcome-splash::before { opacity: .38; background: radial-gradient(ellipse at 25% 40%, rgba(75,65,170,.4), transparent 28%), radial-gradient(ellipse at 78% 35%, rgba(17,130,153,.26), transparent 26%), radial-gradient(ellipse at 55% 78%, rgba(154,91,49,.18), transparent 30%); filter: blur(44px); animation: nebulaDrift 24s ease-in-out infinite alternate; }
+  #welcome-splash::after { opacity: .22; background: repeating-radial-gradient(ellipse at 50% 50%, transparent 0 58px, rgba(140,164,220,.06) 60px, transparent 62px 115px); mask-image: radial-gradient(ellipse at center, #000 0%, transparent 72%); animation: nebulaTurn 90s linear infinite; }
+  @keyframes nebulaDrift { from { transform: translate3d(-2%,1%,0) scale(1); } to { transform: translate3d(2%,-1%,0) scale(1.08); } }
+  @keyframes nebulaTurn { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.04); } }
   #welcome-three-canvas { position: fixed; inset: 0; z-index: 0; }
   #welcome-overlay { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
   #welcome-cosmic-form { position: relative; width: clamp(160px, 22vw, 260px); height: clamp(160px, 22vw, 260px); opacity: 0; margin-bottom: 2.5vw; }
@@ -218,5 +309,5 @@
   #welcome-progress-track { width: 100%; height: 1px; background: rgba(255,255,255,0.1); border-radius: 1px; overflow: hidden; }
   #welcome-progress-fill { height: 100%; width: 0; background: linear-gradient(90deg,#9b6dff,#4dd9e8,#c9a84c); border-radius: 1px; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(77,217,232,0.5); }
   #welcome-progress-label { text-align: center; font-size: 10px; letter-spacing: 4px; color: rgba(255,255,255,0.25); margin-top: 8px; }
-  @media (max-width: 768px) { #welcome-cosmic-form { margin-bottom: 24px; } .welcome-name { letter-spacing: 4px; } .welcome-role { padding: 0 20px; letter-spacing: 3px; line-height: 1.6; } .welcome-sanskrit { letter-spacing: 3px; } #welcome-mandala { width: min(125vw,760px); height: min(125vw,760px); } }
+  @media (prefers-reduced-motion: reduce) { #welcome-splash::before, #welcome-splash::after, #welcome-mandala, .welcome-cosmic-svg, .welcome-center-orb, .welcome-aura-ring { animation: none !important; } }\n  @media (max-width: 768px) { #welcome-cosmic-form { margin-bottom: 24px; } .welcome-name { letter-spacing: 4px; } .welcome-role { padding: 0 20px; letter-spacing: 3px; line-height: 1.6; } .welcome-sanskrit { letter-spacing: 3px; } #welcome-mandala { width: min(125vw,760px); height: min(125vw,760px); } }
 </style>

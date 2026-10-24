@@ -3,12 +3,13 @@ import type { PillarPage as PillarPageData } from '../../data/seo';
 
 const { pillar } = Astro.props as { pillar: PillarPageData };
 const readerFaq = pillar.faq.filter((entry) => !/google|search engine|search intent|topical authority|keyword stuffing|brand/i.test(entry.question + ' ' + entry.answer));
+const publicHref = (href: string) => href === '/resume/Vinod_M_ATS_Resume.pdf' ? '/resume/Vinod_M_Premium_Resume-5.pdf' : href;
 ---
 
 <section class="min-h-screen pt-32 pb-20 px-6 relative z-10">
   <div class="max-w-7xl mx-auto">
     <header class="max-w-4xl mx-auto text-center mb-16">
-      <p class="text-sm md:text-base tracking-[0.28em] uppercase text-cyan-200/80">Pillar Page</p>
+      <p class="text-sm md:text-base tracking-[0.28em] uppercase text-cyan-200/80">FIELD GUIDE</p>
       <h1 class="mt-4 text-4xl md:text-6xl font-black gradient-text leading-tight">{pillar.title}</h1>
       <p class="mt-4 text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">{pillar.subtitle}</p>
     </header>
@@ -61,7 +62,7 @@ const readerFaq = pillar.faq.filter((entry) => !/google|search engine|search int
       </div>
       <div class="grid md:grid-cols-3 gap-4">
         {pillar.internalLinks.map((link) => (
-          <a href={link.href} class="glass rounded-2xl p-5 border-white/10 hover:border-cyan-300/40 hover:scale-[1.02] transition-all duration-300 block">
+          <a href={publicHref(link.href)} class="glass rounded-2xl p-5 border-white/10 hover:border-cyan-300/40 hover:scale-[1.02] transition-all duration-300 block">
             <h3 class="text-xl font-bold text-white mb-2">{link.href === '/blog' ? 'Writing & field notes' : link.label}</h3>
             <p class="text-white/70 leading-relaxed">{link.href === '/blog' ? 'Practical notes on workflows, analytics, and applied technology.' : link.description}</p>
           </a>

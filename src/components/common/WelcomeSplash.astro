@@ -1,315 +1,107 @@
-<div id="welcome-splash" aria-hidden="true">
-  <canvas id="welcome-three-canvas"></canvas>
-  <svg id="welcome-mandala" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5" transform="translate(250,250)">
-      <circle r="230" /><circle r="210" /><circle r="190" /><circle r="160" /><circle r="140" />
-      <ellipse rx="18" ry="80" cy="-155" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(30)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(60)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(90)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(120)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(150)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(180)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(210)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(240)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(270)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(300)" /><ellipse rx="18" ry="80" cy="-155" transform="rotate(330)" />
-      <line x1="0" y1="-230" x2="0" y2="230" /><line x1="0" y1="-230" x2="0" y2="230" transform="rotate(30)" /><line x1="0" y1="-230" x2="0" y2="230" transform="rotate(60)" /><line x1="0" y1="-230" x2="0" y2="230" transform="rotate(90)" /><line x1="0" y1="-230" x2="0" y2="230" transform="rotate(120)" /><line x1="0" y1="-230" x2="0" y2="230" transform="rotate(150)" />
-      <circle r="18" fill="rgba(77,217,232,0.06)" stroke="rgba(77,217,232,0.2)" /><circle r="6" fill="rgba(201,168,76,0.2)" stroke="rgba(201,168,76,0.5)" />
-    </g>
-  </svg>
-  <div id="welcome-overlay">
-    <div id="welcome-cosmic-form">
-      <div class="welcome-aura-ring"></div><div class="welcome-aura-ring"></div><div class="welcome-aura-ring"></div>
-      <svg class="welcome-cosmic-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs>
-    <radialGradient id="introCore"><stop stop-color="#fff1b9"/><stop offset=".45" stop-color="#d6ae59"/><stop offset="1" stop-color="#54cbd2" stop-opacity="0"/></radialGradient>
-    <linearGradient id="introEdge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bc"/><stop offset=".48" stop-color="#cda65a"/><stop offset="1" stop-color="#70d6dc"/></linearGradient>
-    <filter id="introGlow"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  </defs>
-  <g transform="translate(250 250)" fill="none" stroke-linecap="round">
-    <circle r="235" stroke="#70d6dc" stroke-opacity=".23" stroke-dasharray="1 12"/>
-    <circle r="215" stroke="url(#introEdge)" stroke-opacity=".65"/>
-    <circle r="190" stroke="#d5b365" stroke-opacity=".35" stroke-dasharray="2 7"/>
-    <g class="intro-wheel-rotor" stroke="url(#introEdge)" stroke-width="1.5" filter="url(#introGlow)">
-      <g transform="rotate(0)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(15)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(30)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(45)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(60)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(75)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(90)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(105)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(120)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(135)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(150)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(165)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(180)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(195)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(210)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(225)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(240)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(255)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(270)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(285)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(300)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(315)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(330)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g><g transform="rotate(345)"><path d="M0 -184 Q15 -148 0 -112 Q-15 -148 0 -184Z" fill="url(#introCore)" fill-opacity=".5"/><path d="M0 -225 L7 -202 L0 -185 L-7 -202Z" fill="#e5c16d"/><line x1="0" y1="-182" x2="0" y2="-105" stroke-opacity=".5"/></g>
-    </g>
-    <g stroke="#d7b66b" stroke-opacity=".55"><g transform="rotate(0)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(30)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(60)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(90)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(120)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(150)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(180)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(210)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(240)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(270)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(300)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g><g transform="rotate(330)"><ellipse rx="25" ry="100" cy="-72"/><path d="M0 -145 L0 -170"/></g></g>
-    <circle r="82" stroke="#70d6dc" stroke-opacity=".65"/>
-    <circle r="63" stroke="#dfbd70" stroke-dasharray="2 7"/>
-    <circle r="42" fill="url(#introCore)" fill-opacity=".42" stroke="url(#introEdge)" stroke-width="2"/>
-    <path d="M0 -28 L8 -8 L28 0 L8 8 L0 28 L-8 8 L-28 0 L-8 -8Z" fill="#f4d994" fill-opacity=".8"/>
-    <circle r="7" fill="#fff4c8" filter="url(#introGlow)"/>
-  </g>
-</svg>
-      <div class="welcome-center-orb"></div>
+<div id="welcome-splash" class="welcome-splash" role="region" aria-label="Vinod M portfolio introduction">
+  <div class="splash-starfield" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="splash-vignette" aria-hidden="true"></div>
+  <main class="splash-content">
+    <div class="splash-wheel-wrap" aria-hidden="true">
+      <svg class="splash-wheel" viewBox="0 0 600 600" role="presentation">
+        <defs>
+          <linearGradient id="splashGoldTeal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1dfac"/><stop offset=".52" stop-color="#c7a85e"/><stop offset="1" stop-color="#79cbd0"/></linearGradient>
+          <radialGradient id="splashCore"><stop stop-color="#fff8dd"/><stop offset=".42" stop-color="#dfc47a"/><stop offset="1" stop-color="#dfc47a" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="300" cy="300" r="246" fill="none" stroke="#d5bd7d" stroke-opacity=".25"/>
+        <circle cx="300" cy="300" r="226" fill="none" stroke="#87cfd2" stroke-opacity=".26" stroke-dasharray="1 10"/>
+        <circle cx="300" cy="300" r="198" fill="none" stroke="url(#splashGoldTeal)" stroke-opacity=".68"/>
+        <g class="splash-spokes" fill="none" stroke="url(#splashGoldTeal)" stroke-width="1.6" stroke-linecap="round">
+          {Array.from({length:12},(_,i)=><g transform={`rotate(${i*30} 300 300)`}><path d="M300 94 Q326 145 300 198 Q274 145 300 94Z" fill="#d8bd79" fill-opacity=".1"/><path d="M300 76 L307 98 L300 116 L293 98Z" fill="#e7cf91" fill-opacity=".75"/><line x1="300" y1="120" x2="300" y2="212" stroke-opacity=".58"/></g>)}
+        </g>
+        <circle cx="300" cy="300" r="86" fill="none" stroke="#80cfd2" stroke-opacity=".58"/>
+        <circle cx="300" cy="300" r="68" fill="none" stroke="#d8bd79" stroke-opacity=".65" stroke-dasharray="2 8"/>
+        <circle cx="300" cy="300" r="50" fill="url(#splashCore)" fill-opacity=".5"/>
+        <text class="splash-om" x="300" y="319" text-anchor="middle">ॐ</text>
+      </svg>
     </div>
-    <div id="welcome-text-block"><div class="welcome-om" id="welcome-om">ॐ</div><div class="welcome-sanskrit" id="welcome-sanskrit">तत्त्वमसि · यद् भावं तद् भवति · यथा दृष्टिः तथा सृष्टिः</div><div class="welcome-translation" id="welcome-translation">You are That. · What you hold in thought shapes who you become. · As your vision, so your world.</div><div class="welcome-name" id="welcome-name">VINOD M</div><div class="welcome-divider" id="welcome-divider"></div><div class="welcome-role" id="welcome-role">BUSINESS SYSTEMS · DATA · AUTOMATION · APPLIED AI</div><div class="welcome-tagline" id="welcome-tagline">What I think, I will become. · What I envision, I will create. · What I build, I will scale.</div></div>
-  </div>
-  <div id="welcome-progress-bar"><div id="welcome-progress-track"><div id="welcome-progress-fill"></div></div><div id="welcome-progress-label">INITIALIZING</div></div>
-  <button id="welcome-skip-btn" type="button" aria-label="Skip intro">SKIP</button>
+    <div class="splash-text">
+      <p class="splash-overline">A MINDSET OF CREATION</p>
+      <p class="splash-verse" id="splash-verse">तत्त्वमसि</p>
+      <p class="splash-meaning" id="splash-meaning">You are That.</p>
+      <h1 class="splash-name" id="splash-name">VINOD M</h1>
+      <div class="splash-rule" aria-hidden="true"></div>
+      <p class="splash-role" id="splash-role">BUSINESS SYSTEMS · DATA · APPLIED AI</p>
+    </div>
+  </main>
+  <p class="splash-footnote">INSIGHT INTO ACTION <span>·</span> VISION INTO CREATION</p>
+  <button id="welcome-skip-btn" class="splash-skip" type="button">Skip intro <span aria-hidden="true">↗</span></button>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" is:inline></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" is:inline></script>
 <script is:inline>
-  (function initWelcomeSplash() {
+  (() => {
     const splash = document.getElementById('welcome-splash');
-    if (!splash) return;
+    if (!splash || splash.dataset.started === 'true') return;
     splash.dataset.started = 'true';
     const body = document.body;
     body.classList.add('welcome-lock');
-    const removeSplash = () => {
+    let closed = false;
+    const timers = [];
+    const closeIntro = () => {
+      if (closed) return;
+      closed = true;
+      timers.forEach(window.clearTimeout);
+      splash.classList.add('is-leaving');
       body.classList.remove('welcome-lock');
-      splash.remove();
+      window.setTimeout(() => splash.remove(), 850);
     };
-    // Decorative only: unsupported browsers and reduced-motion users skip the animation.
-    if (!window.THREE || !window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      removeSplash();
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      closeIntro();
       return;
     }
-
-    const gsap = window.gsap;
-    let renderer;
-    try {
-      renderer = new window.THREE.WebGLRenderer({
-        canvas: document.getElementById('welcome-three-canvas'),
-        antialias: false,
-        alpha: true
-      });
-    } catch (error) {
-      console.warn('Intro animation unavailable; continuing to the portfolio.', error);
-      removeSplash();
-      return;
-    }
-
-    try {
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.35));
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setClearColor(0x02030b, 1);
-
-      const scene = new window.THREE.Scene();
-      scene.fog = new window.THREE.FogExp2(0x050814, 0.00022);
-      const camera = new window.THREE.PerspectiveCamera(68, window.innerWidth / window.innerHeight, 0.1, 2400);
-      camera.position.z = 680;
-
-      // A layered nebula: large, soft additive sprites create depth without external assets.
-      const nebulaCanvas = document.createElement('canvas');
-      nebulaCanvas.width = 256; nebulaCanvas.height = 256;
-      const nebulaCtx = nebulaCanvas.getContext('2d');
-      if (!nebulaCtx) {
-        renderer.dispose();
-        removeSplash();
-        return;
-      }
-      const nebulaGradient = nebulaCtx.createRadialGradient(128,128,4,128,128,128);
-      nebulaGradient.addColorStop(0, 'rgba(255,224,153,0.30)');
-      nebulaGradient.addColorStop(0.20, 'rgba(120,105,210,0.22)');
-      nebulaGradient.addColorStop(0.48, 'rgba(47,168,191,0.12)');
-      nebulaGradient.addColorStop(1, 'rgba(8,12,35,0)');
-      nebulaCtx.fillStyle = nebulaGradient;
-      nebulaCtx.fillRect(0,0,256,256);
-      const nebulaTexture = new window.THREE.CanvasTexture(nebulaCanvas);
-      const nebulaGroup = new window.THREE.Group();
-      const nebulaSprites = [];
-      const nebulaColors = [0x8266df, 0x2fc2d0, 0xd5a858, 0x415bce, 0x9b6dff];
-      for (let i = 0; i < 9; i += 1) {
-        const material = new window.THREE.SpriteMaterial({
-          map: nebulaTexture, color: nebulaColors[i % nebulaColors.length],
-          transparent: true, opacity: 0, depthWrite: false, blending: window.THREE.AdditiveBlending
-        });
-        const sprite = new window.THREE.Sprite(material);
-        sprite.position.set((Math.random() - 0.5) * 1550, (Math.random() - 0.5) * 1050, -300 - Math.random() * 900);
-        const scale = 260 + Math.random() * 440;
-        sprite.scale.set(scale * (1.1 + Math.random()), scale * (0.65 + Math.random() * 0.55), 1);
-        sprite.material.rotation = (Math.random() - 0.5) * 1.2;
-        nebulaGroup.add(sprite);
-        nebulaSprites.push(sprite);
-      }
-      scene.add(nebulaGroup);
-
-      // Near and far star layers give a gentle forward-flight feeling.
-      const starLayers = [];
-      const starCount = 1650;
-      const palette = [[0.78,0.85,1],[1,0.91,0.69],[0.45,0.83,1],[0.72,0.63,1],[1,1,1]];
-      for (const layer of [
-        { count: 950, span: 1900, depth: 1350, size: 1.75, speed: 0.16 },
-        { count: 520, span: 1650, depth: 950, size: 2.45, speed: 0.34 },
-        { count: 180, span: 1250, depth: 580, size: 3.4, speed: 0.58 }
-      ]) {
-        const geo = new window.THREE.BufferGeometry();
-        const positions = new Float32Array(layer.count * 3);
-        const colors = new Float32Array(layer.count * 3);
-        for (let i = 0; i < layer.count; i += 1) {
-          const i3 = i * 3;
-          positions[i3] = (Math.random() - 0.5) * layer.span;
-          positions[i3 + 1] = (Math.random() - 0.5) * layer.span * 0.82;
-          positions[i3 + 2] = (Math.random() - 0.5) * layer.depth - 180;
-          const color = palette[Math.floor(Math.random() * palette.length)];
-          colors[i3] = color[0]; colors[i3 + 1] = color[1]; colors[i3 + 2] = color[2];
-        }
-        geo.setAttribute('position', new window.THREE.BufferAttribute(positions, 3));
-        geo.setAttribute('color', new window.THREE.BufferAttribute(colors, 3));
-        const starMaterial = new window.THREE.PointsMaterial({
-          size: layer.size, sizeAttenuation: true, vertexColors: true,
-          transparent: true, opacity: 0, depthWrite: false, blending: window.THREE.AdditiveBlending
-        });
-        const points = new window.THREE.Points(geo, starMaterial);
-        scene.add(points);
-        starLayers.push({ geo, positions, material: starMaterial, points, speed: layer.speed, span: layer.span, depth: layer.depth });
-      }
-
-      // A handful of luminous streaks cross the field during the reveal.
-      const streaks = [];
-      const streakMaterial = new window.THREE.LineBasicMaterial({ color: 0xb9e8ff, transparent: true, opacity: 0, blending: window.THREE.AdditiveBlending });
-      const streakGroup = new window.THREE.Group();
-      scene.add(streakGroup);
-      function launchStreak() {
-        if (exited || document.hidden || streaks.length >= 3 || !splash.isConnected) return;
-        const startX = (Math.random() - 0.5) * window.innerWidth * 1.4;
-        const startY = (Math.random() - 0.5) * window.innerHeight * 0.8;
-        const startZ = -Math.random() * 250;
-        const points = [
-          new window.THREE.Vector3(startX, startY, startZ),
-          new window.THREE.Vector3(startX + 100 + Math.random() * 130, startY - 45 - Math.random() * 90, startZ + 5)
-        ];
-        const geometry = new window.THREE.BufferGeometry().setFromPoints(points);
-        const line = new window.THREE.Line(geometry, streakMaterial.clone());
-        line.material.opacity = 0.9;
-        streakGroup.add(line);
-        const streak = { line, geometry, age: 0, life: 35 + Math.random() * 22 };
-        streaks.push(streak);
-      }
-
-      let rafId = 0;
-      let exited = false;
-      let frame = 0;
-      function animate() {
-        if (!splash.isConnected) return;
-        rafId = window.requestAnimationFrame(animate);
-        if (document.hidden) return;
-        frame += 1;
-        nebulaGroup.rotation.z = Math.sin(frame * 0.0007) * 0.045;
-        nebulaGroup.position.x = Math.sin(frame * 0.0009) * 18;
-        starLayers.forEach((layer) => {
-          layer.points.rotation.z += layer.speed * 0.000035;
-          const attribute = layer.geo.attributes.position;
-          for (let i = 2; i < layer.positions.length; i += 3) {
-            layer.positions[i] += layer.speed * 0.5;
-            if (layer.positions[i] > 460) layer.positions[i] = -layer.depth - 180;
-          }
-          attribute.needsUpdate = true;
-        });
-        for (let i = streaks.length - 1; i >= 0; i -= 1) {
-          const streak = streaks[i];
-          streak.age += 1;
-          const opacity = Math.max(0, 1 - streak.age / streak.life);
-          streak.line.material.opacity = opacity;
-          streak.line.position.x += 4.5;
-          streak.line.position.y -= 3.1;
-          if (streak.age > streak.life) {
-            streakGroup.remove(streak.line);
-            streak.geometry.dispose();
-            streak.line.material.dispose();
-            streaks.splice(i, 1);
-          }
-        }
-        renderer.render(scene, camera);
-      }
-      function onResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      }
-      function cleanup() {
-        window.cancelAnimationFrame(rafId);
-        window.removeEventListener('resize', onResize);
-        starLayers.forEach((layer) => { layer.geo.dispose(); layer.material.dispose(); });
-        nebulaSprites.forEach((sprite) => sprite.material.dispose());
-        streaks.forEach((streak) => { streak.geometry.dispose(); streak.line.material.dispose(); });
-        nebulaTexture.dispose();
-        streakMaterial.dispose();
-        renderer.dispose();
-      }
-      function exitSplash() {
-        if (exited) return;
-        exited = true;
-        gsap.to('#welcome-overlay', { opacity: 0, duration: 0.95, ease: 'power2.inOut' });
-        gsap.to('#welcome-mandala', { opacity: 0, duration: 0.9 });
-        gsap.to('#welcome-progress-bar', { opacity: 0, duration: 0.5 });
-        gsap.to('#welcome-skip-btn', { opacity: 0, duration: 0.4 });
-        starLayers.forEach((layer) => gsap.to(layer.material, { opacity: 0.14, duration: 1.6, ease: 'power2.inOut' }));
-        gsap.to('#welcome-splash', {
-          opacity: 0, duration: 1.1, delay: 0.4, ease: 'power2.inOut',
-          onComplete: () => { cleanup(); removeSplash(); }
-        });
-      }
-
-      window.addEventListener('resize', onResize);
-      animate();
-      window.setTimeout(launchStreak, 1350);
-      window.setTimeout(launchStreak, 2480);
-      window.setTimeout(launchStreak, 3400);
-      const timeline = gsap.timeline({ onComplete: exitSplash });
-      nebulaSprites.forEach((sprite, index) => timeline.to(sprite.material, { opacity: 0.35 + (index % 3) * 0.06, duration: 2.4, ease: 'power2.out' }, 0.1 + index * 0.08));
-      starLayers.forEach((layer, index) => timeline.to(layer.material, { opacity: index === 0 ? 0.8 : 0.95, duration: 1.6, ease: 'power1.inOut' }, 0.1 + index * 0.2));
-      timeline.to('#welcome-progress-bar', { opacity: 1, duration: 0.5 }, 0.35);
-      timeline.to('#welcome-progress-fill', { width: '100%', duration: 6.1, ease: 'none' }, 0.4);
-      timeline.to('#welcome-mandala', { opacity: 1, duration: 1.5, ease: 'power2.inOut' }, 1.0);
-      timeline.to('#welcome-cosmic-form', { opacity: 1, scale: 1.06, y: 0, duration: 1.35, ease: 'power4.out' }, 1.25);
-      timeline.to('.welcome-aura-ring', { scale: 1, duration: 1.05, stagger: 0.25, ease: 'back.out(1.4)', transformOrigin: 'center center' }, 1.65);
-      timeline.to('#welcome-om', { opacity: 1, scale: 1, duration: 0.7, ease: 'back.out(1.7)' }, 2.15);
-      timeline.to('#welcome-sanskrit', { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 2.35);
-      timeline.to('#welcome-translation', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 2.65);
-      timeline.to('#welcome-name', { opacity: 1, duration: 0.8, ease: 'power3.out' }, 3.0);
-      timeline.to('#welcome-divider', { opacity: 1, width: 260, duration: 0.65, ease: 'power2.inOut' }, 3.3);
-      timeline.to('#welcome-role', { opacity: 1, duration: 0.55, ease: 'power2.out' }, 3.6);
-      timeline.to('#welcome-tagline', { opacity: 1, duration: 0.55, ease: 'power2.out' }, 3.9);
-      timeline.to('#welcome-skip-btn', { opacity: 1, duration: 0.4 }, 0.65);
-      timeline.to({}, { duration: 1.6 });
-      gsap.set('#welcome-cosmic-form', { y: 30 });
-      gsap.set('#welcome-sanskrit', { y: 8 });
-      gsap.set('.welcome-aura-ring', { scale: 0, transformOrigin: 'center center' });
-      document.getElementById('welcome-skip-btn')?.addEventListener('click', () => {
-        timeline.kill();
-        exitSplash();
-      }, { once: true });
-    } catch (error) {
-      console.warn('Intro animation failed; continuing to the portfolio.', error);
-      body.classList.remove('welcome-lock');
-      splash.remove();
-      try { renderer.dispose(); } catch {}
-    }
+    const later = (fn, ms) => timers.push(window.setTimeout(fn, ms));
+    splash.dataset.phase = '1';
+    later(() => { splash.dataset.phase = '2'; }, 1200);
+    later(() => { splash.dataset.phase = '3'; }, 2450);
+    later(() => { splash.dataset.phase = '4'; }, 3650);
+    later(() => { splash.dataset.phase = '5'; }, 4450);
+    later(closeIntro, 6500);
+    document.getElementById('welcome-skip-btn')?.addEventListener('click', closeIntro, { once: true });
+    // Hard timeout prevents an intro from ever trapping the page.
+    later(closeIntro, 7800);
   })();
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Rajdhani:wght@300;400;600&display=swap');
-  :global(body.welcome-lock) { overflow: hidden; }
-  #welcome-splash, #welcome-splash::before, #welcome-splash::after, #welcome-splash * { box-sizing: border-box; }
-  #welcome-splash { position: fixed; inset: 0; z-index: 2000; overflow: hidden; isolation: isolate; background: radial-gradient(ellipse at 50% 48%, #11162b 0%, #080b19 42%, #02030a 100%); font-family: 'Rajdhani', sans-serif; }
-  #welcome-splash::before, #welcome-splash::after { content: ''; position: absolute; inset: -25%; pointer-events: none; z-index: 1; mix-blend-mode: screen; }
-  #welcome-splash::before { opacity: .38; background: radial-gradient(ellipse at 25% 40%, rgba(75,65,170,.4), transparent 28%), radial-gradient(ellipse at 78% 35%, rgba(17,130,153,.26), transparent 26%), radial-gradient(ellipse at 55% 78%, rgba(154,91,49,.18), transparent 30%); filter: blur(44px); animation: nebulaDrift 24s ease-in-out infinite alternate; }
-  #welcome-splash::after { opacity: .22; background: repeating-radial-gradient(ellipse at 50% 50%, transparent 0 58px, rgba(140,164,220,.06) 60px, transparent 62px 115px); mask-image: radial-gradient(ellipse at center, #000 0%, transparent 72%); animation: nebulaTurn 90s linear infinite; }
-  @keyframes nebulaDrift { from { transform: translate3d(-2%,1%,0) scale(1); } to { transform: translate3d(2%,-1%,0) scale(1.08); } }
-  @keyframes nebulaTurn { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.04); } }
-  #welcome-three-canvas { position: fixed; inset: 0; z-index: 0; }
-  #welcome-overlay { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
-  #welcome-cosmic-form { position: relative; width: clamp(160px, 22vw, 260px); height: clamp(160px, 22vw, 260px); opacity: 0; margin-bottom: 2.5vw; }
-  .welcome-aura-ring { position: absolute; border-radius: 50%; border: 1px solid; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); }
-  .welcome-aura-ring:nth-child(1) { width: 100%; height: 100%; border-color: rgba(201,168,76,0.5); box-shadow: 0 0 30px rgba(201,168,76,0.25); animation: welcomePulseRing 3s ease-in-out infinite; }
-  .welcome-aura-ring:nth-child(2) { width: 128%; height: 128%; border-color: rgba(77,217,232,0.3); box-shadow: 0 0 40px rgba(77,217,232,0.15); animation: welcomePulseRing 3s ease-in-out 0.6s infinite; }
-  .welcome-aura-ring:nth-child(3) { width: 158%; height: 158%; border-color: rgba(155,109,255,0.2); animation: welcomePulseRing 3s ease-in-out 1.2s infinite; }
-  @keyframes welcomePulseRing { 0%,100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.04); } }
-  .welcome-cosmic-svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 0 18px rgba(201,168,76,0.8)) drop-shadow(0 0 45px rgba(77,217,232,0.4)) drop-shadow(0 0 80px rgba(201,168,76,0.3)); animation: welcomeAuraPulse 4s ease-in-out infinite; }
-  .intro-wheel-rotor { transform-origin: 250px 250px; animation: introWheelSpin 42s linear infinite; }\n  @keyframes introWheelSpin { to { transform: rotate(360deg); } }\n  @keyframes welcomeAuraPulse { 0%,100% { filter: drop-shadow(0 0 18px rgba(201,168,76,0.8)) drop-shadow(0 0 45px rgba(77,217,232,0.35)) drop-shadow(0 0 80px rgba(201,168,76,0.3)); } 50% { filter: drop-shadow(0 0 30px rgba(201,168,76,1)) drop-shadow(0 0 70px rgba(77,217,232,0.6)) drop-shadow(0 0 120px rgba(155,109,255,0.4)); } }
-  .welcome-center-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 38%; height: 38%; border-radius: 50%; background: radial-gradient(circle,rgba(240,208,128,0.95) 0%,rgba(201,168,76,0.6) 40%,rgba(77,217,232,0.2) 70%,transparent 100%); animation: welcomeOrbPulse 3.5s ease-in-out infinite; }
-  @keyframes welcomeOrbPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.9; } 50% { transform: translate(-50%,-50%) scale(1.15); opacity: 1; } }
-  #welcome-text-block { position: relative; text-align: center; z-index: 2; }
-  .welcome-om { font-family: Georgia,serif; font-size: clamp(24px,3vw,36px); line-height: 1; color: #efd997; text-shadow: 0 0 28px rgba(201,168,76,.55),0 0 70px rgba(77,217,232,.2); opacity: 0; transform: scale(.65); margin-bottom: 12px; }\n  .welcome-sanskrit { font-family: 'Cormorant Garamond',serif; font-style: italic; font-weight: 300; font-size: clamp(12px,1.3vw,15px); letter-spacing: 5px; color: rgba(201,168,76,0.65); margin-bottom: 14px; opacity: 0; }
-  .welcome-translation { max-width: 720px; margin: -4px auto 18px; padding: 0 18px; font-family: 'Cormorant Garamond',serif; font-style: italic; font-size: clamp(12px,1.35vw,16px); line-height: 1.7; letter-spacing: .3px; color: rgba(212,222,225,.68); opacity: 0; }\n  .welcome-name { font-family: 'Cinzel',serif; font-weight: 900; font-size: clamp(36px,6.5vw,80px); letter-spacing: 8px; line-height: 1; background: linear-gradient(135deg,#f0d080 0%,#c9a84c 40%,#4dd9e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; opacity: 0; position: relative; }
-  .welcome-name::after { content: 'VINOD M'; position: absolute; inset: 0; background: linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.35) 50%,transparent 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 100%; animation: welcomeShimmer 3.5s linear 2.5s infinite; }
-  @keyframes welcomeShimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-  .welcome-divider { width: 0; height: 1px; background: linear-gradient(90deg,transparent,#4dd9e8,#c9a84c,transparent); margin: 16px auto; opacity: 0; }
-  .welcome-role { font-family: 'Rajdhani',sans-serif; font-weight: 400; font-size: clamp(12px,1.6vw,17px); letter-spacing: 5px; color: rgba(232,238,245,0.5); opacity: 0; text-transform: uppercase; }
-  .welcome-tagline { max-width: 760px; padding: 0 22px; font-family: 'Cormorant Garamond',serif; font-style: italic; font-size: clamp(11px,1.25vw,15px); letter-spacing: 1px; line-height: 1.8; color: rgba(206,195,160,0.75); margin-top: 10px; opacity: 0; }
-  #welcome-mandala { position: fixed; width: clamp(500px,70vw,900px); height: clamp(500px,70vw,900px); top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(0deg); z-index: 1; opacity: 0; pointer-events: none; animation: welcomeMandalaSpin 60s linear infinite; }
-  @keyframes welcomeMandalaSpin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
-  #welcome-skip-btn { position: fixed; top: 24px; right: 28px; z-index: 100; background: transparent; border: 1px solid rgba(201,168,76,0.3); color: rgba(201,168,76,0.65); font-family: 'Rajdhani',sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; padding: 7px 18px; cursor: pointer; border-radius: 1px; opacity: 0; transition: all 0.3s; }
-  #welcome-skip-btn:hover { background: rgba(201,168,76,0.08); border-color: #c9a84c; color: #f0d080; }
-  #welcome-progress-bar { position: fixed; bottom: 36px; left: 50%; transform: translateX(-50%); width: clamp(120px,18vw,200px); z-index: 20; opacity: 0; }
-  #welcome-progress-track { width: 100%; height: 1px; background: rgba(255,255,255,0.1); border-radius: 1px; overflow: hidden; }
-  #welcome-progress-fill { height: 100%; width: 0; background: linear-gradient(90deg,#9b6dff,#4dd9e8,#c9a84c); border-radius: 1px; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(77,217,232,0.5); }
-  #welcome-progress-label { text-align: center; font-size: 10px; letter-spacing: 4px; color: rgba(255,255,255,0.25); margin-top: 8px; }
-  @media (prefers-reduced-motion: reduce) { #welcome-splash::before, #welcome-splash::after, #welcome-mandala, .welcome-cosmic-svg, .welcome-center-orb, .welcome-aura-ring { animation: none !important; } }\n  @media (max-width: 768px) { #welcome-cosmic-form { margin-bottom: 24px; } .welcome-sanskrit { letter-spacing: 1.5px; line-height: 1.8; padding: 0 16px; } .welcome-translation { padding: 0 24px; line-height: 1.65; } .welcome-tagline { padding: 0 24px; letter-spacing: .4px; } .welcome-name { letter-spacing: 4px; } .welcome-role { padding: 0 20px; letter-spacing: 3px; line-height: 1.6; } .welcome-sanskrit { letter-spacing: 3px; } #welcome-mandala { width: min(125vw,760px); height: min(125vw,760px); } }
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+  :global(body.welcome-lock){overflow:hidden}
+  .welcome-splash{position:fixed;inset:0;z-index:2000;isolation:isolate;display:grid;place-items:center;overflow:hidden;color:#f3eee0;background:#050811;background-image:radial-gradient(ellipse at 50% 42%,#121b29 0%,#090e19 46%,#04060c 100%);opacity:1;transition:opacity .85s ease,visibility .85s ease}
+  .welcome-splash::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 47%,rgba(180,146,71,.10),transparent 25%),radial-gradient(ellipse at 76% 25%,rgba(43,119,139,.10),transparent 28%);pointer-events:none}
+  .welcome-splash.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+  .splash-starfield{position:absolute;inset:0;pointer-events:none}
+  .splash-starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:#d9d9d1;opacity:.32;box-shadow:0 0 4px #c5dfdf}
+  .splash-starfield i:nth-child(1){left:12%;top:18%}.splash-starfield i:nth-child(2){left:24%;top:70%;width:1px;height:1px}.splash-starfield i:nth-child(3){left:76%;top:17%}.splash-starfield i:nth-child(4){left:86%;top:64%;width:1px;height:1px}.splash-starfield i:nth-child(5){left:67%;top:80%}.splash-starfield i:nth-child(6){left:17%;top:46%;width:1px;height:1px}.splash-starfield i:nth-child(7){left:91%;top:39%;width:1px;height:1px}.splash-starfield i:nth-child(8){left:42%;top:13%;width:1px;height:1px}.splash-starfield i:nth-child(9){left:54%;top:88%;width:1px;height:1px}.splash-starfield i:nth-child(10){left:34%;top:84%;width:1px;height:1px}.splash-starfield i:nth-child(11){left:82%;top:49%;width:1px;height:1px}.splash-starfield i:nth-child(12){left:7%;top:78%;width:1px;height:1px}
+  .splash-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 34%,rgba(1,3,8,.7) 100%)}
+  .splash-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:min(92vw,920px);text-align:center}
+  .splash-wheel-wrap{width:clamp(180px,35vw,360px);aspect-ratio:1;opacity:0;transform:scale(.94);transition:opacity 1.15s ease,transform 1.6s cubic-bezier(.2,.75,.2,1)}
+  .splash-wheel{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 10px rgba(199,168,94,.13))}
+  .splash-spokes{transform-origin:300px 300px;animation:splashRotation 110s linear infinite}
+  .splash-om{font-family:Georgia,serif;font-size:45px;fill:#f0dca4;opacity:.94}
+  .splash-text{width:100%;padding:0 12px}
+  .splash-overline{font:600 10px/1.5 Inter,system-ui,sans-serif;letter-spacing:.35em;color:#8caaad;opacity:0;transition:opacity .6s ease}
+  .splash-verse{margin-top:10px;font:500 clamp(24px,4vw,38px)/1.4 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:#e4ca86;opacity:0;transform:translateY(8px);transition:opacity .75s ease,transform .75s ease}
+  .splash-meaning{margin-top:0;font:italic clamp(15px,2vw,18px)/1.7 'Cormorant Garamond',Georgia,serif;color:#bdc7c6;opacity:0;transform:translateY(5px);transition:opacity .75s ease,transform .75s ease}
+  .splash-name{margin-top:17px;font:700 clamp(34px,7vw,68px)/1.08 Cinzel,Georgia,serif;letter-spacing:.16em;background:linear-gradient(110deg,#f1dfae 0%,#c9a95d 55%,#81cdd1 100%);color:transparent;background-clip:text;-webkit-background-clip:text;opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
+  .splash-rule{width:0;height:1px;margin:17px auto;background:linear-gradient(90deg,transparent,#c9a95d,#81cdd1,transparent);transition:width .9s ease}
+  .splash-role{font:500 clamp(10px,1.7vw,13px)/1.8 Inter,system-ui,sans-serif;letter-spacing:.24em;color:#aab8b8;opacity:0;transition:opacity .6s ease}
+  .splash-footnote{position:absolute;bottom:29px;left:20px;right:20px;text-align:center;font:500 9px/1.7 Inter,system-ui,sans-serif;letter-spacing:.22em;color:#77898d;opacity:.68}
+  .splash-footnote span{color:#cfb36d;padding:0 5px}
+  .splash-skip{position:absolute;top:22px;right:22px;border:1px solid rgba(201,169,93,.35);padding:9px 13px;color:#c9d1cb;background:rgba(8,13,19,.45);font:500 11px Inter,system-ui,sans-serif;letter-spacing:.08em;cursor:pointer}
+  .splash-skip:hover,.splash-skip:focus-visible{border-color:#c9a95d;color:#f1dfae;outline:none}
+  .welcome-splash[data-phase="1"] .splash-wheel-wrap,.welcome-splash[data-phase="2"] .splash-wheel-wrap,.welcome-splash[data-phase="3"] .splash-wheel-wrap,.welcome-splash[data-phase="4"] .splash-wheel-wrap,.welcome-splash[data-phase="5"] .splash-wheel-wrap{opacity:1;transform:scale(1)}
+  .welcome-splash[data-phase="1"] .splash-overline,.welcome-splash[data-phase="2"] .splash-overline,.welcome-splash[data-phase="3"] .splash-overline,.welcome-splash[data-phase="4"] .splash-overline,.welcome-splash[data-phase="5"] .splash-overline{opacity:.85}
+  .welcome-splash[data-phase="2"] .splash-verse,.welcome-splash[data-phase="3"] .splash-verse,.welcome-splash[data-phase="4"] .splash-verse,.welcome-splash[data-phase="5"] .splash-verse{opacity:1;transform:translateY(0)}
+  .welcome-splash[data-phase="3"] .splash-meaning,.welcome-splash[data-phase="4"] .splash-meaning,.welcome-splash[data-phase="5"] .splash-meaning{opacity:1;transform:translateY(0)}
+  .welcome-splash[data-phase="4"] .splash-name,.welcome-splash[data-phase="5"] .splash-name{opacity:1;transform:translateY(0)}
+  .welcome-splash[data-phase="4"] .splash-rule,.welcome-splash[data-phase="5"] .splash-rule{width:min(240px,64vw)}
+  .welcome-splash[data-phase="5"] .splash-role{opacity:1}
+  @keyframes splashRotation{to{transform:rotate(360deg)}}
+  @media(max-width:640px){.splash-content{gap:7px}.splash-wheel-wrap{width:clamp(172px,54vw,260px)}.splash-overline{font-size:9px;letter-spacing:.24em}.splash-verse{font-size:27px;letter-spacing:.04em}.splash-meaning{font-size:15px;max-width:330px;margin-inline:auto}.splash-name{font-size:clamp(31px,10vw,46px);letter-spacing:.12em}.splash-role{font-size:10px;letter-spacing:.16em;max-width:320px;margin-inline:auto}.splash-footnote{bottom:22px;font-size:8px;letter-spacing:.12em}.splash-skip{top:15px;right:15px}}
+  @media(prefers-reduced-motion:reduce){.splash-spokes{animation:none}.welcome-splash,.splash-wheel-wrap,.splash-verse,.splash-meaning,.splash-name,.splash-role{transition:none!important}}
 </style>

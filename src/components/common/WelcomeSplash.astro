@@ -22,8 +22,14 @@
     </div>
     <div class="splash-text">
       <p class="splash-overline">A MINDSET OF CREATION</p>
-      <p class="splash-verse" id="splash-verse">तत्त्वमसि</p>
-      <p class="splash-meaning" id="splash-meaning">You are That.</p>
+      <div class="splash-philosophy" id="splash-philosophy">
+        <p class="splash-verse" id="splash-verse">तत्त्वमसि</p>
+        <p class="splash-meaning" id="splash-meaning">You are That.</p>
+        <p class="splash-secondary-verse" id="splash-verse-b">यद् भावं तद् भवति</p>
+        <p class="splash-secondary-meaning" id="splash-meaning-b">What one holds in thought shapes what one becomes.</p>
+        <p class="splash-secondary-verse" id="splash-verse-c">यथा दृष्टिः तथा सृष्टिः</p>
+        <p class="splash-secondary-meaning" id="splash-meaning-c">As your vision, so your world.</p>
+      </div>
       <h1 class="splash-name" id="splash-name">VINOD M</h1>
       <div class="splash-rule" aria-hidden="true"></div>
       <p class="splash-role" id="splash-role">BUSINESS SYSTEMS · DATA · APPLIED AI</p>
@@ -61,10 +67,11 @@
     later(() => { splash.dataset.phase = '3'; }, 2450);
     later(() => { splash.dataset.phase = '4'; }, 3650);
     later(() => { splash.dataset.phase = '5'; }, 4450);
-    later(closeIntro, 6500);
+    later(() => { splash.dataset.phase = '6'; }, 5050);
+    later(closeIntro, 6900);
     document.getElementById('welcome-skip-btn')?.addEventListener('click', closeIntro, { once: true });
     // Hard timeout prevents an intro from ever trapping the page.
-    later(closeIntro, 7800);
+    later(closeIntro, 8000);
   })();
 </script>
 
@@ -87,6 +94,9 @@
   .splash-overline{font:600 10px/1.5 Inter,system-ui,sans-serif;letter-spacing:.35em;color:#8caaad;opacity:0;transition:opacity .6s ease}
   .splash-verse{margin-top:10px;font:500 clamp(24px,4vw,38px)/1.4 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:#e4ca86;opacity:0;transform:translateY(8px);transition:opacity .75s ease,transform .75s ease}
   .splash-meaning{margin-top:0;font:italic clamp(15px,2vw,18px)/1.7 'Cormorant Garamond',Georgia,serif;color:#bdc7c6;opacity:0;transform:translateY(5px);transition:opacity .75s ease,transform .75s ease}
+  .splash-secondary-verse,.splash-secondary-meaning{opacity:0;transform:translateY(5px);transition:opacity .7s ease,transform .7s ease}
+  .splash-secondary-verse{margin-top:9px;font:500 clamp(16px,2.6vw,22px)/1.4 'Cormorant Garamond',Georgia,serif;letter-spacing:.035em;color:#d8c68f}
+  .splash-secondary-meaning{margin-top:1px;font:italic clamp(12px,1.7vw,15px)/1.5 'Cormorant Garamond',Georgia,serif;color:#a9b7b7}
   .splash-name{margin-top:17px;font:700 clamp(34px,7vw,68px)/1.08 Cinzel,Georgia,serif;letter-spacing:.16em;background:linear-gradient(110deg,#f1dfae 0%,#c9a95d 55%,#81cdd1 100%);color:transparent;background-clip:text;-webkit-background-clip:text;opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
   .splash-rule{width:0;height:1px;margin:17px auto;background:linear-gradient(90deg,transparent,#c9a95d,#81cdd1,transparent);transition:width .9s ease}
   .splash-role{font:500 clamp(10px,1.7vw,13px)/1.8 Inter,system-ui,sans-serif;letter-spacing:.24em;color:#aab8b8;opacity:0;transition:opacity .6s ease}
@@ -100,8 +110,13 @@
   .welcome-splash[data-phase="3"] .splash-meaning,.welcome-splash[data-phase="4"] .splash-meaning,.welcome-splash[data-phase="5"] .splash-meaning{opacity:1;transform:translateY(0)}
   .welcome-splash[data-phase="4"] .splash-name,.welcome-splash[data-phase="5"] .splash-name{opacity:1;transform:translateY(0)}
   .welcome-splash[data-phase="4"] .splash-rule,.welcome-splash[data-phase="5"] .splash-rule{width:min(240px,64vw)}
-  .welcome-splash[data-phase="5"] .splash-role{opacity:1}
+  .welcome-splash[data-phase="5"] .splash-role,.welcome-splash[data-phase="6"] .splash-role{opacity:1}
+  .welcome-splash[data-phase="5"] .splash-secondary-verse,.welcome-splash[data-phase="6"] .splash-secondary-verse,.welcome-splash[data-phase="5"] .splash-secondary-meaning,.welcome-splash[data-phase="6"] .splash-secondary-meaning{opacity:1;transform:translateY(0)}
+  .welcome-splash[data-phase="5"] .splash-verse,.welcome-splash[data-phase="5"] .splash-meaning,.welcome-splash[data-phase="6"] .splash-verse,.welcome-splash[data-phase="6"] .splash-meaning{display:none}
+  .welcome-splash[data-phase="5"] .splash-philosophy,.welcome-splash[data-phase="6"] .splash-philosophy{margin-top:3px}
+  .welcome-splash[data-phase="5"] .splash-name,.welcome-splash[data-phase="6"] .splash-name{margin-top:7px}
+  .welcome-splash[data-phase="5"] .splash-secondary-verse:first-of-type,.welcome-splash[data-phase="6"] .splash-secondary-verse:first-of-type{margin-top:0}
   @keyframes splashRotation{to{transform:rotate(360deg)}}
-  @media(max-width:640px){.splash-content{gap:7px}.splash-wheel-wrap{width:clamp(172px,54vw,260px)}.splash-overline{font-size:9px;letter-spacing:.24em}.splash-verse{font-size:27px;letter-spacing:.04em}.splash-meaning{font-size:15px;max-width:330px;margin-inline:auto}.splash-name{font-size:clamp(31px,10vw,46px);letter-spacing:.12em}.splash-role{font-size:10px;letter-spacing:.16em;max-width:320px;margin-inline:auto}.splash-footnote{bottom:22px;font-size:8px;letter-spacing:.12em}.splash-skip{top:15px;right:15px}}
-  @media(prefers-reduced-motion:reduce){.splash-spokes{animation:none}.welcome-splash,.splash-wheel-wrap,.splash-verse,.splash-meaning,.splash-name,.splash-role{transition:none!important}}
+  @media(max-width:640px){.splash-content{gap:4px}.splash-wheel-wrap{width:clamp(172px,54vw,260px)}.splash-overline{font-size:9px;letter-spacing:.24em}.splash-verse{font-size:27px;letter-spacing:.04em}.splash-meaning{font-size:15px;max-width:330px;margin-inline:auto}.splash-name{font-size:clamp(31px,10vw,46px);letter-spacing:.12em}.splash-role{font-size:10px;letter-spacing:.16em;max-width:320px;margin-inline:auto}.splash-footnote{bottom:22px;font-size:8px;letter-spacing:.12em}.splash-secondary-verse{font-size:18px;margin-top:6px}.splash-secondary-meaning{font-size:12px}.splash-skip{top:15px;right:15px}}
+  @media(prefers-reduced-motion:reduce){.splash-spokes{animation:none}.welcome-splash,.splash-wheel-wrap,.splash-verse,.splash-meaning,.splash-secondary-verse,.splash-secondary-meaning,.splash-name,.splash-role{transition:none!important}}
 </style>

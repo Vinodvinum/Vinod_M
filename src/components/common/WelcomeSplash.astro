@@ -21,7 +21,7 @@
       </svg>
     </div>
     <div class="splash-text">
-      <p class="splash-overline">A MINDSET OF CREATION</p>
+      <p class="splash-overline" id="splash-overline">INITIALIZING · THE UNIVERSE WITHIN</p>
       <div class="splash-philosophy" id="splash-philosophy">
         <p class="splash-verse" id="splash-verse">तत्त्वमसि</p>
         <p class="splash-meaning" id="splash-meaning">You are That.</p>
@@ -62,13 +62,14 @@
       return;
     }
     const later = (fn, ms) => timers.push(window.setTimeout(fn, ms));
-    splash.dataset.phase = '1';
-    later(() => { splash.dataset.phase = '2'; }, 1200);
-    later(() => { splash.dataset.phase = '3'; }, 2450);
-    later(() => { splash.dataset.phase = '4'; }, 3650);
-    later(() => { splash.dataset.phase = '5'; }, 4450);
-    later(() => { splash.dataset.phase = '6'; }, 5050);
-    later(closeIntro, 6900);
+    splash.dataset.phase = '0';
+    later(() => { splash.dataset.phase = '1'; }, 450);
+    later(() => { splash.dataset.phase = '2'; }, 1250);
+    later(() => { splash.dataset.phase = '3'; }, 2350);
+    later(() => { splash.dataset.phase = '4'; }, 3450);
+    later(() => { splash.dataset.phase = '5'; }, 4550);
+    later(() => { splash.dataset.phase = '6'; }, 5350);
+    later(closeIntro, 7200);
     document.getElementById('welcome-skip-btn')?.addEventListener('click', closeIntro, { once: true });
     // Hard timeout prevents an intro from ever trapping the page.
     later(closeIntro, 8000);
@@ -104,11 +105,11 @@
   .splash-footnote span{color:#cfb36d;padding:0 5px}
   .splash-skip{position:absolute;top:22px;right:22px;border:1px solid rgba(201,169,93,.35);padding:9px 13px;color:#c9d1cb;background:rgba(8,13,19,.45);font:500 11px Inter,system-ui,sans-serif;letter-spacing:.08em;cursor:pointer}
   .splash-skip:hover,.splash-skip:focus-visible{border-color:#c9a95d;color:#f1dfae;outline:none}
-  .welcome-splash[data-phase="1"] .splash-wheel-wrap,.welcome-splash[data-phase="2"] .splash-wheel-wrap,.welcome-splash[data-phase="3"] .splash-wheel-wrap,.welcome-splash[data-phase="4"] .splash-wheel-wrap,.welcome-splash[data-phase="5"] .splash-wheel-wrap,.welcome-splash[data-phase="6"] .splash-wheel-wrap{opacity:1;transform:scale(1)}
-  .welcome-splash[data-phase="1"] .splash-overline,.welcome-splash[data-phase="2"] .splash-overline,.welcome-splash[data-phase="3"] .splash-overline,.welcome-splash[data-phase="4"] .splash-overline,.welcome-splash[data-phase="5"] .splash-overline,.welcome-splash[data-phase="6"] .splash-overline{opacity:.85}
+  .welcome-splash[data-phase="0"] .splash-wheel-wrap,.welcome-splash[data-phase="1"] .splash-wheel-wrap,.welcome-splash[data-phase="2"] .splash-wheel-wrap,.welcome-splash[data-phase="3"] .splash-wheel-wrap,.welcome-splash[data-phase="4"] .splash-wheel-wrap,.welcome-splash[data-phase="5"] .splash-wheel-wrap,.welcome-splash[data-phase="6"] .splash-wheel-wrap{opacity:1;transform:scale(1)}
+  .welcome-splash[data-phase="0"] .splash-overline,.welcome-splash[data-phase="1"] .splash-overline,.welcome-splash[data-phase="2"] .splash-overline,.welcome-splash[data-phase="3"] .splash-overline,.welcome-splash[data-phase="4"] .splash-overline,.welcome-splash[data-phase="5"] .splash-overline,.welcome-splash[data-phase="6"] .splash-overline{opacity:.85}
   .welcome-splash[data-phase="2"] .splash-verse,.welcome-splash[data-phase="3"] .splash-verse,.welcome-splash[data-phase="4"] .splash-verse,.welcome-splash[data-phase="5"] .splash-verse{opacity:1;transform:translateY(0)}
   .welcome-splash[data-phase="3"] .splash-meaning,.welcome-splash[data-phase="4"] .splash-meaning,.welcome-splash[data-phase="5"] .splash-meaning{opacity:1;transform:translateY(0)}
-  .welcome-splash[data-phase="4"] .splash-name,.welcome-splash[data-phase="5"] .splash-name{opacity:1;transform:translateY(0)}
+  .welcome-splash[data-phase="4"] .splash-name,.welcome-splash[data-phase="5"] .splash-name,.welcome-splash[data-phase="6"] .splash-name{opacity:1;transform:translateY(0)}
   .welcome-splash[data-phase="4"] .splash-rule,.welcome-splash[data-phase="5"] .splash-rule,.welcome-splash[data-phase="6"] .splash-rule{width:min(240px,64vw)}
   .welcome-splash[data-phase="5"] .splash-role,.welcome-splash[data-phase="6"] .splash-role{opacity:1}
   .welcome-splash[data-phase="5"] .splash-secondary-verse,.welcome-splash[data-phase="6"] .splash-secondary-verse,.welcome-splash[data-phase="5"] .splash-secondary-meaning,.welcome-splash[data-phase="6"] .splash-secondary-meaning{opacity:1;transform:translateY(0)}

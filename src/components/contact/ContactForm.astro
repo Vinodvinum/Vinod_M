@@ -13,7 +13,7 @@ import { socialLinks } from '../../data/social-links';
       <div><div class="glass rounded-4xl p-10 md:p-12 shadow-2xl shadow-black/30 border-white/10 backdrop-blur-xl">
         <h3 class="text-3xl font-bold gradient-text mb-8 text-center">Send Me a Message</h3>
         <p class="text-white/70 text-sm mb-6 leading-relaxed">This form opens your email application with your message prepared. Review it and press Send to deliver it.</p>
-        <form class="space-y-6" id="contact-form">
+        <form class="space-y-6" id="contact-form" data-contact-email={socialLinks.email}>
           <div><label for="contact-name" class="block text-white/90 font-semibold mb-3">Full Name</label><input id="contact-name" type="text" name="name" required autocomplete="name" class="w-full glass px-6 py-4 rounded-2xl text-white/90 placeholder-white/50 border border-white/20 focus:border-[#c9a95d] focus:outline-none focus:shadow-black/30 transition-all duration-300 text-lg" placeholder="Your full name" /></div>
           <div><label for="contact-email" class="block text-white/90 font-semibold mb-3">Email Address</label><input id="contact-email" type="email" name="email" required autocomplete="email" class="w-full glass px-6 py-4 rounded-2xl text-white/90 placeholder-white/50 border border-white/20 focus:border-[#c9a95d] focus:outline-none focus:shadow-black/30 transition-all duration-300 text-lg" placeholder="your-email@example.com" /></div>
           <div><label for="contact-message" class="block text-white/90 font-semibold mb-3">Message</label><textarea id="contact-message" name="message" rows="5" required class="w-full glass px-6 py-4 rounded-2xl text-white/90 placeholder-white/50 border border-white/20 focus:border-[#c9a95d] focus:outline-none focus:shadow-black/30 transition-all duration-300 resize-vertical text-lg" placeholder="Tell me what you’re building and where you need help..."></textarea></div>
@@ -33,9 +33,10 @@ import { socialLinks } from '../../data/social-links';
 </section>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  const status = document.getElementById('form-status') as HTMLParagraphElement | null;
-  if (form && !form.dataset.mailtoHandlerAttached) {
+  function initPortfolioContactForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const status = document.getElementById('form-status') as HTMLParagraphElement | null;
+    if (!form || form.dataset.mailtoHandlerAttached) return;
     form.dataset.mailtoHandlerAttached = 'true';
     form.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -48,13 +49,21 @@ import { socialLinks } from '../../data/social-links';
         if (status) status.textContent = 'Please complete all fields before preparing your email.';
         return;
       }
+      const emailAddress = form.dataset.contactEmail;
+      if (!emailAddress) {
+        status?.classList.remove('hidden');
+        if (status) status.textContent = 'The email address is unavailable. Please use the contact details shown on this page.';
+        return;
+      }
       const subject = encodeURIComponent(`Portfolio contact from ${name}`);
       const body = encodeURIComponent(`Name: ${name}\nReply email: ${email}\n\nMessage:\n${message}`);
       if (status) {
         status.classList.remove('hidden');
         status.textContent = 'Your email application should open with the message prepared. Review it and press Send. If it does not open, use the email address shown on this page.';
       }
-      window.location.href = `mailto:${socialLinks.email}?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
     });
   }
+  initPortfolioContactForm();
+  document.addEventListener('astro:page-load', initPortfolioContactForm);
 </script>

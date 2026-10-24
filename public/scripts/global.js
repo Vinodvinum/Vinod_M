@@ -1,4 +1,15 @@
 // Resilient site interactions. Safe after Astro view transitions and on direct page loads.
+function releaseUnstartedWelcomeSplash() {
+  // Inline scripts inside an Astro view-transition swap are not re-executed.
+  // If the home splash arrived through client navigation, it would otherwise
+  // remain above the page forever. Preserve the intro on a real page load.
+  const splash = document.getElementById('welcome-splash');
+  if (splash && splash.dataset.started !== 'true') {
+    document.body.classList.remove('welcome-lock');
+    splash.remove();
+  }
+}
+
 function initSiteInteractions() {
   const mobileBtn = document.getElementById('mobile-menu');
   const mobileMenu = document.getElementById('mobile-menu-items');
@@ -36,9 +47,6 @@ function initSiteInteractions() {
     }
   }
 
-  // Handle hash-only links and absolute paths with hashes (e.g. /#projects)
-  // after Astro client navigation. Fall back to native browser navigation if
-  // the element is not on this page.
   document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
     if (anchor.dataset.hashNavigationAttached) return;
     anchor.dataset.hashNavigationAttached = 'true';
@@ -49,7 +57,7 @@ function initSiteInteractions() {
       try { url = new URL(raw, window.location.href); } catch { return; }
       if (!url.hash) return;
       const samePage = url.origin === window.location.origin && url.pathname.replace(/\/$/, '') === window.location.pathname.replace(/\/$/, '');
-      if (!samePage) return; // Let Astro/the browser navigate, then scroll on page-load.
+      if (!samePage) return;
       const id = decodeURIComponent(url.hash.slice(1));
       const target = document.getElementById(id);
       if (!target) return;
@@ -67,5 +75,13 @@ function scrollToCurrentHash() {
   if (target) window.requestAnimationFrame(() => target.scrollIntoView({ behavior: 'auto', block: 'start' }));
 }
 
-document.addEventListener('DOMContentLoaded', () => { initSiteInteractions(); scrollToCurrentHash(); });
-document.addEventListener('astro:page-load', () => { initSiteInteractions(); scrollToCurrentHash(); });
+document.addEventListener('DOMContentLoaded', () => {
+  releaseUnstartedWelcomeSplash();
+  initSiteInteractions();
+  scrollToCurrentHash();
+});
+document.addEventListener('astro:page-load', () => {
+  releaseUnstartedWelcomeSplash();
+  initSiteInteractions();
+  scrollToCurrentHash();
+});

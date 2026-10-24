@@ -1,23 +1,99 @@
 ---
 import { completedProjects, ongoingProjects } from '../../data/projects';
+import { socialLinks } from '../../data/social-links';
 const NAME = 'Vinod M';
-const TITLE = 'Data Analyst, BI Developer, and AI Engineer';
-const ONE_LINER = 'I build dashboards, automation, and AI tools for teams that need clearer decisions and less manual work.';
+const TITLE = 'I turn complex data into useful decisions.';
 const totalProjects = completedProjects.length + ongoingProjects.length;
 ---
 
-<section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 pb-16 relative z-10 overflow-hidden">
-  <div class="absolute -top-28 -left-20 w-80 h-80 bg-cyan-500/20 blur-3xl rounded-full pointer-events-none"></div><div class="absolute -bottom-20 -right-16 w-96 h-96 bg-fuchsia-500/20 blur-3xl rounded-full pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    <div class="space-y-8"><div class="space-y-4">
-      <p class="text-sm tracking-[0.3em] text-purple-300/80 uppercase">Data Analytics • BI • AI</p>
-      <h1 class="text-4xl md:text-3xl font-extrabold leading-tight"><span class="block text-white/80 text-5xl">Hi, I’m {NAME}.</span><span class="block gradient-text mt-2">{TITLE}</span></h1>
-      <p class="text-lg md:text-xl text-purple-100/90 font-medium">{ONE_LINER}</p>
-      <p class="text-sm md:text-base text-white/65 max-w-xl leading-relaxed">Focused on Python, SQL, Power BI, Streamlit, FastAPI, and practical AI work that ships.</p>
+<section id="home" class="cosmic-hero relative isolate min-h-[92vh] overflow-hidden px-5 pb-20 pt-32 sm:px-8 lg:px-12">
+  <div class="cosmic-grid" aria-hidden="true"></div>
+  <div class="cosmic-halo" aria-hidden="true"><div class="chakra-orbit chakra-orbit-outer"></div><div class="chakra-orbit chakra-orbit-inner"></div><div class="chakra-core"><span>ॐ</span></div></div>
+  <div class="cosmic-stars" aria-hidden="true"></div>
+  <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-line"></span> VINOD M <span class="eyebrow-dot">•</span> MYSURU, INDIA</p>
+      <p class="hero-sanskrit">यद् भावं तद् भवति <span>/</span> यथा दृष्टिः तथा सृष्टिः</p>
+      <h1 class="hero-title">Build with <span>clarity.</span><br/>Think beyond <span>limits.</span></h1>
+      <p class="hero-lead">I’m Vinod — a data, automation, and AI practitioner who turns messy workflows into clear insights, useful systems, and measurable outcomes.</p>
+      <p class="hero-support">From MIS and business intelligence to computer vision and practical AI, I work at the intersection of analytical thinking and real-world execution.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="hero-cta hero-cta-primary" href="/#projects">Explore selected work <span aria-hidden="true">↗</span></a>
+        <a class="hero-cta hero-cta-secondary" href="/#contact">Start a conversation <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-proof" aria-label="Professional highlights">
+        <div><strong>${totalProjects}+</strong><span>Project builds</span></div>
+        <i aria-hidden="true"></i>
+        <div><strong>AI × BI</strong><span>Practical focus</span></div>
+        <i aria-hidden="true"></i>
+        <div><strong>MCA</strong><span>Computer science</span></div>
+      </div>
+      <div class="hero-socials">
+        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+        <a href="/resume/Vinod_M_Premium_Resume-5.pdf" target="_blank" rel="noopener noreferrer">View résumé <span>↗</span></a>
+      </div>
     </div>
-    <div class="flex flex-wrap gap-4"><a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">View Projects</a><a href="#contact" class="px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-purple-200 hover:text-white hover:bg-white/10 border border-purple-400/60 hover:border-purple-300 transition-all duration-300">Contact</a></div>
-    <div class="grid grid-cols-3 gap-3 max-w-xl"><div class="glass rounded-2xl px-4 py-3 text-center border-white/20"><p class="text-2xl font-black gradient-text">{totalProjects}+</p><p class="text-[11px] uppercase tracking-wide text-white/70">Projects</p></div><div class="glass rounded-2xl px-4 py-3 text-center border-white/20"><p class="text-2xl font-black gradient-text">1</p><p class="text-[11px] uppercase tracking-wide text-white/70">Publication</p></div><div class="glass rounded-2xl px-4 py-3 text-center border-white/20"><p class="text-2xl font-black gradient-text">MCA</p><p class="text-[11px] uppercase tracking-wide text-white/70">Graduate</p></div></div>
+    <div class="hero-visual" aria-label="Cosmic Sudarshana-inspired mandala artwork">
+      <div class="visual-caption visual-caption-top"><span class="status-pulse"></span> SYSTEMS THINKING / ACTIVE</div>
+      <div class="chakra-stage">
+        <div class="chakra-aura"></div>
+        <svg class="sudarshana" viewBox="0 0 600 600" role="img" aria-label="Abstract golden cosmic wheel inspired by a mandala">
+          <defs>
+            <radialGradient id="chakraGold"><stop offset="0" stop-color="#fff4c5"/><stop offset=".4" stop-color="#e5bf6a"/><stop offset=".74" stop-color="#9b6c28"/><stop offset="1" stop-color="#5d421f" stop-opacity=".12"/></radialGradient>
+            <linearGradient id="chakraEdge" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff2bd"/><stop offset=".5" stop-color="#c89b4b"/><stop offset="1" stop-color="#74d8dd"/></linearGradient>
+            <filter id="chakraGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g transform="translate(300 300)" fill="none" stroke-linecap="round">
+            <circle r="252" stroke="#76d6de" stroke-opacity=".19" stroke-width="1"/>
+            <circle r="232" stroke="url(#chakraEdge)" stroke-opacity=".7" stroke-width="1.5" stroke-dasharray="2 10"/>
+            <circle r="207" stroke="#cda85c" stroke-opacity=".38"/>
+            <circle r="188" stroke="#76d6de" stroke-opacity=".23" stroke-dasharray="1 8"/>
+            <g class="chakra-rotor" stroke="url(#chakraEdge)" stroke-width="1.25" filter="url(#chakraGlow)">
+              {Array.from({length:24}, (_, i) => <g transform={`rotate(${i * 15})`}><path d="M0 -186 Q13 -152 0 -120 Q-13 -152 0 -186Z" fill="url(#chakraGold)" fill-opacity=".22"/><path d="M0 -238 L8 -211 L0 -194 L-8 -211Z" fill="#e7c06a" fill-opacity=".8"/><line x1="0" y1="-188" x2="0" y2="-112" stroke-opacity=".55"/></g>)}
+            </g>
+            <g stroke="#d9b766" stroke-opacity=".58">
+              {Array.from({length:12}, (_, i) => <g transform={`rotate(${i * 30})`}><ellipse rx="30" ry="105" cy="-78"/><path d="M0 -148 L0 -175"/></g>)}
+            </g>
+            <circle r="92" stroke="#76d6de" stroke-opacity=".55"/>
+            <circle r="73" stroke="#dfb966" stroke-opacity=".8" stroke-dasharray="2 7"/>
+            <circle r="46" fill="url(#chakraGold)" fill-opacity=".18" stroke="url(#chakraEdge)" stroke-width="2"/>
+            <circle r="26" fill="#f3d58c" fill-opacity=".15" stroke="#fae4a8" stroke-opacity=".9"/>
+            <circle r="8" fill="#fff2c2" filter="url(#chakraGlow)"/>
+            <path d="M0 -24 L7 -7 L24 0 L7 7 L0 24 L-7 7 L-24 0 L-7 -7Z" fill="#efd18a" fill-opacity=".72"/>
+          </g>
+        </svg>
+        <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div><div class="visual-ring ring-three"></div>
+        <div class="orbit-node node-one"><span>DATA</span></div><div class="orbit-node node-two"><span>AI</span></div><div class="orbit-node node-three"><span>IMPACT</span></div>
+      </div>
+      <div class="visual-caption visual-caption-bottom"><span>01 / INTENT</span><span>INSIGHT → ACTION</span></div>
+      <p class="visual-quote">“As the vision, so the world.”</p>
     </div>
-    <div class="relative"><div class="absolute -inset-8 bg-gradient-to-tr from-purple-600/40 via-pink-500/30 to-indigo-500/40 rounded-[2.5rem] blur-3xl opacity-60"></div><div class="absolute -inset-3 rounded-[2.7rem] border border-cyan-300/30 bg-gradient-to-r from-cyan-300/10 via-transparent to-fuchsia-300/10"></div><div class="relative glass rounded-[2.5rem] p-4 md:p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)] animate-[float_6s_ease-in-out_infinite]"><div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-purple-900/60 to-slate-900 border border-white/15"><div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.4)_0%,transparent_55%)]"></div><div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold text-cyan-100 border border-cyan-300/30 bg-cyan-400/10">Analytics • AI • Automation</div><img src="/images/profile.jpg" alt="Vinod M, also known as Vinu, AI and analytics professional from Mysuru" loading="eager" decoding="async" fetchpriority="high" class="relative z-10 w-full h-full object-cover mix-blend-screen" /><div class="absolute bottom-4 left-4 right-4 z-20 glass rounded-2xl px-4 py-3 flex items-center justify-between gap-3 text-xs md:text-sm"><div><p class="text-white/70">Current Focus</p><p class="text-white font-semibold">Data analysis, BI dashboards, and AI-enabled workflows</p></div><span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">Open to Opportunities</span></div></div></div></div>
   </div>
+  <div class="hero-bottom-line" aria-hidden="true"><span>ANALYTICS</span><span>·</span><span>AUTOMATION</span><span>·</span><span>INTELLIGENCE</span><span>·</span><span>IMPACT</span></div>
 </section>
+
+<style>
+  .cosmic-hero{color:#f7f3e8;background:radial-gradient(ellipse at 76% 43%,rgba(32,94,106,.19),transparent 33%),radial-gradient(ellipse at 25% 20%,rgba(143,100,35,.11),transparent 35%),linear-gradient(145deg,#05090d 4%,#081219 54%,#080c13 100%);}
+  .cosmic-grid{position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(199,171,108,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(199,171,108,.16) 1px,transparent 1px);background-size:66px 66px;mask-image:radial-gradient(ellipse at center,#000 8%,transparent 78%);}
+  .cosmic-halo{position:absolute;top:8%;right:5%;width:min(48vw,660px);aspect-ratio:1;pointer-events:none;opacity:.16;filter:blur(.4px)}
+  .chakra-orbit{position:absolute;border:1px solid #d9b86f;border-radius:50%;inset:0}.chakra-orbit-outer{inset:2%;border-style:dashed;animation:spin 80s linear infinite}.chakra-orbit-inner{inset:18%;border-color:#5cd4dd;animation:spin 48s linear infinite reverse}
+  .chakra-core{position:absolute;inset:35%;border:1px solid #d8b96a;border-radius:50%;display:grid;place-items:center;color:#d8b96a;font-size:clamp(2rem,5vw,5rem)}
+  .cosmic-stars{position:absolute;inset:0;opacity:.26;pointer-events:none;background-image:radial-gradient(2px 2px at 21% 23%,#f4df9c 50%,transparent),radial-gradient(1px 1px at 77% 12%,#8ce8eb 50%,transparent),radial-gradient(1px 1px at 58% 71%,#e2c982 50%,transparent),radial-gradient(2px 2px at 84% 85%,#78cfd7 50%,transparent),radial-gradient(1px 1px at 12% 79%,#fff 50%,transparent);background-size:420px 360px}
+  .hero-copy{max-width:730px;position:relative;z-index:2}.eyebrow{display:flex;align-items:center;gap:12px;color:#c9b77f;letter-spacing:.25em;font-size:.72rem;font-weight:700}.eyebrow-line{width:35px;height:1px;background:#c5a35f}.eyebrow-dot{color:#61c8d0}
+  .hero-sanskrit{margin-top:27px;color:#e2c783;font-family:Georgia,serif;letter-spacing:.07em;font-size:clamp(.9rem,1.3vw,1.15rem)}.hero-sanskrit span{color:#5ec8d1;margin:0 .4rem}
+  .hero-title{margin-top:18px;max-width:760px;font-size:clamp(3rem,6.2vw,6.4rem);font-weight:650;line-height:.98;letter-spacing:-.065em}.hero-title span{color:transparent;background:linear-gradient(110deg,#fff0bd 4%,#c7a45b 45%,#8ddfe2 95%);background-clip:text;-webkit-background-clip:text}
+  .hero-lead{margin-top:28px;max-width:610px;color:#e4e8e5;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.7}.hero-support{margin-top:14px;max-width:590px;color:#aab7b8;font-size:.98rem;line-height:1.8}
+  .hero-cta{display:inline-flex;align-items:center;gap:20px;padding:14px 19px;border-radius:3px;font-size:.92rem;font-weight:650;transition:transform .25s,border-color .25s,background .25s}.hero-cta:hover{transform:translateY(-3px)}.hero-cta-primary{color:#071012;background:linear-gradient(110deg,#ecd49a,#b9a05f 70%,#7bd1d4);box-shadow:0 12px 32px #0005}.hero-cta-secondary{border:1px solid #789093;color:#e8e8dd;background:#0c171caa}.hero-cta-secondary:hover{border-color:#d5bb79;background:#13232a}
+  .hero-proof{display:flex;align-items:center;gap:22px;margin-top:38px;max-width:560px;border-top:1px solid #ffffff1a;padding-top:21px}.hero-proof div{display:grid;gap:5px}.hero-proof strong{font-size:1.22rem;color:#f0d99b;letter-spacing:-.02em}.hero-proof span{font-size:.72rem;color:#96a5a6;letter-spacing:.06em}.hero-proof i{width:1px;height:32px;background:#ffffff23}
+  .hero-socials{display:flex;gap:23px;margin-top:30px}.hero-socials a{font-size:.82rem;color:#9fb2b4;transition:color .2s}.hero-socials a span{color:#dfc078}.hero-socials a:hover{color:#fff}
+  .hero-visual{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center}.chakra-stage{width:min(100%,620px);aspect-ratio:1;position:relative;display:grid;place-items:center;isolation:isolate}.chakra-aura{position:absolute;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(206,164,80,.18),rgba(46,139,149,.1) 45%,transparent 71%);filter:blur(22px);animation:aura 6s ease-in-out infinite}
+  .sudarshana{position:relative;z-index:2;width:92%;height:92%;overflow:visible;filter:drop-shadow(0 0 15px #cda85c20)}.chakra-rotor{transform-origin:300px 300px;animation:spin 100s linear infinite}.visual-ring{position:absolute;z-index:1;inset:13%;border:1px solid #d2b36a20;border-radius:50%;transform:rotate(-22deg) scaleY(.82)}.ring-two{inset:7%;border-color:#5dcfd31f;transform:rotate(32deg) scaleY(.73)}.ring-three{inset:23%;border-style:dashed;border-color:#c8a85d2e;animation:spin 120s linear infinite reverse}
+  .orbit-node{position:absolute;z-index:3;display:grid;place-items:center;width:65px;height:65px;border-radius:50%;background:#0b171bdc;border:1px solid #d0b26966;box-shadow:0 0 32px #d6b66b12;backdrop-filter:blur(10px)}.orbit-node span{font-size:.65rem;letter-spacing:.16em;color:#e6ce8d}.node-one{top:17%;left:17%}.node-two{right:10%;top:43%;border-color:#5fced766}.node-three{bottom:15%;left:24%;border-color:#a4d0c866}
+  .visual-caption{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;color:#9baeb0;font:600 .64rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em}.visual-caption-top{top:2%;left:6%}.visual-caption-bottom{bottom:3%;left:8%;right:8%;justify-content:space-between}.status-pulse{width:6px;height:6px;border-radius:50%;background:#8ee2c3;box-shadow:0 0 12px #8ee2c3;animation:pulse 2s infinite}.visual-quote{position:absolute;bottom:0;right:2%;color:#c6b88e;font-family:Georgia,serif;font-style:italic;font-size:.84rem;letter-spacing:.04em}
+  .hero-bottom-line{position:absolute;left:5%;right:5%;bottom:18px;display:flex;justify-content:center;gap:12px;align-items:center;color:#7f9296;font-size:.61rem;letter-spacing:.25em}
+  @keyframes spin{to{transform:rotate(360deg)}}@keyframes aura{0%,100%{transform:scale(.92);opacity:.7}50%{transform:scale(1.08);opacity:1}}@keyframes pulse{50%{opacity:.35;box-shadow:0 0 4px #8ee2c3}}
+  @media(max-width:1023px){.cosmic-hero{padding-top:125px}.hero-visual{min-height:450px;max-width:620px;width:100%;margin:0 auto}.hero-copy{max-width:780px}.hero-title{font-size:clamp(3.2rem,9vw,5.5rem)}.hero-bottom-line{position:relative;left:auto;right:auto;bottom:auto;margin-top:20px;flex-wrap:wrap}}
+  @media(max-width:600px){.hero-visual{min-height:auto;margin-top:10px}.chakra-stage{width:100%}.visual-caption-top{top:2%;left:2%;font-size:.54rem}.visual-caption-bottom{left:2%;right:2%;font-size:.52rem}.visual-quote{position:relative;right:auto;bottom:auto;margin-top:-10px;text-align:center}.orbit-node{width:48px;height:48px}.orbit-node span{font-size:.53rem}.hero-proof{gap:14px;justify-content:space-between}.hero-proof span{font-size:.65rem}.hero-socials{gap:18px}.hero-title{font-size:clamp(2.9rem,14vw,4rem)}.hero-bottom-line{font-size:.52rem;letter-spacing:.13em;gap:8px}.hero-sanskrit{letter-spacing:0;font-size:.85rem}}
+  @media(prefers-reduced-motion:reduce){.chakra-orbit-outer,.chakra-orbit-inner,.chakra-rotor,.ring-three,.chakra-aura,.status-pulse{animation:none!important}.hero-cta{transition:none}}
+</style>

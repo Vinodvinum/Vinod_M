@@ -20,6 +20,7 @@ function initSiteInteractions() {
       const isOpen = mobileMenu.hidden;
       mobileMenu.hidden = !isOpen;
       mobileBtn.setAttribute('aria-expanded', String(isOpen));
+      mobileBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
     });
   }
 

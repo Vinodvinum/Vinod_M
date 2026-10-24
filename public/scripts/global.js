@@ -17,34 +17,30 @@ function initSiteInteractions() {
   if (mobileBtn && mobileMenu && !mobileBtn.dataset.menuHandlerAttached) {
     mobileBtn.dataset.menuHandlerAttached = 'true';
     mobileBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden', isOpen);
-      mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+      const isOpen = mobileMenu.hidden;
+      mobileMenu.hidden = !isOpen;
+      mobileBtn.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const particlesContainer = document.getElementById('particles');
-  if (particlesContainer && !particlesContainer.dataset.initialized) {
+  // The design uses a small, fixed starfield in the intro and hero. Avoid spawning
+  // random floating particles across every section; this keeps the visual calm.
+  if (particlesContainer) {
     particlesContainer.dataset.initialized = 'true';
-    if (!reduceMotion) {
-      let timer = 0;
-      const createParticle = () => {
-        if (document.hidden || !particlesContainer.isConnected) return;
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 4 + 's';
-        particle.style.animationDuration = (Math.random() * 6 + 8) + 's';
-        particlesContainer.appendChild(particle);
-        window.setTimeout(() => particle.remove(), 12000);
-      };
-      const start = () => { if (!timer) timer = window.setInterval(createParticle, 900); };
-      const stop = () => { if (timer) window.clearInterval(timer); timer = 0; };
-      start();
-      document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    }
+    particlesContainer.replaceChildren();
+  }
+
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      if (link.dataset.closeMenuAttached) return;
+      link.dataset.closeMenuAttached = 'true';
+      link.addEventListener('click', () => {
+        mobileMenu.hidden = true;
+        mobileBtn?.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   document.querySelectorAll('a[href*="#"]').forEach((anchor) => {

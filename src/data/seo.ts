@@ -63,7 +63,7 @@ export const pillarPages: PillarPage[] = [
       },
     ],
     internalLinks: [
-      { label: 'Featured projects', href: '/featured', description: 'See deployed AI and analytics case studies.' },
+      { label: 'Featured projects', href: '/featured', description: 'See deployed AI systems and software prototypes.' },
       { label: 'Blog architecture', href: '/blog', description: 'Explore the SEO content strategy for this brand.' },
       { label: 'Get in touch', href: '/#contact', description: 'Connect for AI consulting or collaboration.' },
     ],
@@ -80,7 +80,7 @@ export const pillarPages: PillarPage[] = [
     proofPoints: ['Object detection and speed estimation publication', 'Fruit quality detection source project', 'Document key-value extraction pipeline', 'Applied computer-vision experiments and model evaluation'],
     faq: [
       {
-        question: 'Is Vinod M focused only on data dashboards?',
+        question: 'Does Vinod M work only on dashboards?',
         answer: 'No. The portfolio also includes ML, deep learning, NLP, and computer vision projects with research and product implications.',
       },
       {
@@ -91,35 +91,35 @@ export const pillarPages: PillarPage[] = [
     internalLinks: [
       { label: 'Publication', href: '/publication', description: 'Read the research publication linked to the computer vision work.' },
       { label: 'Research certificate', href: '/certificate', description: 'View the supporting certificate page.' },
-      { label: 'Featured projects', href: '/featured', description: 'See applied ML and analytics case studies.' },
+      { label: 'Featured projects', href: '/featured', description: 'See applied AI, research, and software projects.' },
     ],
     searchTopics: ['machine learning', 'deep learning', 'NLP', 'computer vision', 'model evaluation', 'research prototypes'],
   },
   {
     slug: 'power-bi',
-    title: 'Power BI, SQL & Python',
-    subtitle: 'Analytics stack for reporting, modeling, and automation',
-    description: 'A pillar page that positions Vinod M around Power BI, SQL, and Python for analytics engineering, reporting, and data workflow automation.',
-    intro: 'This page focuses on the practical stack I use to build analytics systems: SQL for data shaping, Python for automation, and BI tools for stakeholder-friendly output.',
-    audience: 'Teams looking for dashboard implementation, data preparation, and reporting automation built on dependable tooling.',
-    focusAreas: ['Power BI', 'SQL', 'Python', 'Data Modeling', 'ETL', 'Analytics Automation'],
-    proofPoints: ['KPI dashboard builds', 'Python ETL scripts', 'Dashboard reporting workflows', 'Resume-ready analytics stack'],
+    title: 'Data Tools & Reporting Systems',
+    subtitle: 'Reliable data handling inside business systems',
+    description: 'A practical overview of data tools used within reporting systems, workflow automation, and software applications.'
+    intro: 'This page covers the role of structured data, validation, reporting, and automation inside dependable business systems.'
+    audience: 'Teams that need reliable reporting, data validation, and software-supported operational visibility.'
+    focusAreas: ['Data validation', 'Operational reporting', 'Data modeling', 'Reliable integrations', 'Workflow automation', 'System monitoring'],
+    proofPoints: ['Operational KPI views', 'Reporting workflows', 'Validated data consolidation', 'System-supported decision views'],
     faq: [
       {
-        question: 'Why create a separate Power BI page?',
-        answer: 'It gives Google a clear topical signal for one of the strongest intent keywords in the personal brand.',
+        question: 'Why does reporting matter in business systems?'
+        answer: 'Reliable reporting helps teams see process status, detect exceptions, and make better operational decisions.'
       },
       {
         question: 'Does the page still feel human-first?',
-        answer: 'Yes. It frames the tools as part of business problem-solving rather than a keyword list.',
+        answer: 'The emphasis is on dependable systems and practical outcomes, with tools selected to fit the requirements.'
       },
     ],
     internalLinks: [
       { label: 'About Vinod M', href: '/#about', description: 'Read the professional summary.' },
-      { label: 'Blog architecture', href: '/blog', description: 'See the content plan around Power BI, SQL, and Python.' },
-      { label: 'Featured projects', href: '/featured', description: 'Inspect the dashboards built with this stack.' },
+      { label: 'Featured projects', href: '/featured', description: 'Review reporting, software, and automation demonstrations.' },
+      { label: 'Featured projects', href: '/featured', description: 'Inspect operational reporting and software examples.' },
     ],
-    searchTopics: ['Power BI', 'SQL', 'Python', 'ETL', 'data modeling', 'analytics automation'],
+    searchTopics: ['operational reporting', 'data validation', 'data modeling', 'workflow automation', 'system monitoring', 'business systems'],
   },
   {
     slug: 'software-engineering',
@@ -149,17 +149,17 @@ export const pillarPages: PillarPage[] = [
   },
   {
     slug: 'automation',
-    title: 'AI Automation, Data Engineering & Analytics Engineering',
+    title: 'Workflow Automation & Data Systems',
     subtitle: 'Systems that remove manual work and scale operations',
-    description: 'A pillar page for automation, data engineering, and analytics engineering that reflects Vinod M’s hands-on work on workflows, integrations, and scalable pipelines.',
-    intro: 'This page focuses on the systems mindset: automate repetitive work, move data reliably, and make analytics delivery easier to maintain.',
-    audience: 'Founders, operations teams, and data teams that need process automation and maintainable pipelines.',
-    focusAreas: ['AI Automation', 'Data Engineering', 'Analytics Engineering', 'Workflow Design', 'Integrations', 'Operational Systems'],
+    description: 'A pillar page for workflow automation, reliable data movement, integrations, and maintainable operational systems.'
+    intro: 'This page focuses on connecting tools and processes, moving information reliably, and reducing repetitive manual work.'
+    audience: 'Founders and operations teams that need maintainable workflows, integrations, and dependable internal systems.'
+    focusAreas: ['Workflow automation', 'Data movement', 'System integrations', 'Workflow design', 'Operational controls', 'Internal applications'],
     proofPoints: ['WhatsApp automation', 'Back-office task hub', 'Document intelligence pipelines', 'FastAPI and webhook-based workflows'],
     faq: [
       {
         question: 'Is automation only about chatbots?',
-        answer: 'No. It also includes workflow orchestration, data movement, and analytics operations that save time at scale.',
+        answer: 'No. It includes workflow orchestration, system integrations, validation, and reliable movement of information between tools.'
       },
       {
         question: 'How does this help entrepreneurship?',
@@ -171,7 +171,7 @@ export const pillarPages: PillarPage[] = [
       { label: 'Blog architecture', href: '/blog', description: 'Read automation-led content ideas.' },
       { label: 'Contact', href: '/#contact', description: 'Discuss consulting or automation work.' },
     ],
-    searchTopics: ['AI automation', 'data engineering', 'analytics engineering', 'workflow automation', 'webhooks', 'operations systems'],
+    searchTopics: ['workflow automation', 'system integrations', 'data validation', 'workflow design', 'webhooks', 'operations systems'],
   },
 ];
 
@@ -197,9 +197,9 @@ export const routeLabels: Record<string, string> = {
   '/expertise': 'Expertise Hub',
   '/ai': 'Artificial Intelligence & Generative AI',
   '/machine-learning': 'Machine Learning, Deep Learning, NLP & Computer Vision',
-  '/power-bi': 'Power BI, SQL & Python',
+  '/power-bi': 'Data Tools & Reporting Systems',
   '/software-engineering': 'Software Engineering, Full Stack Development & Cloud Computing',
-  '/automation': 'AI Automation, Data Engineering & Analytics Engineering',
+  '/automation': 'Workflow Automation & Data Systems',
 };
 
 export const siteRoutes = [

@@ -151,15 +151,15 @@ export const pillarPages: PillarPage[] = [
     slug: 'automation',
     title: 'Workflow Automation & Data Systems',
     subtitle: 'Systems that remove manual work and scale operations',
-    description: 'A pillar page for workflow automation, reliable data movement, integrations, and maintainable operational systems.'
-    intro: 'This page focuses on connecting tools and processes, moving information reliably, and reducing repetitive manual work.'
-    audience: 'Founders and operations teams that need maintainable workflows, integrations, and dependable internal systems.'
+    description: 'A pillar page for workflow automation, reliable data movement, integrations, and maintainable operational systems.',
+    intro: 'This page focuses on connecting tools and processes, moving information reliably, and reducing repetitive manual work.',
+    audience: 'Founders and operations teams that need maintainable workflows, integrations, and dependable internal systems.',
     focusAreas: ['Workflow automation', 'Data movement', 'System integrations', 'Workflow design', 'Operational controls', 'Internal applications'],
     proofPoints: ['WhatsApp automation', 'Back-office task hub', 'Document intelligence pipelines', 'FastAPI and webhook-based workflows'],
     faq: [
       {
         question: 'Is automation only about chatbots?',
-        answer: 'No. It includes workflow orchestration, system integrations, validation, and reliable movement of information between tools.'
+        answer: 'No. It includes workflow orchestration, system integrations, validation, and reliable movement of information between tools.',
       },
       {
         question: 'How does this help entrepreneurship?',

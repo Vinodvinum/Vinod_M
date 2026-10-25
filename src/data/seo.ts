@@ -99,15 +99,15 @@ export const pillarPages: PillarPage[] = [
     slug: 'power-bi',
     title: 'Data Tools & Reporting Systems',
     subtitle: 'Reliable data handling inside business systems',
-    description: 'A practical overview of data tools used within reporting systems, workflow automation, and software applications.'
-    intro: 'This page covers the role of structured data, validation, reporting, and automation inside dependable business systems.'
-    audience: 'Teams that need reliable reporting, data validation, and software-supported operational visibility.'
+    description: 'A practical overview of data tools used within reporting systems, workflow automation, and software applications.',
+    intro: 'This page covers the role of structured data, validation, reporting, and automation inside dependable business systems.',
+    audience: 'Teams that need reliable reporting, data validation, and software-supported operational visibility.',
     focusAreas: ['Data validation', 'Operational reporting', 'Data modeling', 'Reliable integrations', 'Workflow automation', 'System monitoring'],
     proofPoints: ['Operational KPI views', 'Reporting workflows', 'Validated data consolidation', 'System-supported decision views'],
     faq: [
       {
-        question: 'Why does reporting matter in business systems?'
-        answer: 'Reliable reporting helps teams see process status, detect exceptions, and make better operational decisions.'
+        question: 'Why does reporting matter in business systems?',
+        answer: 'Reliable reporting helps teams see process status, detect exceptions, and make better operational decisions.',
       },
       {
         question: 'Does the page still feel human-first?',

@@ -8,8 +8,6 @@
 // Financial Analytics Dashboard
 "Built a real-time Streamlit dashboard to consolidate financial KPIs from multiple data sources. Reduced report generation time from 2 hours to 5 minutes and eliminated manual data entry errors. Used Python, SQL, and Plotly for interactive visualization."
 
-// Visionverse Analytics Dashboard
-"Centralized 50+ computer vision model metrics into a unified Streamlit dashboard. Reduced model evaluation time by 30% and enabled rapid A/B comparisons between model versions. Simplified stakeholder reporting and accelerated decision-making."
 
 // GRS Analytics Dashboard
 "Created a public-facing Streamlit dashboard for operational KPI tracking, eliminating manual weekly reports. Stakeholders gained 24/7 self-service access, reducing decision-making latency by 70% and enabling ad-hoc analysis in minutes instead of days."

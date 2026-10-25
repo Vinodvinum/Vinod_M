@@ -7,7 +7,7 @@ import { navItems } from '../../data/nav';
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="Vinod M home">
       <img src="/images/profile.jpg" alt="" width="42" height="42" />
-      <span class="nav-brand-copy"><strong>Vinod M</strong><small>Business Systems · Data · AI</small></span>
+      <span class="nav-brand-copy"><strong>Vinod M</strong><small>Business Systems · Automation · Applied AI</small></span>
     </a>
     <div class="nav-desktop">
       {navItems.map((item) => <a href={item.href} aria-current={item.href.startsWith("/#") ? undefined : item.href === Astro.url.pathname || (item.href === "/" && Astro.url.pathname === "/") ? "page" : undefined}>{item.label}</a>)}

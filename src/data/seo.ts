@@ -77,7 +77,7 @@ export const pillarPages: PillarPage[] = [
     intro: 'This page groups the model-building part of my work: classification, detection, extraction, experiment tracking, and research-oriented prototypes that connect ML output to business value.',
     audience: 'Hiring managers, researchers, and teams that need machine learning engineering plus communication and delivery.',
     focusAreas: ['Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision', 'Model Evaluation', 'Research Prototypes'],
-    proofPoints: ['Object detection and speed estimation publication', 'Fruit quality detection source project', 'Document key-value extraction pipeline', 'Visionverse analytics dashboard'],
+    proofPoints: ['Object detection and speed estimation publication', 'Fruit quality detection source project', 'Document key-value extraction pipeline', 'Applied computer-vision experiments and model evaluation'],
     faq: [
       {
         question: 'Is Vinod M focused only on data dashboards?',

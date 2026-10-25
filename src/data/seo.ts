@@ -111,7 +111,7 @@ export const pillarPages: PillarPage[] = [
       },
       {
         question: 'Does the page still feel human-first?',
-        answer: 'The emphasis is on dependable systems and practical outcomes, with tools selected to fit the requirements.'
+        answer: 'The emphasis is on dependable systems and practical outcomes, with tools selected to fit the requirements.',
       },
     ],
     internalLinks: [

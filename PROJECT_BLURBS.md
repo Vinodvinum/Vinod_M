@@ -70,7 +70,7 @@
 
 "Built transformer-based document extraction system to automate key-value pair extraction from unstructured data; reduced manual entry by 85%"
 
-"Deployed 15+ data analytics and automation projects across Vercel and Streamlit Cloud; maintained 100% uptime and positive stakeholder feedback"
+"Built and maintained portfolio projects across software, workflow automation, and applied AI prototypes"
 
 "Developed WhatsApp business automation platform using FastAPI and NLP; streamlined customer workflows and reduced support overhead"
 
@@ -78,7 +78,7 @@
 // COVER LETTER / JOB APPLICATION SNIPPETS
 // ====================
 
-"I have hands-on experience building end-to-end analytics solutions, from SQL data pipelines to Streamlit dashboards. My featured projects demonstrate measurable business impact: a financial dashboard that reduced reporting time by 75%, a model tracking system that accelerated CV research by 30%, and operational dashboards that eliminated manual weekly work."
+"I build practical business systems, workflow automation, and applied AI solutions. My projects focus on translating requirements into useful software, improving operational visibility, and reducing repetitive work."
 
 "My portfolio showcases practical software, automation, and applied AI projects. I focus on translating requirements into dependable workflows, internal tools, and systems that can grow with business needs."
 

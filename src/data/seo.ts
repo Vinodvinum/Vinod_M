@@ -96,32 +96,6 @@ export const pillarPages: PillarPage[] = [
     searchTopics: ['machine learning', 'deep learning', 'NLP', 'computer vision', 'model evaluation', 'research prototypes'],
   },
   {
-    slug: 'data-analytics',
-    title: 'Data Analytics, Business Analytics & Business Intelligence',
-    subtitle: 'Dashboards, KPIs, and decision-making systems',
-    description: 'A pillar page for data analytics, business analytics, and BI work that helps search engines connect Vinod M with SQL, dashboards, and business insight delivery.',
-    intro: 'This page explains how I turn data into decisions using KPI design, reporting automation, self-service dashboards, and analytics communication for stakeholders.',
-    audience: 'Operations teams, analysts, founders, and recruiters searching for analytics delivery and BI problem-solving.',
-    focusAreas: ['Data Analytics', 'Business Analytics', 'Business Intelligence', 'KPI Design', 'Dashboard Strategy', 'Stakeholder Reporting'],
-    proofPoints: ['Financial analytics dashboard', 'GRS analytics dashboard', 'Resume and portfolio branding', 'Stakeholder reporting workflows'],
-    faq: [
-      {
-        question: 'What business problems does this pillar address?',
-        answer: 'Manual reporting, poor KPI visibility, slow decision-making, and scattered analytics workflows.',
-      },
-      {
-        question: 'Why include Mysuru in the analytics brand?',
-        answer: 'Location context helps reinforce real-world identity while keeping the copy natural and user-focused.',
-      },
-    ],
-    internalLinks: [
-      { label: 'Featured projects', href: '/featured', description: 'Open the analytics case studies.' },
-      { label: 'Home page', href: '/#projects', description: 'Jump directly to the project portfolio section.' },
-      { label: 'Contact', href: '/#contact', description: 'Start a project conversation.' },
-    ],
-    searchTopics: ['data analytics', 'business analytics', 'business intelligence', 'KPI dashboards', 'reporting automation', 'stakeholder analytics'],
-  },
-  {
     slug: 'power-bi',
     title: 'Power BI, SQL & Python',
     subtitle: 'Analytics stack for reporting, modeling, and automation',
@@ -223,7 +197,6 @@ export const routeLabels: Record<string, string> = {
   '/expertise': 'Expertise Hub',
   '/ai': 'Artificial Intelligence & Generative AI',
   '/machine-learning': 'Machine Learning, Deep Learning, NLP & Computer Vision',
-  '/data-analytics': 'Data Analytics, Business Analytics & Business Intelligence',
   '/power-bi': 'Power BI, SQL & Python',
   '/software-engineering': 'Software Engineering, Full Stack Development & Cloud Computing',
   '/automation': 'AI Automation, Data Engineering & Analytics Engineering',

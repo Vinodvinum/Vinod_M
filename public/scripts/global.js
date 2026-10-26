@@ -25,6 +25,74 @@ function initSiteInteractions() {
   }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Project filtering stays keyboard-accessible and uses data attributes rendered by Astro.
+  const projectFilters = document.getElementById('project-filters');
+  if (projectFilters && projectFilters.dataset.bound !== 'true') {
+    projectFilters.dataset.bound = 'true';
+    const filterButtons = Array.from(projectFilters.querySelectorAll('[data-project-filter]'));
+    const projectCards = Array.from(document.querySelectorAll('[data-project-filter-card]'));
+    const projectGroups = Array.from(document.querySelectorAll('[data-project-group]'));
+    const featuredGroup = document.querySelector('[data-featured-projects]');
+    const filterStatus = document.getElementById('project-filter-status');
+
+    const applyProjectFilter = (filter, button) => {
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+
+      projectCards.forEach((card) => {
+        card.hidden = filter !== 'all' && card.dataset.projectFilterCard !== filter;
+      });
+
+      projectGroups.forEach((group) => {
+        group.hidden = filter !== 'all' && group.dataset.projectGroup !== filter;
+      });
+
+      if (featuredGroup) {
+        const visibleFeaturedCards = Array.from(featuredGroup.querySelectorAll('[data-project-filter-card]'))
+          .some((card) => !card.hidden);
+        featuredGroup.hidden = filter !== 'all' && !visibleFeaturedCards;
+      }
+
+      if (filterStatus) {
+        const label = button?.textContent?.trim() || 'Selected category';
+        filterStatus.textContent = filter === 'all'
+          ? 'Showing all project categories.'
+          : `Showing projects in: ${label}.`;
+      }
+    };
+
+    filterButtons.forEach((button) => {
+      if (button.dataset.filterHandlerAttached) return;
+      button.dataset.filterHandlerAttached = 'true';
+      button.addEventListener('click', () => applyProjectFilter(button.dataset.projectFilter || 'all', button));
+    });
+  }
+
+  // Subtle pointer-responsive mandala. It is intentionally disabled for reduced-motion users.
+  const heroVisual = document.querySelector('.hero-visual');
+  const heroWheel = heroVisual?.querySelector('.hero-wheel');
+  if (heroVisual && heroWheel && !heroVisual.dataset.parallaxBound) {
+    heroVisual.dataset.parallaxBound = 'true';
+    if (!reduceMotion) {
+      heroVisual.addEventListener('pointermove', (event) => {
+        const bounds = heroVisual.getBoundingClientRect();
+        if (!bounds.width || !bounds.height) return;
+        const horizontal = ((event.clientX - bounds.left) / bounds.width - 0.5) * 9;
+        const vertical = ((event.clientY - bounds.top) / bounds.height - 0.5) * 9;
+        heroWheel.style.setProperty('--parallax-x', `${horizontal.toFixed(2)}px`);
+        heroWheel.style.setProperty('--parallax-y', `${vertical.toFixed(2)}px`);
+      });
+      heroVisual.addEventListener('pointerleave', () => {
+        heroWheel.style.setProperty('--parallax-x', '0px');
+        heroWheel.style.setProperty('--parallax-y', '0px');
+      });
+    }
+  }
+
   const particlesContainer = document.getElementById('particles');
   // The design uses a small, fixed starfield in the intro and hero. Avoid spawning
   // random floating particles across every section; this keeps the visual calm.

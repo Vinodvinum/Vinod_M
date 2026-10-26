@@ -1,23 +1,82 @@
 ---
-import { completedProjects, ongoingProjects } from '../../data/projects';
-const NAME = 'Vinod M';
-const TITLE = 'Data Analyst, BI Developer, and AI Engineer';
-const ONE_LINER = 'I build dashboards, automation, and AI tools for teams that need clearer decisions and less manual work.';
-const totalProjects = completedProjects.length + ongoingProjects.length;
+import { socialLinks } from '../../data/social-links';
 ---
 
-<section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28 pb-16 relative z-10 overflow-hidden">
-  <div class="absolute -top-28 -left-20 w-80 h-80 bg-cyan-500/20 blur-3xl rounded-full pointer-events-none"></div><div class="absolute -bottom-20 -right-16 w-96 h-96 bg-fuchsia-500/20 blur-3xl rounded-full pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    <div class="space-y-8"><div class="space-y-4">
-      <p class="text-sm tracking-[0.3em] text-purple-300/80 uppercase">Data Analytics • BI • AI</p>
-      <h1 class="text-4xl md:text-3xl font-extrabold leading-tight"><span class="block text-white/80 text-5xl">Hi, I’m {NAME}.</span><span class="block gradient-text mt-2">{TITLE}</span></h1>
-      <p class="text-lg md:text-xl text-purple-100/90 font-medium">{ONE_LINER}</p>
-      <p class="text-sm md:text-base text-white/65 max-w-xl leading-relaxed">Focused on Python, SQL, Power BI, Streamlit, FastAPI, and practical AI work that ships.</p>
+<section id="home" class="cosmic-hero">
+  <div class="hero-cosmos" aria-hidden="true"><div class="cosmos-nebula cosmos-nebula-one"></div><div class="cosmos-nebula cosmos-nebula-two"></div><div class="cosmos-starfield"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="cosmos-horizon"></div></div>
+  <div class="hero-wrap">
+    <div class="hero-copy">
+      <p class="hero-eyebrow"><span></span> VINOD M <b>·</b> MYSURU, INDIA</p>
+      <div class="hero-invocation">
+        <span class="hero-om">ॐ</span>
+        <div><p class="hero-sanskrit">तत्त्वमसि</p><p class="hero-translation">You are That.</p></div>
+      </div>
+      <h1 class="hero-title">Building intelligent systems.<br/><span>Turning insight into impact.</span></h1>
+      <p class="hero-lead">I connect business understanding, data, process design, automation, and software engineering to build systems people can use and trust.</p>
+      <p class="hero-context">At GRS Fantasy Park, I work across MIS, business systems, workflow design, operational reporting, and internal applications. Through Medhaksha Technologies, I contribute to automation, applied AI, and practical technology solutions.</p>
+      <div class="hero-actions">
+        <a href="/#projects" class="hero-primary">Explore selected work <span aria-hidden="true">↗</span></a>
+        <a href="/#contact" class="hero-secondary">Contact me <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-links">
+        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="/resume/Vinod_M_Premium_Resume-5.pdf" target="_blank" rel="noopener noreferrer">Résumé ↗</a>
+      </div>
     </div>
-    <div class="flex flex-wrap gap-4"><a href="#projects" class="gradient-border glass px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 hover:shadow-purple-500/40 transition-all duration-300">View Projects</a><a href="#contact" class="px-8 py-3 rounded-2xl text-base md:text-lg font-semibold text-purple-200 hover:text-white hover:bg-white/10 border border-purple-400/60 hover:border-purple-300 transition-all duration-300">Contact</a></div>
-    <div class="grid grid-cols-3 gap-3 max-w-xl"><div class="glass rounded-2xl px-4 py-3 text-center border-white/20"><p class="text-2xl font-black gradient-text">{totalProjects}+</p><p class="text-[11px] uppercase tracking-wide text-white/70">Projects</p></div><div class="glass rounded-2xl px-4 py-3 text-center border-white/20"><p class="text-2xl font-black gradient-text">1</p><p class="text-[11px] uppercase tracking-wide text-white/70">Publication</p></div><div class="glass rounded-2xl px-4 py-3 text-center border-white/20"><p class="text-2xl font-black gradient-text">MCA</p><p class="text-[11px] uppercase tracking-wide text-white/70">Graduate</p></div></div>
+    <div class="hero-visual" aria-label="Minimal golden mandala inspired by the Sudarshana Chakra">
+      <div class="hero-wheel-aura" aria-hidden="true"></div>
+      <svg class="hero-wheel" viewBox="0 0 600 600" role="img" aria-label="A symmetrical gold and teal sacred-geometric wheel with Om at the centre">
+        <defs>
+          <linearGradient id="heroWheelGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1dfae"/><stop offset=".52" stop-color="#c9a95d"/><stop offset="1" stop-color="#81cdd1"/></linearGradient>
+          <radialGradient id="heroWheelCore"><stop stop-color="#f4e5b9" stop-opacity=".55"/><stop offset="1" stop-color="#c9a95d" stop-opacity="0"/></radialGradient>
+        </defs>
+        <g class="hero-wheel-rotor">
+          {Array.from({length:12},(_,i)=><g transform={`rotate(${i*30} 300 300)`}><path d="M300 75 Q326 133 300 198 Q274 133 300 75Z" fill="#c9a95d" fill-opacity=".09" stroke="url(#heroWheelGold)" stroke-width="1.4"/><path d="M300 76 L306 98 L300 114 L294 98Z" fill="#dfc47a" fill-opacity=".7"/></g>)}
+        </g>
+        <circle cx="300" cy="300" r="250" fill="none" stroke="#c9a95d" stroke-opacity=".35"/>
+        <circle cx="300" cy="300" r="225" fill="none" stroke="#81cdd1" stroke-opacity=".25" stroke-dasharray="1 12"/>
+        <circle cx="300" cy="300" r="190" fill="none" stroke="url(#heroWheelGold)" stroke-opacity=".45"/>
+        <circle cx="300" cy="300" r="88" fill="url(#heroWheelCore)"/>
+        <circle cx="300" cy="300" r="72" fill="none" stroke="#c9a95d" stroke-opacity=".45"/>
+        <circle cx="300" cy="300" r="56" fill="none" stroke="#81cdd1" stroke-opacity=".38"/>
+        <text x="300" y="319" text-anchor="middle" class="hero-wheel-om">ॐ</text>
+      </svg>
+      <div class="hero-caption"><span class="hero-caption-line"></span><span>CLARITY · CRAFT · CONTRIBUTION</span></div>
     </div>
-    <div class="relative"><div class="absolute -inset-8 bg-gradient-to-tr from-purple-600/40 via-pink-500/30 to-indigo-500/40 rounded-[2.5rem] blur-3xl opacity-60"></div><div class="absolute -inset-3 rounded-[2.7rem] border border-cyan-300/30 bg-gradient-to-r from-cyan-300/10 via-transparent to-fuchsia-300/10"></div><div class="relative glass rounded-[2.5rem] p-4 md:p-6 shadow-[0_0_80px_rgba(0,0,0,0.7)] animate-[float_6s_ease-in-out_infinite]"><div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-purple-900/60 to-slate-900 border border-white/15"><div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.4)_0%,transparent_55%)]"></div><div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold text-cyan-100 border border-cyan-300/30 bg-cyan-400/10">Analytics • AI • Automation</div><img src="/images/profile.jpg" alt="Vinod M, also known as Vinu, AI and analytics professional from Mysuru" loading="eager" decoding="async" fetchpriority="high" class="relative z-10 w-full h-full object-cover mix-blend-screen" /><div class="absolute bottom-4 left-4 right-4 z-20 glass rounded-2xl px-4 py-3 flex items-center justify-between gap-3 text-xs md:text-sm"><div><p class="text-white/70">Current Focus</p><p class="text-white font-semibold">Data analysis, BI dashboards, and AI-enabled workflows</p></div><span class="px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-semibold border border-emerald-300/40">Open to Opportunities</span></div></div></div></div>
+  </div>
+  <div class="philosophy-band" id="philosophy">
+    <p class="philosophy-label">AN INNER COMPASS FOR OUTER CREATION</p>
+    <div class="philosophy-grid">
+      <article><h2>तत्त्वमसि</h2><p class="philosophy-meaning">You are That.</p><p class="philosophy-promise">What I think, I will become. <span>💡</span></p></article>
+      <article><h2>यद् भावं तद् भवति</h2><p class="philosophy-meaning">What one holds in thought shapes what one becomes.</p><p class="philosophy-promise">What I envision, I will create. <span>⚙️</span></p></article>
+      <article><h2>यथा दृष्टिः तथा सृष्टिः</h2><p class="philosophy-meaning">As your vision, so your world.</p><p class="philosophy-promise">What I build, I will scale. <span>🚀</span></p></article>
+    </div>
   </div>
 </section>
+
+<style>
+  .cosmic-hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(118px,13vw,156px) 24px 68px;color:#f1efe6;background:#050914}
+  .hero-cosmos{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 71% 28%,rgba(22,61,86,.42),transparent 36%),radial-gradient(ellipse at 17% 76%,rgba(126,91,43,.14),transparent 29%),linear-gradient(135deg,#050914 0%,#0a1424 48%,#071019 100%)}
+  .cosmos-nebula{position:absolute;border-radius:50%;filter:blur(36px);transform:translate3d(0,0,0);will-change:transform}
+  .cosmos-nebula-one{width:min(58vw,680px);height:min(39vw,460px);top:4%;right:-8%;opacity:.7;background:radial-gradient(ellipse at 42% 48%,rgba(48,117,143,.28),rgba(34,67,110,.15) 36%,transparent 72%);animation:nebulaDriftOne 42s ease-in-out infinite alternate}
+  .cosmos-nebula-two{width:min(50vw,540px);height:min(42vw,440px);left:-15%;bottom:1%;opacity:.7;background:radial-gradient(ellipse at 52% 40%,rgba(184,145,73,.20),rgba(86,86,126,.10) 38%,transparent 72%);animation:nebulaDriftTwo 52s ease-in-out infinite alternate}
+  .cosmos-starfield{position:absolute;inset:0;opacity:.58}
+  .cosmos-starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:#e4e6e0;box-shadow:0 0 5px rgba(177,216,222,.3)}
+  .cosmos-starfield i:nth-child(1){left:7%;top:14%}.cosmos-starfield i:nth-child(2){left:16%;top:44%;width:1px;height:1px}.cosmos-starfield i:nth-child(3){left:24%;top:21%;opacity:.6}.cosmos-starfield i:nth-child(4){left:33%;top:76%;width:1px;height:1px}.cosmos-starfield i:nth-child(5){left:47%;top:11%;width:1px;height:1px}.cosmos-starfield i:nth-child(6){left:56%;top:83%;opacity:.5}.cosmos-starfield i:nth-child(7){left:68%;top:17%}.cosmos-starfield i:nth-child(8){left:79%;top:55%;width:1px;height:1px}.cosmos-starfield i:nth-child(9){left:91%;top:32%}.cosmos-starfield i:nth-child(10){left:88%;top:79%;width:1px;height:1px}.cosmos-starfield i:nth-child(11){left:40%;top:48%;width:1px;height:1px}.cosmos-starfield i:nth-child(12){left:4%;top:71%;width:1px;height:1px}.cosmos-starfield i:nth-child(13){left:61%;top:36%;width:1px;height:1px}.cosmos-starfield i:nth-child(14){left:73%;top:90%;width:1px;height:1px}.cosmos-starfield i:nth-child(15){left:29%;top:92%;width:1px;height:1px}.cosmos-starfield i:nth-child(16){left:96%;top:60%;width:1px;height:1px}
+  .cosmos-horizon{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,9,20,.04) 0%,rgba(5,9,20,.06) 60%,rgba(5,9,20,.84) 100%)}
+  @keyframes nebulaDriftOne{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(2%,2%,0) scale(1.05)}}
+  @keyframes nebulaDriftTwo{from{transform:translate3d(0,1%,0) scale(1)}to{transform:translate3d(2%,-2%,0) scale(1.04)}}
+  .hero-wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);align-items:center;gap:clamp(34px,7vw,92px);max-width:1240px;margin:0 auto}
+  .hero-copy{max-width:730px}.hero-eyebrow{display:flex;align-items:center;gap:11px;color:#b6c2c2;font:600 .7rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.2em}.hero-eyebrow>span{width:28px;height:1px;background:#c9a95d}.hero-eyebrow b{color:#81cdd1;font-weight:500}
+  .hero-invocation{display:flex;align-items:center;gap:15px;margin:30px 0 22px}.hero-om{display:grid;place-items:center;width:55px;height:55px;border:1px solid #c9a95d55;border-radius:50%;color:#e8d49c;font:1.7rem Georgia,serif;box-shadow:0 0 28px #c9a95d12}.hero-sanskrit{font:500 1.3rem/1.3 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:#e4cd8f}.hero-translation{margin-top:4px;font:italic .96rem/1.4 'Cormorant Garamond',Georgia,serif;color:#9fadae}
+  .hero-title{max-width:770px;font:600 clamp(2.75rem,5.5vw,5.25rem)/1.02 Inter,system-ui,sans-serif;letter-spacing:-.065em}.hero-title span{color:#dcc37d}.hero-lead{margin-top:25px;max-width:665px;color:#e0e6e2;font-size:clamp(1.04rem,1.35vw,1.2rem);line-height:1.8}.hero-context{margin-top:14px;max-width:660px;color:#9eadaf;font-size:.94rem;line-height:1.85}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}.hero-primary,.hero-secondary{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:46px;padding:12px 17px;font-size:.87rem;font-weight:600;text-decoration:none;transition:background .2s,border-color .2s,color .2s}.hero-primary{color:#0b1116;background:#d8bf7c;border:1px solid #d8bf7c}.hero-primary:hover{background:#f0dfb0}.hero-secondary{color:#dce4e0;border:1px solid #7f999b66;background:#0b141bcc}.hero-secondary:hover{border-color:#b9a261;color:#f0dfb0}
+  .hero-links{display:flex;gap:24px;margin-top:28px}.hero-links a{font-size:.82rem;color:#a4b7b9;text-decoration:none}.hero-links a:hover{color:#e5cd8a}
+  .hero-visual{position:relative;display:grid;place-items:center;min-height:430px}.hero-wheel-aura{position:absolute;width:75%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#c9a95d0c,transparent 68%);pointer-events:none}.hero-wheel{position:relative;width:min(100%,540px);height:auto;overflow:visible}.hero-wheel-rotor{transform-origin:300px 300px;animation:wheelTurn 130s linear infinite}.hero-wheel-om{font:44px Georgia,serif;fill:#e8d49c}.hero-caption{position:absolute;bottom:1%;display:flex;align-items:center;gap:10px;color:#778d90;font:500 .61rem/1.5 Inter,system-ui,sans-serif;letter-spacing:.17em}.hero-caption-line{width:24px;height:1px;background:#c9a95d}
+  .philosophy-band{position:relative;z-index:1;max-width:1240px;margin:60px auto 0;padding-top:27px;border-top:1px solid #ffffff19}.philosophy-label{margin-bottom:20px;color:#b8a36f;font:600 .65rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.22em}.philosophy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}.philosophy-grid article{padding:10px 27px 12px;border-left:1px solid #ffffff1c}.philosophy-grid article:first-child{padding-left:0;border-left:0}.philosophy-grid h2{font:500 1.35rem/1.5 'Cormorant Garamond',Georgia,serif;letter-spacing:.04em;color:#e2ca8c}.philosophy-meaning{margin-top:3px;color:#9caeb0;font:italic .87rem/1.6 'Cormorant Garamond',Georgia,serif;min-height:44px}.philosophy-promise{margin-top:13px;color:#e0e4dc;font-size:.88rem;line-height:1.6}.philosophy-promise span{padding-left:4px}
+  @keyframes wheelTurn{to{transform:rotate(360deg)}}
+  @media(max-width:900px){.hero-wrap{grid-template-columns:1fr;gap:24px}.hero-copy{max-width:760px}.hero-visual{min-height:auto;max-width:540px;width:100%;margin:-5px auto 0}.hero-wheel{width:min(86%,460px)}.hero-caption{bottom:0}.philosophy-band{margin-top:50px}}
+  @media(max-width:600px){.cosmic-hero{padding:106px 20px 48px}.hero-eyebrow{font-size:.63rem;letter-spacing:.15em}.hero-invocation{margin:23px 0 19px}.hero-om{width:46px;height:46px;font-size:1.45rem}.hero-sanskrit{font-size:1.2rem}.hero-title{font-size:clamp(2.5rem,12.4vw,3.55rem);line-height:1.05;letter-spacing:-.06em}.hero-lead{margin-top:20px;font-size:1rem;line-height:1.75}.hero-context{font-size:.9rem;line-height:1.8}.hero-actions{margin-top:23px}.hero-primary,.hero-secondary{min-height:44px;padding:11px 13px;font-size:.82rem}.hero-links{gap:19px;margin-top:22px}.hero-visual{margin-top:4px}.hero-wheel{width:min(88%,370px)}.hero-caption{font-size:.53rem;letter-spacing:.13em}.philosophy-band{margin-top:38px;padding-top:22px}.philosophy-grid{grid-template-columns:1fr;gap:0}.philosophy-grid article,.philosophy-grid article:first-child{padding:17px 0;border-left:0;border-top:1px solid #ffffff15}.philosophy-grid article:first-child{border-top:0}.philosophy-grid h2{font-size:1.25rem}.philosophy-meaning{min-height:0}.philosophy-promise{margin-top:7px}}
+  @media(prefers-reduced-motion:reduce){.hero-wheel-rotor,.cosmos-nebula-one,.cosmos-nebula-two{animation:none}.hero-primary,.hero-secondary{transition:none}}
+</style>

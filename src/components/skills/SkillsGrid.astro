@@ -1,107 +1,70 @@
 ---
-const skillsData = [
+const capabilityGroups = [
   {
-    category: 'Analytics Foundations',
-    items: [
-      'Build reporting-ready SQL queries',
-      'Clean, transform, and validate data in Python',
-      'Move data through simple ETL pipelines'
-    ],
-    icon: '📊',
-    color: 'from-emerald-500 to-teal-500',
-    proof: ['SQL', 'Python', 'ETL']
+    number: '01',
+    title: 'Data & Intelligence',
+    thesis: 'Make information reliable, understandable, and useful for a decision.',
+    capabilities: ['Reliable data handling', 'Reporting and operational visibility', 'KPI design for business systems', 'Data validation and consolidation', 'Decision-support interfaces'],
+    outcome: 'From raw tables to reporting people can act on.'
   },
   {
-    category: 'BI & Dashboarding',
-    items: [
-      'Design Power BI and Streamlit dashboards',
-      'Define KPIs that are easy to read',
-      'Present data in a way stakeholders can act on'
-    ],
-    icon: '📈',
-    color: 'from-cyan-500 to-sky-500',
-    proof: ['Power BI', 'Streamlit', 'KPI design']
+    number: '02',
+    title: 'Business Systems & Automation',
+    thesis: 'Turn a business requirement into a workflow with clear ownership and controls.',
+    capabilities: ['MIS & FMS', 'Process engineering', 'Workflow & checklist design', 'Google Sheets & Apps Script', 'APIs & internal applications', 'Database design & migration', 'Systems analysis & reverse engineering', 'Technical documentation'],
+    outcome: 'From manual coordination to visible, repeatable execution.'
   },
   {
-    category: 'Programming & Delivery',
-    items: [
-      'Write Python for data and automation',
-      'Work with Git, GitHub, and REST APIs',
-      'Ship small, usable apps with Streamlit and web tools'
-    ],
-    icon: '⚙️',
-    color: 'from-orange-500 to-red-500',
-    proof: ['Python', 'GitHub', 'REST APIs']
-  },
-  {
-    category: 'Applied AI',
-    items: [
-      'Build lightweight ML and AI prototypes',
-      'Handle feature prep and model evaluation',
-      'Use AI where it improves the workflow'
-    ],
-    icon: '🤖',
-    color: 'from-purple-500 to-pink-500',
-    proof: ['ML', 'Feature engineering', 'Model evaluation']
+    number: '03',
+    title: 'Applied AI & Engineering',
+    thesis: 'Use models and software where they solve a real problem—not just to add AI.',
+    capabilities: ['Machine learning', 'NLP & NER', 'Computer vision & tracking', 'Document intelligence', 'AI-enabled applications', 'Model evaluation', 'Computer vision pipelines'],
+    outcome: 'From a technical prototype to a usable product capability.'
   }
 ];
 ---
 
-<section id="skills" class="py-32 px-6 relative z-10 bg-white/3 backdrop-blur-sm">
-  <div class="max-w-6xl mx-auto">
-    <!-- Section Header -->
-    <div class="text-center mb-24">
-      <h2 class="text-5xl md:text-6xl font-black gradient-text mb-6">Tech Stack</h2>
-      <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-        A practical stack for analysis, dashboards, automation, and product delivery
-      </p>
-      <div class="w-24 h-1 mx-auto mt-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
-    </div>
-
-    <!-- Skills Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
-      {skillsData.map((skill, index) => (
-        <div class="group glass rounded-3xl p-10 hover:scale-105 hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)] hover:shadow-purple-500/20 transition-all duration-500 cursor-pointer shadow-2xl border-white/10 relative overflow-hidden">
-          
-          {/* Gradient Background */}
-          <div class={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-5 blur-xl group-hover:opacity-10 transition-opacity duration-500`}></div>
-          
-          {/* Icon */}
-          <div class={`w-24 h-24 mx-auto mb-8 glass rounded-3xl flex items-center justify-center text-4xl shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-4 border-white/20 backdrop-blur-xl`}>
-            <span>{skill.icon}</span>
-          </div>
-            
-            {/* Category Title */}
-            <h3 class="text-2xl md:text-3xl font-black text-white mb-8 text-center group-hover:translate-y-2 transition-all duration-300">
-              {skill.category}
-            </h3>
-            
-            {/* Practical Proof */}
-            <div class="mb-8">
-              <span class="text-white/80 font-semibold block mb-3">How I use this</span>
-              <div class="flex flex-wrap gap-2">
-                {skill.proof.map((tool) => (
-                  <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/10 border border-white/20 text-white/90">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-          
-          {/* Skills List */}
-          <ul class="relative z-10 space-y-3">
-            {skill.items.map((item, itemIndex) => (
-              <li class="flex items-center space-x-3 group-hover:text-white/90 text-white/70 transition-colors duration-300">
-                <div class="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full group-hover:scale-125 transition-all duration-300"></div>
-                <span class="font-medium text-sm md:text-base">{item}</span>
-              </li>
-            ))}
-          </ul>
-          
-          {/* Hover Effect */}
-          <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-        </div>
+<section id="skills" class="capabilities-section">
+  <div class="capabilities-wrap">
+    <header class="capabilities-heading">
+      <p class="section-eyebrow">THREE CONNECTED DISCIPLINES</p>
+      <h2>Three toolkits.<br/><span>One way of thinking.</span></h2>
+      <p>The tool comes second. First understand the problem; then build the simplest dependable way to solve it.</p>
+    </header>
+    <div class="capabilities-grid">
+      {capabilityGroups.map((group) => (
+        <article class="capability-card">
+          <div class="capability-topline"><span>{group.number} / CAPABILITY</span><span class="capability-mark" aria-hidden="true">{group.number === '01' ? '∑' : group.number === '02' ? '↗' : '✳'}</span></div>
+          <h3>{group.title}</h3>
+          <p class="capability-thesis">{group.thesis}</p>
+          <div class="capability-rule" aria-hidden="true"></div>
+          <p class="capability-label">WHAT I WORK WITH</p>
+          <ul>{group.capabilities.map((capability) => <li>{capability}</li>)}</ul>
+          <p class="capability-outcome">{group.outcome}</p>
+        </article>
       ))}
+    </div>
+    <div class="research-horizon">
+      <p class="research-horizon-kicker">BEYOND THE CORE TOOLKITS</p>
+      <h3>Research, reverse engineering &amp; emerging systems</h3>
+      <p>Areas I explore through research, prototypes, and structured learning—distinct from the three core disciplines above.</p>
+      <div class="research-horizon-grid">
+        <article><span>01</span><h4>Reverse Engineering</h4><p>Understand existing systems, inspect behaviour, trace dependencies, and document how components fit together.</p></article>
+        <article><span>02</span><h4>Research &amp; Experimentation</h4><p>Frame hypotheses, compare approaches, evaluate evidence, and translate technical findings into testable prototypes.</p></article>
+        <article><span>03</span><h4>Computer Vision</h4><p>Detection, multi-object tracking, image/video processing, and speed-estimation pipelines.</p></article>
+        <article><span>04</span><h4>Systems &amp; Architecture</h4><p>Data models, API boundaries, integration patterns, reliability, and maintainable delivery.</p></article>
+        <article><span>05</span><h4>Knowledge &amp; Document Intelligence</h4><p>NLP, named-entity recognition, structured extraction, and validation of unstructured information.</p></article>
+        <article><span>06</span><h4>Emerging AI</h4><p>World models, multimodal systems, agent workflows, and embodied-intelligence concepts as research interests.</p></article>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .capabilities-section{position:relative;z-index:1;padding:clamp(66px,8vw,108px) 22px;color:#edece4;background:linear-gradient(180deg,#0a1118 0%,#080d14 100%);border-top:1px solid #ffffff10;border-bottom:1px solid #ffffff10}
+  .capabilities-wrap{max-width:1180px;margin:0 auto}.capabilities-heading{max-width:760px;margin-bottom:40px}.section-eyebrow{color:#c7ad69;font:600 .67rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.22em}.capabilities-heading h2{margin-top:14px;font:600 clamp(2.4rem,5.3vw,4.5rem)/1.04 Inter,system-ui,sans-serif;letter-spacing:-.055em}.capabilities-heading h2 span{color:#ddc27e}.capabilities-heading>p:last-child{max-width:650px;margin-top:17px;color:#a7b4b6;font-size:1rem;line-height:1.8}
+  .capabilities-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.research-horizon{margin-top:54px;padding-top:30px;border-top:1px solid #ffffff19}.research-horizon-kicker{color:#83c6c9;font:600 .62rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.2em}.research-horizon h3{margin-top:12px;color:#eee7d7;font:600 clamp(1.7rem,3vw,2.55rem)/1.2 Inter,system-ui,sans-serif;letter-spacing:-.04em}.research-horizon>p:not(.research-horizon-kicker){max-width:740px;margin-top:12px;color:#9fadaf;font-size:.91rem;line-height:1.8}.research-horizon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:24px}.research-horizon-grid article{padding:19px 18px;background:#0b131a;border:1px solid #81cdd11b}.research-horizon-grid article>span{color:#c9a95d;font:600 .61rem Inter,system-ui,sans-serif;letter-spacing:.12em}.research-horizon-grid h4{margin-top:10px;color:#e0d5b7;font-size:.9rem;line-height:1.5}.research-horizon-grid p{margin-top:7px;color:#94a5a7;font-size:.79rem;line-height:1.75}.capability-card{display:flex;flex-direction:column;min-width:0;padding:24px 22px 22px;background:#0d151d;border:1px solid #d0b77527;transition:border-color .25s ease,background .25s ease}.capability-card:hover{border-color:#c9a95d65;background:#101a22}.capability-topline{display:flex;align-items:center;justify-content:space-between;color:#83c6c9;font:600 .58rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.16em}.capability-mark{display:grid;place-items:center;width:31px;height:31px;border:1px solid #c9a95d50;border-radius:50%;font:500 1.05rem Georgia,serif;color:#e1ca8c}.capability-card h3{margin-top:20px;color:#f0e8d5;font:600 1.38rem/1.3 Inter,system-ui,sans-serif;letter-spacing:-.035em}.capability-thesis{margin-top:12px;color:#a5b4b5;font-size:.88rem;line-height:1.8;min-height:77px}.capability-rule{width:35px;height:1px;background:#c9a95d;margin:20px 0 18px}.capability-label{color:#879b9f;font:600 .58rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.16em}.capability-card ul{display:flex;flex-direction:column;gap:10px;margin-top:13px;padding:0;list-style:none}.capability-card li{position:relative;padding-left:14px;color:#d0d8d2;font-size:.82rem;line-height:1.65}.capability-card li:before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;background:#c9a95d;border-radius:50%}.capability-outcome{margin-top:auto;padding-top:23px;color:#e0c887;font:italic .88rem/1.7 'Cormorant Garamond',Georgia,serif}
+  @media(max-width:900px){.capabilities-grid{grid-template-columns:1fr;gap:12px}.capability-card{padding:22px}.capability-thesis{min-height:0}.capability-card ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 14px}.capability-outcome{padding-top:19px}.research-horizon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:520px){.capabilities-section{padding:60px 19px}.capabilities-heading{margin-bottom:28px}.capabilities-heading h2{font-size:clamp(2.25rem,10vw,3rem)}.capability-card{padding:19px}.capability-card h3{font-size:1.25rem}.capability-card ul{grid-template-columns:1fr}.capability-card li{font-size:.82rem}.research-horizon-grid{grid-template-columns:1fr}.research-horizon{margin-top:38px;padding-top:25px}}
+  @media(prefers-reduced-motion:reduce){.capability-card{transition:none}}
+</style>

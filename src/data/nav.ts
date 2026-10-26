@@ -4,6 +4,7 @@ export const navItems = [
   { label: 'Blog', href: '/blog' },
   { label: 'Projects', href: '/#projects' },
   { label: 'Featured', href: '/featured' },
+  { label: 'Experience', href: '/#experience' },
   { label: 'About', href: '/#about' },
   { label: 'Skills', href: '/#skills' },
   { label: 'Contact', href: '/#contact' }

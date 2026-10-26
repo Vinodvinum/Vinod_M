@@ -1,5 +1,5 @@
-// PASTE-READY PROJECT BLURBS FOR LINKEDIN & RESUME
-// Use these short descriptions (2-3 lines) in LinkedIn posts, resume bullets, and job applications
+// INTERNAL PROJECT NOTES — not portfolio website copy
+// Use only when preparing the relevant external profile or application.
 
 // ====================
 // FEATURED PROJECTS (Use These First)
@@ -8,14 +8,12 @@
 // Financial Analytics Dashboard
 "Built a real-time Streamlit dashboard to consolidate financial KPIs from multiple data sources. Reduced report generation time from 2 hours to 5 minutes and eliminated manual data entry errors. Used Python, SQL, and Plotly for interactive visualization."
 
-// Visionverse Analytics Dashboard
-"Centralized 50+ computer vision model metrics into a unified Streamlit dashboard. Reduced model evaluation time by 30% and enabled rapid A/B comparisons between model versions. Simplified stakeholder reporting and accelerated decision-making."
 
 // GRS Analytics Dashboard
 "Created a public-facing Streamlit dashboard for operational KPI tracking, eliminating manual weekly reports. Stakeholders gained 24/7 self-service access, reducing decision-making latency by 70% and enabling ad-hoc analysis in minutes instead of days."
 
 // ====================
-// OTHER LIVE PROJECTS (Analytics & BI Focus)
+// OTHER LIVE PROJECTS
 // ====================
 
 // Image Compressor App
@@ -29,7 +27,7 @@
 // ====================
 
 // Vinod M Portfolio
-"Designed and deployed a data-focused portfolio website showcasing analytics projects and business impact. Built with Astro and Tailwind CSS, optimized for recruiter conversion and SEO."
+"Designed and deployed a cinematic portfolio website showcasing business systems, automation, and applied AI engineering. Built with Astro and Tailwind CSS."
 
 // Sushvin AI Labs
 "Created a deployed experimentation platform for prototyping and showcasing applied AI projects. Centralized demo access for stakeholders and simplified project handoffs."
@@ -54,11 +52,11 @@
 // QUICK ONE-LINERS (For Twitter/LinkedIn Headline)
 // ====================
 
-"Data Analyst | SQL • Python • Streamlit | KPI Dashboards & Business Insights"
+"MIS & Business System Developer | Process Engineering • Automation • Applied AI"
 
-"Building analytics solutions that turn data into actionable business decisions"
+"Building business systems that turn practical requirements into scalable workflows"
 
-"3x Featured Analytics Projects | 15+ Deployments | Data-Driven Impact"
+"Business Systems • Workflow Automation • Applied AI"
 
 // ====================
 // RESUME BULLET POINTS (Use these as-is)
@@ -72,7 +70,7 @@
 
 "Built transformer-based document extraction system to automate key-value pair extraction from unstructured data; reduced manual entry by 85%"
 
-"Deployed 15+ data analytics and automation projects across Vercel and Streamlit Cloud; maintained 100% uptime and positive stakeholder feedback"
+"Built and maintained portfolio projects across software, workflow automation, and applied AI prototypes"
 
 "Developed WhatsApp business automation platform using FastAPI and NLP; streamlined customer workflows and reduced support overhead"
 
@@ -80,28 +78,28 @@
 // COVER LETTER / JOB APPLICATION SNIPPETS
 // ====================
 
-"I have hands-on experience building end-to-end analytics solutions, from SQL data pipelines to Streamlit dashboards. My featured projects demonstrate measurable business impact: a financial dashboard that reduced reporting time by 75%, a model tracking system that accelerated CV research by 30%, and operational dashboards that eliminated manual weekly work."
+"I build practical business systems, workflow automation, and applied AI solutions. My projects focus on translating requirements into useful software, improving operational visibility, and reducing repetitive work."
 
-"My portfolio showcases projects where I've transformed raw data into actionable insights for diverse stakeholders—from finance teams tracking KPIs to product teams evaluating ML models. I'm skilled in Python, SQL, Streamlit, and business intelligence workflows."
+"My portfolio showcases practical software, automation, and applied AI projects. I focus on translating requirements into dependable workflows, internal tools, and systems that can grow with business needs."
 
 // ====================
 // GITHUB PROFILE DESCRIPTION
 // ====================
 
-"Data Analyst focused on SQL, Python, dashboards, and business intelligence. Featured projects include financial analytics, KPI dashboards, and automation systems. All projects emphasize measurable business impact and stakeholder self-service access."
+"MIS & Business System Developer focused on business process engineering, workflow automation, internal applications, and applied AI. Portfolio projects demonstrate practical software and system-building capabilities."
 
 // ====================
 // LINKEDIN ABOUT SECTION
 // ====================
 
-"I'm a Data Analyst focused on turning raw data into actionable business insights. My work spans ETL pipelines, KPI dashboards, and analytics engineering using Python, SQL, and Streamlit.
+"I build practical business systems, workflow automation, and applied AI solutions. My work spans process engineering, internal applications, software prototypes, and operational systems.
 
 Featured projects:
 • Financial Analytics Dashboard (75% faster reporting)
 • Model Tracking Dashboard (30% faster research cycles)
 • Operational KPI Dashboard (70% less manual work)
 
-Every project prioritizes business impact and stakeholder empowerment. I build dashboards that stakeholders actually use."
+Every project prioritizes useful outcomes, reliable execution, and systems that solve practical problems."
 
 // ====================
 // PROJECT DESCRIPTIONS FOR LINKEDIN POSTS

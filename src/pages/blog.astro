@@ -1,68 +1,97 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { blogArchitecture } from '../data/seo';
-import { buildBlogPostingSchema } from '../utils/seo';
 
-const pageDescription = 'SEO content architecture for Vinod M, including pillar pages, supporting topics, and over 100 long-tail article ideas across AI, analytics, BI, software engineering, cloud, and automation.';
-const schema = buildBlogPostingSchema({
-  title: 'SEO Content Architecture for Vinod M',
-  description: pageDescription,
-  pathname: '/blog',
-  articleSection: 'Content Strategy',
-  keywords: ['SEO', 'content architecture', 'AI', 'analytics', 'Power BI', 'software engineering', 'automation'],
-});
+const fieldNotes = [
+  {
+    id: 'decision-ready-systems', number: '01', category: 'BUSINESS SYSTEMS',
+    title: 'Start with the decision, not the dashboard',
+    intro: 'A dashboard is useful when it helps someone make a better next decision. Charts are the presentation layer; the real work begins by clarifying what must be understood or changed.',
+    points: ['Name the decision and the person responsible for acting on it.', 'Define each KPI, its calculation, source, refresh timing, and owner.', 'Validate missing, duplicate, delayed, or inconsistent data before presenting a confident number.', 'Make exceptions and next actions easy to spot—not just trends.'],
+    takeaway: 'A clear metric with a clear owner is more valuable than a crowded screen.',
+    link: '/featured', linkLabel: 'Explore system projects'
+  },
+  {
+    id: 'workflow-before-automation', number: '02', category: 'BUSINESS SYSTEMS',
+    title: 'A workflow is more than a form',
+    intro: 'A form captures an event; a workflow explains what happens next. Reliable systems make ownership, status changes, approval rules, exceptions, and closure visible from end to end.',
+    points: ['Map the trigger, input, responsible role, and expected output for each step.', 'Write approval rules and validation checks before automating them.', 'Give every exception an owner and a clear escalation path.', 'Define what “complete” means and how it will be verified.'],
+    takeaway: 'Automate a process only after its rules and responsibilities are understandable.',
+    link: '/#experience', linkLabel: 'See business-systems experience'
+  },
+  {
+    id: 'computer-vision-pipeline', number: '03', category: 'COMPUTER VISION',
+    title: 'Detection is only one stage of a vision pipeline',
+    intro: 'A detector identifies objects in individual frames. Turning those detections into useful measurements requires reliable tracking, timing, calibration, and checks against real video conditions.',
+    points: ['Check missed detections and false positives on representative footage.', 'Track identities across frames rather than treating every frame as unrelated.', 'Keep frame timing and coordinate assumptions explicit when estimating movement.', 'Review the final measurement—not only the model’s confidence score.'],
+    takeaway: 'A model output becomes an engineering result only after the full pipeline is validated.',
+    link: '/publication', linkLabel: 'View the computer-vision publication'
+  },
+  {
+    id: 'document-intelligence-validation', number: '04', category: 'DOCUMENT INTELLIGENCE',
+    title: 'Document AI must verify, not only extract',
+    intro: 'OCR and language models can turn unstructured documents into candidate fields. A dependable document workflow also normalizes values, checks constraints, flags uncertainty, and makes review possible.',
+    points: ['Separate text recognition from field mapping and business validation.', 'Normalize dates, identifiers, amounts, and other values before downstream use.', 'Cross-check related fields and flag contradictions instead of silently accepting them.', 'Preserve a review path for low-confidence or unusual cases.'],
+    takeaway: 'Extraction creates a candidate answer; validation determines whether it is ready to use.',
+    link: 'https://github.com/Vinodvinum/Ai_document_intelligence', linkLabel: 'Explore the document-intelligence project'
+  },
+  {
+    id: 'reverse-engineering-with-evidence', number: '05', category: 'RESEARCH & SYSTEMS THINKING',
+    title: 'Reverse engineering starts with evidence',
+    intro: 'When a system is unfamiliar, guessing from its interface is rarely enough. Observe its behaviour, compare inputs and outputs, trace dependencies, and record assumptions before deciding how it works.',
+    points: ['Start with a small, reproducible observation rather than a broad assumption.', 'Change one input at a time and document the result.', 'Separate what has been observed from what is still a hypothesis.', 'Use findings to guide a safe, testable implementation or improvement.'],
+    takeaway: 'A disciplined model of the existing system is the foundation for changing it responsibly.',
+    link: '/expertise', linkLabel: 'Explore technical domains'
+  }
+];
 ---
 
-<BaseLayout title="Blog Architecture | Vinod M" description={pageDescription} pageType="article" extraSchemas={[schema]}>
-  <section class="min-h-screen pt-32 pb-20 px-6 relative z-10">
-    <div class="max-w-7xl mx-auto">
-      <header class="max-w-4xl mx-auto text-center mb-16">
-        <p class="text-sm md:text-base tracking-[0.28em] uppercase text-cyan-200/80">Blog Architecture</p>
-        <h1 class="mt-4 text-4xl md:text-6xl font-black gradient-text leading-tight">100+ SEO article ideas for Vinod M</h1>
-        <p class="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">This page gives Google a clean content map: one main brand, six topical pillars, and 108 article ideas that support topical authority without keyword stuffing.</p>
+<BaseLayout title="Blog & Field Notes | Vinod M" description="Practical field notes by Vinod M on business systems, process engineering, workflow automation, software development, computer vision, document intelligence, and applied AI." pageType="website">
+  <section class="field-notes-page">
+    <div class="field-notes-wrap">
+      <header class="field-notes-hero">
+        <p class="field-notes-eyebrow">BLOG · FIELD NOTES</p>
+        <h1>Practical ideas from <span>real systems.</span></h1>
+        <p class="field-notes-lede">Notes on building dependable workflows, improving operational systems, and applying technical experiments to practical problems across business systems, automation, and AI.</p>
+        <div class="field-notes-actions">
+          <a class="field-notes-primary" href="/featured">Explore selected work <span aria-hidden="true">↗</span></a>
+          <a class="field-notes-secondary" href="/expertise">Browse technical domains <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="field-notes-meta"><span>5 PRACTICAL NOTES</span><span>DATA · SYSTEMS · ENGINEERING</span></div>
       </header>
 
-      <div class="grid gap-8">
-        {blogArchitecture.map(({ pillar, ideas }) => (
-          <article class="glass rounded-[2rem] p-8 border-white/10">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-              <div>
-                <p class="text-xs uppercase tracking-[0.26em] text-white/50 mb-2">Pillar Page</p>
-                <h2 class="text-3xl md:text-4xl font-black gradient-text">{pillar.title}</h2>
-                <p class="text-white/70 mt-2 max-w-3xl">{pillar.subtitle}</p>
-              </div>
-              <a href={`/${pillar.slug}`} class="glass px-5 py-3 rounded-2xl font-semibold text-white/90 border border-white/20 hover:scale-105 transition-all duration-300 text-center">Open pillar page</a>
-            </div>
-            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-3">
-              {ideas.map((idea) => (
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-white/80 leading-relaxed">{idea}</div>
-              ))}
+      <section class="field-notes-list" aria-label="Field notes">
+        {fieldNotes.map((note) => (
+          <article class="field-note" id={note.id}>
+            <div class="field-note-index"><span>{note.number}</span><i aria-hidden="true">✦</i></div>
+            <div class="field-note-body">
+              <p class="field-note-category">{note.category}</p>
+              <h2>{note.title}</h2>
+              <p class="field-note-intro">{note.intro}</p>
+              <ul>{note.points.map((point) => <li>{point}</li>)}</ul>
+              <p class="field-note-takeaway">{note.takeaway}</p>
+              <a class="field-note-link" href={note.link} target={note.link.startsWith('http') ? '_blank' : undefined} rel={note.link.startsWith('http') ? 'noopener noreferrer' : undefined}>{note.linkLabel} <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         ))}
-      </div>
+      </section>
 
-      <div class="grid lg:grid-cols-2 gap-6 mt-16">
-        <article class="glass rounded-[2rem] p-8 border-white/10">
-          <h2 class="text-3xl font-black gradient-text mb-4">Blog structure</h2>
-          <ul class="space-y-3 text-white/80 leading-relaxed">
-            <li>1. One pillar page per major topic cluster.</li>
-            <li>2. Supporting posts that answer specific search intents and link back to the pillar.</li>
-            <li>3. Case studies and proof pages that show experience, not just claims.</li>
-            <li>4. FAQ and comparison content to capture lower-funnel search intent.</li>
-          </ul>
-        </article>
-
-        <article class="glass rounded-[2rem] p-8 border-white/10">
-          <h2 class="text-3xl font-black gradient-text mb-4">E-E-A-T signals</h2>
-          <ul class="space-y-3 text-white/80 leading-relaxed">
-            <li>Experience: live projects, deployment links, and practical outcomes.</li>
-            <li>Expertise: topical pages for AI, ML, BI, SQL, Python, and cloud.</li>
-            <li>Authoritativeness: publication, certificate, GitHub, and LinkedIn.</li>
-            <li>Trust: canonical URLs, sitemap, robots, and structured data.</li>
-          </ul>
-        </article>
-      </div>
+      <footer class="field-notes-footer">
+        <p class="field-notes-eyebrow">FOLLOW THE WORK</p>
+        <h2>Want to see the ideas applied?</h2>
+        <p>Explore project demonstrations, the research publication, or the work behind my business-systems, automation, and applied-AI practice.</p>
+        <div class="field-notes-actions">
+          <a class="field-notes-primary" href="/featured">Featured projects ↗</a>
+          <a class="field-notes-secondary" href="/#contact">Get in touch →</a>
+        </div>
+      </footer>
     </div>
   </section>
+  <style>
+    .field-notes-page{min-height:100vh;padding:clamp(112px,14vw,158px) 21px 80px;color:#ecebe3;background:radial-gradient(ellipse at 72% 8%,rgba(41,83,94,.16),transparent 34%),linear-gradient(180deg,#080d14 0%,#0a1118 100%)}
+    .field-notes-wrap{max-width:1080px;margin:0 auto}.field-notes-hero{max-width:850px;margin:0 auto 54px;text-align:center}.field-notes-eyebrow{color:#82c9ce;font:600 .67rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.24em}.field-notes-hero h1{margin-top:17px;font:650 clamp(2.5rem,6vw,4.8rem)/1.04 Inter,system-ui,sans-serif;letter-spacing:-.06em;color:#f0e8d4}.field-notes-hero h1 span{background:linear-gradient(110deg,#f0dfae,#c9a95d 55%,#81cdd1);-webkit-background-clip:text;background-clip:text;color:transparent}.field-notes-lede{max-width:750px;margin:23px auto 0;color:#b2bfc0;font-size:clamp(1rem,2vw,1.18rem);line-height:1.85}.field-notes-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;margin-top:29px}.field-notes-primary,.field-notes-secondary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:45px;padding:12px 17px;font-size:.85rem;font-weight:600;text-decoration:none}.field-notes-primary{color:#0a1116;background:#d8bf7c;border:1px solid #d8bf7c}.field-notes-primary:hover{background:#f0dfb0}.field-notes-secondary{color:#d9e2df;border:1px solid #7f999b66;background:#0b141bcc}.field-notes-secondary:hover{border-color:#b9a261;color:#f0dfb0}.field-notes-meta{display:flex;justify-content:center;gap:19px;flex-wrap:wrap;margin-top:30px;color:#75898c;font:600 .58rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.17em}.field-notes-meta span+span{border-left:1px solid #c9a95d55;padding-left:19px}
+    .field-notes-list{display:grid;gap:14px}.field-note{display:grid;grid-template-columns:44px minmax(0,1fr);gap:23px;padding:clamp(21px,4vw,38px);background:linear-gradient(125deg,rgba(15,24,33,.94),rgba(9,15,23,.98));border:1px solid rgba(201,169,93,.17);border-radius:20px}.field-note-index{display:flex;flex-direction:column;align-items:center;gap:9px;padding-top:4px;color:#d9c27e}.field-note-index span{font:600 .65rem Inter,system-ui,sans-serif;letter-spacing:.12em}.field-note-index i{font-style:normal;color:#81cdd1;font-size:.92rem}.field-note-body{min-width:0}.field-note-category{color:#80cbd0;font:600 .62rem/1.7 Inter,system-ui,sans-serif;letter-spacing:.18em}.field-note h2{margin-top:11px;color:#e9d8a4;font:600 clamp(1.45rem,3.3vw,2.15rem)/1.2 Inter,system-ui,sans-serif;letter-spacing:-.035em}.field-note-intro{margin-top:13px;color:#b5c1c0;font-size:.95rem;line-height:1.85;max-width:810px}.field-note ul{display:grid;gap:9px;margin:19px 0 0;padding:0;list-style:none}.field-note li{position:relative;padding-left:16px;color:#d1d8d2;font-size:.87rem;line-height:1.75}.field-note li:before{content:"";position:absolute;left:0;top:.68em;width:5px;height:5px;background:#c9a95d;border-radius:50%}.field-note-takeaway{margin-top:19px;padding:14px 16px;border-left:2px solid #c9a95d;background:#ffffff05;color:#e0c887;font:italic .98rem/1.75 'Cormorant Garamond',Georgia,serif}.field-note-link{display:inline-flex;align-items:center;gap:9px;margin-top:19px;color:#82c9ce;font-size:.82rem;font-weight:600;text-decoration:none}.field-note-link:hover{color:#f0dfae;text-decoration:underline;text-underline-offset:4px}
+    .field-notes-footer{margin-top:55px;padding:clamp(25px,4vw,40px);text-align:center;border:1px solid #81cdd126;background:#0b151c}.field-notes-footer h2{margin-top:12px;color:#efe8d8;font:600 clamp(1.8rem,4vw,2.7rem)/1.2 Inter,system-ui,sans-serif;letter-spacing:-.04em}.field-notes-footer>p:not(.field-notes-eyebrow){max-width:690px;margin:13px auto 0;color:#a3b2b4;font-size:.92rem;line-height:1.8}
+    @media(max-width:600px){.field-notes-page{padding:104px 17px 56px}.field-notes-hero{margin-bottom:32px}.field-notes-hero h1{font-size:clamp(2.35rem,11vw,3.45rem)}.field-notes-meta{font-size:.53rem;gap:11px}.field-notes-meta span+span{padding-left:11px}.field-note{grid-template-columns:27px minmax(0,1fr);gap:13px;padding:20px 16px}.field-note-index i{font-size:.76rem}.field-note h2{font-size:1.35rem}.field-note-intro{font-size:.89rem}.field-note li{font-size:.82rem}.field-notes-actions{gap:8px}.field-notes-primary,.field-notes-secondary{padding:11px 13px;font-size:.8rem}}
+    @media(prefers-reduced-motion:reduce){.field-notes-primary,.field-notes-secondary{transition:none}}
+  </style>
 </BaseLayout>

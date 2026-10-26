@@ -10,8 +10,8 @@ import '../styles/global.css';
 import '../styles/animations.css';
 
 const {
-  title = 'Vinod M | Business Systems, Automation & Applied AI',
-  description = 'Vinod M, also known as Vinu, is a technology professional from Mysuru, Karnataka building business systems, workflow automation, internal applications, and applied AI solutions.',
+  title = 'Vinod M | AI Engineer, Researcher & Software Engineer',
+  description = 'Vinod M is an aspiring AI engineer and researcher exploring intelligent systems, reverse engineering, and software engineering, with experience in data analysis, business intelligence, business systems, and automation in Mysuru, India.',
   canonical,
   ogImage = '/images/profile.jpg',
   pageType = 'website',
@@ -21,7 +21,7 @@ const {
 const pathname = Astro.url.pathname || '/';
 const siteUrl = canonical ?? absoluteUrl(pathname);
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
-const keywordSet = [...siteConfig.commonNames, 'Mysuru', 'Business Systems', 'Process Engineering', 'Workflow Automation', 'Software Engineering', 'Applied AI', 'Generative AI'];
+const keywordSet = [...siteConfig.commonNames, 'Mysuru', 'AI Engineer', 'AI Engineering', 'Researcher', 'Software Engineer', 'Software Engineering', 'Data Analysis', 'Data Analytics', 'Business Intelligence', 'BI Developer', 'Business Systems', 'Process Engineering', 'Workflow Automation', 'Reverse Engineering', 'Applied AI', 'Generative AI'];
 const segments = pathname.split('/').filter(Boolean);
 const breadcrumbs = segments.length === 0 ? [] : [
   { name: 'Home', item: absoluteUrl('/') },

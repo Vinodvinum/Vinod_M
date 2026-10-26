@@ -40,8 +40,21 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
       <div class="w-20 md:w-24 h-1 mx-auto mt-6 md:mt-8 bg-gradient-to-r from-amber-300 to-cyan-300 rounded-full"></div>
     </div>
 
+    <div class="project-filter-panel">
+      <p class="project-filter-eyebrow">EXPLORE BY DISCIPLINE</p>
+      <div class="project-filter-list" id="project-filters" role="group" aria-label="Filter projects by discipline">
+        <button type="button" class="project-filter-button is-active" data-project-filter="all" aria-pressed="true">All work</button>
+        <button type="button" class="project-filter-button" data-project-filter="Business Systems" aria-pressed="false">Business systems</button>
+        <button type="button" class="project-filter-button" data-project-filter="Websites & Platforms" aria-pressed="false">Web &amp; platforms</button>
+        <button type="button" class="project-filter-button" data-project-filter="AI Automation & Chatbots" aria-pressed="false">AI &amp; automation</button>
+        <button type="button" class="project-filter-button" data-project-filter="Computer Vision" aria-pressed="false">Computer vision</button>
+        <button type="button" class="project-filter-button" data-project-filter="Utilities & Media" aria-pressed="false">Tools &amp; media</button>
+      </div>
+      <p id="project-filter-status" class="project-filter-status" role="status" aria-live="polite">Showing all project categories.</p>
+    </div>
+
     {featuredProjects.length > 0 && (
-      <div class="mb-12">
+      <div class="mb-12" data-featured-projects>
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-2xl md:text-4xl font-black text-white">Featured Work</h3>
           <div class="w-16 h-1 bg-gradient-to-r from-amber-300 to-cyan-300 rounded-full"></div>
@@ -49,7 +62,7 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
 
         <div class="grid md:grid-cols-3 gap-6 mb-10">
           {featuredProjects.map((project) => (
-            <article class="group glass rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300 border-white/10">
+            <article data-project-filter-card={project.category} class="group glass rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300 border-white/10">
               <div class="mb-4">
                 <h4 class="text-xl md:text-2xl font-bold text-white">{project.title}</h4>
                 <p class="text-sm text-white/70 mt-2">{project.description}</p>
@@ -72,7 +85,7 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
       }
 
       return (
-        <div class="mb-14 md:mb-20 last:mb-0">
+        <div class="mb-14 md:mb-20 last:mb-0" data-project-group={section.id}>
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4 mb-6 md:mb-8">
             <div>
               <h3 class="text-2xl md:text-4xl font-black text-white mb-2">{section.id}</h3>
@@ -83,7 +96,7 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
 
           <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-8">
             {projects.map((project) => (
-              <article class="group glass rounded-3xl p-4 md:p-6 hover:scale-[1.03] hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)] hover:shadow-black/30 transition-all duration-500 shadow-2xl border-white/10 overflow-hidden">
+              <article data-project-filter-card={project.category} class="group glass rounded-3xl p-4 md:p-6 hover:scale-[1.03] hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)] hover:shadow-black/30 transition-all duration-500 shadow-2xl border-white/10 overflow-hidden">
                 <div class={`relative overflow-hidden rounded-2xl h-44 mb-6 bg-gradient-to-br ${project.accent} border border-white/10`}>
                   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_42%)]"></div>
                   <div class="relative h-full p-5 flex items-end justify-between">
@@ -148,3 +161,17 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
     })}
   </div>
 </section>
+
+<style>
+  .project-filter-panel{max-width:1060px;margin:-38px auto 58px;padding:22px 20px;border:1px solid rgba(201,169,93,.19);background:linear-gradient(115deg,rgba(12,21,30,.84),rgba(8,14,22,.68))}
+  .project-filter-eyebrow{margin-bottom:13px;color:#86c5c9;font:600 .62rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.2em}
+  .project-filter-list{display:flex;flex-wrap:wrap;gap:9px}
+  .project-filter-button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border:1px solid rgba(179,196,192,.22);border-radius:999px;background:rgba(255,255,255,.025);color:#c4d0cc;font:500 .78rem/1.35 Inter,system-ui,sans-serif;transition:background .2s,border-color .2s,color .2s,transform .2s;cursor:pointer}
+  .project-filter-button:hover{border-color:rgba(201,169,93,.58);color:#f0dfae;transform:translateY(-1px)}
+  .project-filter-button.is-active{background:linear-gradient(110deg,rgba(201,169,93,.2),rgba(129,205,209,.1));border-color:rgba(201,169,93,.72);color:#f2e3b6;box-shadow:inset 0 0 0 1px rgba(201,169,93,.08)}
+  .project-filter-button:focus-visible{outline:2px solid #81cdd1;outline-offset:3px}
+  .project-filter-status{margin-top:13px;color:#81989a;font:500 .72rem/1.6 Inter,system-ui,sans-serif}
+  [data-project-filter-card][hidden],[data-project-group][hidden],[data-featured-projects][hidden]{display:none!important}
+  @media(max-width:600px){.project-filter-panel{margin:-20px auto 42px;padding:17px 13px}.project-filter-button{min-height:38px;padding:8px 11px;font-size:.73rem}.project-filter-list{gap:7px}}
+  @media(prefers-reduced-motion:reduce){.project-filter-button{transition:none}}
+</style>

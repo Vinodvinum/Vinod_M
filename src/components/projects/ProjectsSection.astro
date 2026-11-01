@@ -27,6 +27,8 @@ const categorySections: Array<{ id: ProjectCategory; description: string }> = [
 
 const getProjectsByCategory = (category: ProjectCategory) => completedProjects.filter((project) => project.category === category);
 const featuredProjects = completedProjects.filter((p) => p.featured);
+const projectCount = completedProjects.length;
+const countForCategory = (category: ProjectCategory) => completedProjects.filter((project) => project.category === category).length;
 ---
 
 <section id="projects" class="py-24 md:py-32 px-4 md:px-6 relative z-10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm">
@@ -41,17 +43,32 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
     </div>
 
     <div class="project-filter-panel">
-      <p class="project-filter-eyebrow">EXPLORE BY DISCIPLINE</p>
-      <div class="project-filter-list" id="project-filters" role="group" aria-label="Filter projects by discipline">
-        <button type="button" class="project-filter-button is-active" data-project-filter="all" aria-pressed="true">All work</button>
-        <button type="button" class="project-filter-button" data-project-filter="Business Systems" aria-pressed="false">Business systems</button>
-        <button type="button" class="project-filter-button" data-project-filter="Websites & Platforms" aria-pressed="false">Web &amp; platforms</button>
-        <button type="button" class="project-filter-button" data-project-filter="AI Automation & Chatbots" aria-pressed="false">AI &amp; automation</button>
-        <button type="button" class="project-filter-button" data-project-filter="Computer Vision" aria-pressed="false">Computer vision</button>
-        <button type="button" class="project-filter-button" data-project-filter="Utilities & Media" aria-pressed="false">Tools &amp; media</button>
+      <div class="project-explorer-heading">
+        <div>
+          <p class="project-filter-eyebrow">PROJECT EXPLORER</p>
+          <p class="project-explorer-intro">Search by project, technology, or capability. Narrow the collection by discipline.</p>
+        </div>
+        <span class="project-total-count">${projectCount} PROJECTS</span>
       </div>
-      <p id="project-filter-status" class="project-filter-status" role="status" aria-live="polite">Showing all project categories.</p>
+      <div class="project-search-row">
+        <label class="project-search-field" for="project-search">
+          <span aria-hidden="true">⌕</span>
+          <input id="project-search" type="search" autocomplete="off" placeholder="Search projects, tools, or technologies…" aria-describedby="project-filter-status" />
+        </label>
+        <button type="button" id="project-search-clear" class="project-search-clear" hidden>Clear search</button>
+      </div>
+      <p class="project-filter-eyebrow project-filter-discipline-label">FILTER BY DISCIPLINE</p>
+      <div class="project-filter-list" id="project-filters" role="group" aria-label="Filter projects by discipline">
+        <button type="button" class="project-filter-button is-active" data-project-filter="all" data-filter-label="All work" aria-pressed="true">All work <span>${projectCount}</span></button>
+        <button type="button" class="project-filter-button" data-project-filter="Business Systems" data-filter-label="Business systems" aria-pressed="false">Business systems <span>{countForCategory('Business Systems')}</span></button>
+        <button type="button" class="project-filter-button" data-project-filter="Websites & Platforms" data-filter-label="Web &amp; platforms" aria-pressed="false">Web &amp; platforms <span>{countForCategory('Websites & Platforms')}</span></button>
+        <button type="button" class="project-filter-button" data-project-filter="AI Automation & Chatbots" data-filter-label="AI &amp; automation" aria-pressed="false">AI &amp; automation <span>{countForCategory('AI Automation & Chatbots')}</span></button>
+        <button type="button" class="project-filter-button" data-project-filter="Computer Vision" data-filter-label="Computer vision" aria-pressed="false">Computer vision <span>{countForCategory('Computer Vision')}</span></button>
+        <button type="button" class="project-filter-button" data-project-filter="Utilities & Media" data-filter-label="Tools &amp; media" aria-pressed="false">Tools &amp; media <span>{countForCategory('Utilities & Media')}</span></button>
+      </div>
+      <p id="project-filter-status" class="project-filter-status" role="status" aria-live="polite">Showing ${projectCount} of ${projectCount} projects.</p>
     </div>
+    <p id="project-empty-state" class="project-empty-state" role="status" hidden>No projects match your search. Try another term or clear the filters.</p>
 
     {featuredProjects.length > 0 && (
       <div class="mb-12" data-featured-projects>
@@ -62,7 +79,7 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
 
         <div class="grid md:grid-cols-3 gap-6 mb-10">
           {featuredProjects.map((project) => (
-            <article data-project-filter-card={project.category} class="group glass rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300 border-white/10">
+            <article data-project-filter-card={project.category} data-project-search={`${project.title} ${project.description} ${project.platform} ${project.status} ${project.tags.join(' ')}`} class="group glass rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300 border-white/10">
               <div class="mb-4">
                 <h4 class="text-xl md:text-2xl font-bold text-white">{project.title}</h4>
                 <p class="text-sm text-white/70 mt-2">{project.description}</p>
@@ -96,7 +113,7 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
 
           <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-8">
             {projects.map((project) => (
-              <article data-project-filter-card={project.category} class="group glass rounded-3xl p-4 md:p-6 hover:scale-[1.03] hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)] hover:shadow-black/30 transition-all duration-500 shadow-2xl border-white/10 overflow-hidden">
+              <article data-project-filter-card={project.category} data-project-catalogue-card data-project-search={`${project.title} ${project.description} ${project.platform} ${project.status} ${project.tags.join(' ')}`} class="group glass rounded-3xl p-4 md:p-6 hover:scale-[1.03] hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)] hover:shadow-black/30 transition-all duration-500 shadow-2xl border-white/10 overflow-hidden">
                 <div class={`relative overflow-hidden rounded-2xl h-44 mb-6 bg-gradient-to-br ${project.accent} border border-white/10`}>
                   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_42%)]"></div>
                   <div class="relative h-full p-5 flex items-end justify-between">
@@ -163,8 +180,10 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
 </section>
 
 <style>
-  .project-filter-panel{max-width:1060px;margin:-38px auto 58px;padding:22px 20px;border:1px solid rgba(201,169,93,.19);background:linear-gradient(115deg,rgba(12,21,30,.84),rgba(8,14,22,.68))}
-  .project-filter-eyebrow{margin-bottom:13px;color:#86c5c9;font:600 .62rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.2em}
+  .project-filter-panel{max-width:1060px;margin:-38px auto 24px;padding:22px 20px;border:1px solid rgba(201,169,93,.19);background:linear-gradient(115deg,rgba(12,21,30,.84),rgba(8,14,22,.68))}
+  .project-explorer-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.project-filter-eyebrow{margin-bottom:8px;color:#86c5c9;font:600 .62rem/1.6 Inter,system-ui,sans-serif;letter-spacing:.2em}.project-explorer-intro{max-width:620px;color:#aab9b8;font-size:.85rem;line-height:1.7}.project-total-count{flex:none;padding:7px 10px;border:1px solid rgba(201,169,93,.28);color:#d9c583;font:600 .58rem Inter,system-ui,sans-serif;letter-spacing:.13em}
+  .project-search-row{display:flex;gap:10px;margin:19px 0 20px}.project-search-field{display:flex;align-items:center;gap:12px;flex:1;min-width:0;padding:0 15px;border:1px solid rgba(179,196,192,.24);background:rgba(2,8,14,.42);color:#d8c27f}.project-search-field:focus-within{border-color:#81cdd1;box-shadow:0 0 0 3px rgba(129,205,209,.09)}.project-search-field>span{font:2rem/1 Georgia,serif}.project-search-field input{width:100%;min-width:0;min-height:48px;border:0;outline:0;background:transparent;color:#edf0e9;font:400 .88rem Inter,system-ui,sans-serif}.project-search-field input::placeholder{color:#718387}.project-search-clear{padding:0 15px;border:1px solid rgba(201,169,93,.35);color:#e0d09f;font-size:.77rem}.project-search-clear:hover{border-color:#c9a95d;background:rgba(201,169,93,.08)}.project-filter-discipline-label{margin-bottom:11px}
+  .project-filter-button span{margin-left:5px;padding:2px 6px;border-radius:999px;background:rgba(255,255,255,.08);color:#9eafb0;font-size:.65rem}.project-filter-button.is-active span{background:rgba(201,169,93,.18);color:#f0dfae}.project-empty-state{max-width:1060px;margin:0 auto 34px;padding:22px;border:1px dashed rgba(129,205,209,.3);color:#b5c4c2;text-align:center;font-size:.9rem}
   .project-filter-list{display:flex;flex-wrap:wrap;gap:9px}
   .project-filter-button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border:1px solid rgba(179,196,192,.22);border-radius:999px;background:rgba(255,255,255,.025);color:#c4d0cc;font:500 .78rem/1.35 Inter,system-ui,sans-serif;transition:background .2s,border-color .2s,color .2s,transform .2s;cursor:pointer}
   .project-filter-button:hover{border-color:rgba(201,169,93,.58);color:#f0dfae;transform:translateY(-1px)}
@@ -172,6 +191,6 @@ const featuredProjects = completedProjects.filter((p) => p.featured);
   .project-filter-button:focus-visible{outline:2px solid #81cdd1;outline-offset:3px}
   .project-filter-status{margin-top:13px;color:#81989a;font:500 .72rem/1.6 Inter,system-ui,sans-serif}
   [data-project-filter-card][hidden],[data-project-group][hidden],[data-featured-projects][hidden]{display:none!important}
-  @media(max-width:600px){.project-filter-panel{margin:-20px auto 42px;padding:17px 13px}.project-filter-button{min-height:38px;padding:8px 11px;font-size:.73rem}.project-filter-list{gap:7px}}
+  @media(max-width:600px){.project-filter-panel{margin:-20px auto 19px;padding:17px 13px}.project-explorer-heading{gap:8px}.project-explorer-intro{font-size:.78rem}.project-total-count{font-size:.52rem;padding:6px 7px}.project-search-row{gap:7px}.project-search-field{padding:0 10px}.project-search-field input{min-height:44px;font-size:.8rem}.project-search-clear{padding:0 10px;font-size:.7rem}.project-filter-button{min-height:38px;padding:8px 11px;font-size:.73rem}.project-filter-list{gap:7px}}
   @media(prefers-reduced-motion:reduce){.project-filter-button{transition:none}}
 </style>

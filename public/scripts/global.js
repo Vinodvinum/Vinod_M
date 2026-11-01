@@ -26,52 +26,80 @@ function initSiteInteractions() {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Project filtering stays keyboard-accessible and uses data attributes rendered by Astro.
+  // Project Explorer: combine live search with discipline filters.
   const projectFilters = document.getElementById('project-filters');
   if (projectFilters && projectFilters.dataset.bound !== 'true') {
     projectFilters.dataset.bound = 'true';
     const filterButtons = Array.from(projectFilters.querySelectorAll('[data-project-filter]'));
+    const searchInput = document.getElementById('project-search');
+    const clearSearchButton = document.getElementById('project-search-clear');
     const projectCards = Array.from(document.querySelectorAll('[data-project-filter-card]'));
+    const catalogueCards = Array.from(document.querySelectorAll('[data-project-catalogue-card]'));
     const projectGroups = Array.from(document.querySelectorAll('[data-project-group]'));
     const featuredGroup = document.querySelector('[data-featured-projects]');
     const filterStatus = document.getElementById('project-filter-status');
+    const emptyState = document.getElementById('project-empty-state');
+    const totalCount = catalogueCards.length;
+    let activeFilter = 'all';
 
-    const applyProjectFilter = (filter, button) => {
-      filterButtons.forEach((item) => {
-        const active = item === button;
-        item.classList.toggle('is-active', active);
-        item.setAttribute('aria-pressed', String(active));
+    const applyProjectFilter = (filter = activeFilter) => {
+      activeFilter = filter;
+      filterButtons.forEach((button) => {
+        const active = (button.dataset.projectFilter || 'all') === activeFilter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
       });
 
+      const query = (searchInput?.value || '').trim().toLocaleLowerCase();
       projectCards.forEach((card) => {
-        card.hidden = filter !== 'all' && card.dataset.projectFilterCard !== filter;
+        const categoryMatches = activeFilter === 'all' || card.dataset.projectFilterCard === activeFilter;
+        const searchText = (card.dataset.projectSearch || '').toLocaleLowerCase();
+        const searchMatches = !query || searchText.includes(query);
+        card.hidden = !(categoryMatches && searchMatches);
       });
 
       projectGroups.forEach((group) => {
-        group.hidden = filter !== 'all' && group.dataset.projectGroup !== filter;
+        const visibleCards = Array.from(group.querySelectorAll('[data-project-catalogue-card]'));
+        group.hidden = !visibleCards.some((card) => !card.hidden);
       });
 
       if (featuredGroup) {
-        const visibleFeaturedCards = Array.from(featuredGroup.querySelectorAll('[data-project-filter-card]'))
-          .some((card) => !card.hidden);
-        featuredGroup.hidden = filter !== 'all' && !visibleFeaturedCards;
+        const featuredCards = Array.from(featuredGroup.querySelectorAll('[data-project-filter-card]'));
+        featuredGroup.hidden = !featuredCards.some((card) => !card.hidden);
       }
 
+      const visibleCount = catalogueCards.filter((card) => !card.hidden).length;
       if (filterStatus) {
-        const label = button?.textContent?.trim() || 'Selected category';
-        filterStatus.textContent = filter === 'all'
-          ? 'Showing all project categories.'
-          : `Showing projects in: ${label}.`;
+        const filterLabel = filterButtons.find((button) => button.dataset.projectFilter === activeFilter)?.dataset.filterLabel || 'All work';
+        const suffix = query ? ` matching “${searchInput.value.trim()}”` : '';
+        filterStatus.textContent = `Showing ${visibleCount} of ${totalCount} projects${suffix}${activeFilter === 'all' ? '' : ` in ${filterLabel}`}.`;
       }
+      if (emptyState) emptyState.hidden = visibleCount !== 0;
+      if (clearSearchButton) clearSearchButton.hidden = !query;
     };
 
     filterButtons.forEach((button) => {
       if (button.dataset.filterHandlerAttached) return;
       button.dataset.filterHandlerAttached = 'true';
-      button.addEventListener('click', () => applyProjectFilter(button.dataset.projectFilter || 'all', button));
+      button.addEventListener('click', () => applyProjectFilter(button.dataset.projectFilter || 'all'));
     });
-  }
 
+    searchInput?.addEventListener('input', () => applyProjectFilter());
+    searchInput?.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && searchInput.value) {
+        searchInput.value = '';
+        applyProjectFilter();
+      }
+    });
+    clearSearchButton?.addEventListener('click', () => {
+      if (!searchInput) return;
+      searchInput.value = '';
+      applyProjectFilter();
+      searchInput.focus();
+    });
+
+    applyProjectFilter('all');
+  }
   // Subtle pointer-responsive mandala. It is intentionally disabled for reduced-motion users.
   const heroVisual = document.querySelector('.hero-visual');
   const heroWheel = heroVisual?.querySelector('.hero-wheel');
